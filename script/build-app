@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+[ -z "$APP_ENV" ] && APP_ENV='production'
+export APP_ENV=$APP_ENV
+export PATH=$PATH:$(npm bin)
+export APP_PATH=$(pwd)
+
+# force reinstall all cordova plugins, in case those are updated
+cd cordova && cordova plugins ls | cut -d ' ' -f 1 | xargs cordova plugin rm
+
+echo "Building with environment: $APP_ENV"
+cd $APP_PATH && $(dirname ${BASH_SOURCE[0]})/cordova-exec build "$@"

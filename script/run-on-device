@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+[ -z "$APP_ENV" ] && APP_ENV='staging'
+export APP_ENV=$APP_ENV
+export PATH=$PATH:$(npm bin)
+
+$(dirname ${BASH_SOURCE[0]})/cordova-exec run "$@" $DEVICE_OPTS

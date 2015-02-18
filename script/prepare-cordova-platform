@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+source "$(dirname ${BASH_SOURCE[0]})/_functions"
+PLATFORM=$1
+
+pushd cordova >/dev/null 2>&1
+  platform_installed $PLATFORM || cordova platforms add $PLATFORM
+  cordova prepare $PLATFORM
+
+  # install cordova plugins
+  if [ -f plugins.txt ]; then
+    while read PLUGIN_LINE; do
+      [[ "$PLUGIN_LINE" == \#* ]] && continue
+
+      # lines either have just a plugin id, like org.apache.cordova.device in which
+      # they will be fetched from the cordova plugin registry.
+      # lines can also contain both a plugin id _and_ a git url, in which case they'll
+      # be fetched with git. In that case we do still need the plugin id, because that's
+      # what we need to check if the plugin is already installed.
+      IFS=' ' read -a PLUGIN_INFO <<< "$PLUGIN_LINE"
+
+      PLUGIN_ID=${PLUGIN_INFO[0]}
+      PLUGIN_FETCH_TARGET=${PLUGIN_INFO[1]:-${PLUGIN_INFO[0]}}
+
+      cordova plugins | grep -w $PLUGIN_ID >/dev/null 2>&1 || cordova plugins add $PLUGIN_FETCH_TARGET
+    done < plugins.txt
+  fi
+popd >/dev/null 2>&1
