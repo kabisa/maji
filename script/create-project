@@ -8,6 +8,7 @@ TMP_DIR=$(mktemp -d -t maji)
 cp -R project_template/ $TMP_DIR
 cd $TMP_DIR
 
+perl -pi -e "s/##APP_NAME##/$APP_NAME/" README.md
 perl -pi -e "s/##APP_NAME##/$APP_NAME/" package.json
 perl -pi -e "s/##APP_NAME##/$APP_NAME/" cordova/config.xml
 perl -pi -e "s/##APP_NAME##/$APP_NAME/" public/index.html
