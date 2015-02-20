@@ -16,4 +16,4 @@ perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/config.xml
 mv $TMP_DIR $APP_PATH
 
 cd $APP_PATH
-script/setup
+bin/setup

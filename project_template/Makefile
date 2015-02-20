@@ -35,10 +35,10 @@ build-css:
 	node-sass --stdout --output-style $${CSS_OUTPUT_STYLE:-compressed} --include-path vendor/stylesheets app/styles/application.scss | autoprefixer -b 'ios >= 8, android >= 4, ie >=10' > $(DIST_DIR)/assets/app.css
 
 build-icons:
-	DIST_DIR='$(DIST_DIR)' node script/build-iconfont.js
+	DIST_DIR='$(DIST_DIR)' node bin/build-iconfont.js
 
 live:
-	[ -n "$$LIVE_RELOAD" ] && (node script/livereload.js '$(DIST_DIR)/**/*' &) || return 0
+	[ -n "$$LIVE_RELOAD" ] && (node bin/livereload.js '$(DIST_DIR)/**/*' &) || return 0
 
 serve: DIST_DIR := './tmp/watch-build'
 serve: clean build-statics build-icons build-css live
