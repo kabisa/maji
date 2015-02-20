@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+red="\033[1;31m"
+color_end="\033[0m"
+
+git_diff_check_result=`git diff --cached --check`
+
+# check for trailing whitespace
+if [[ $git_diff_check_result ]]; then
+  echo ${red}Rejecting commit, trailing whitespace found${color_end}
+  echo $git_diff_check_result
+  exit 1
+fi

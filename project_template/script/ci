@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -e
+
+export APP_ENV=test
+
+PRE_BUILT=true bundle exec rspec
+./node_modules/karma/bin/karma start --singleRun
+
+find app/ \
+  -type f -name '*.coffee' \
+  | xargs $(npm bin)/coffeelint
+
+find app/styles -type f -name '*.scss' | xargs bundle exec scss-lint

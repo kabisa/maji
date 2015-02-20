@@ -1,0 +1,41 @@
+:focus {
+  outline: none;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+form {
+  input[type=text], input[type=password], textarea, input[type=number] {
+    width: 100%;
+
+    padding: 10px;
+    margin-bottom: 5px;
+
+    outline: none;
+    background: $color_form_input_bg;
+    border: 1px solid $color_form_input_border;
+
+    appearance: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    border-radius: 0;
+
+    &:focus {
+      border: 1px solid $color_form_input_border_focus;
+    }
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background: $color_primary;
+    color: $color_primary_text;
+    -webkit-appearance: none;
+    outline: none;
+
+    border: 0;
+    border-radius: 2px;
+    padding: 10px 19px;
+  }
+}

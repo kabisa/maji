@@ -1,0 +1,3 @@
+# Add your plugins here, one per line
+org.apache.cordova.splashscreen
+com.mallzee.plugin.networkactivity https://github.com/mallzee/network-activity.git#0904b83c3109560bad8e7dd9be1320bb9303899d

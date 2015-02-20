@@ -1,0 +1,12 @@
+node_modules
+tmp/*
+!tmp/.keep
+dist
+.sass-cache/
+app/styles/fonts/_icons.scss
+
+# cordova stuff
+cordova/platforms/*
+cordova/plugins/*
+!cordova/platforms/.keep
+!cordova/plugins/.keep

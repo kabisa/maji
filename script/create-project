@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+APP_PACKAGE=$1
+APP_NAME=$(echo $1 | perl -pe 's/.*\.//')
+APP_PATH=$2$APP_NAME
+
+TMP_DIR=$(mktemp -d -t maji)
+
+cp -R project_template/ $TMP_DIR
+cd $TMP_DIR
+
+perl -pi -e "s/##APP_NAME##/$APP_NAME/" package.json
+perl -pi -e "s/##APP_NAME##/$APP_NAME/" cordova/config.xml
+perl -pi -e "s/##APP_NAME##/$APP_NAME/" public/index.html
+perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/config.xml
+
+mv $TMP_DIR $APP_PATH
+
+cd $APP_PATH
+script/setup

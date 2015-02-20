@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -e
+
+hooks/whitespace
+hooks/coffeelint
+hooks/scss-lint

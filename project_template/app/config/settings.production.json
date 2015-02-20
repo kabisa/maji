@@ -1,0 +1,4 @@
+{
+  "environment": "production",
+  "bugsnagApiKey" : "<your bugsnag API key here>"
+}

@@ -1,0 +1,30 @@
+#!/bin/bash
+source "$(dirname ${BASH_SOURCE[0]})/_functions"
+PROJECT=$(basename $(pwd))
+echo "Setting up $PROJECT"
+
+if brew_available ; then
+  brew_dep_installed 'node' || brew install node
+  brew_dep_installed 'ant' || brew install ant
+  brew_dep_installed 'phantomjs' || brew install phantomjs
+
+  # npm is included with node in newer version, so this normally shouldn't be needed.
+  command_available 'npm' || brew install npm
+else
+  warning 'Warning: Homebrew not detected. Not installing some dependencies.'
+fi
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  npm_package_available 'ios-deploy@1.3.2' || npm install 'ios-deploy@1.3.2'
+  npm_package_available 'ios-sim@3.1.1' || npm install 'ios-sim@3.1.1'
+fi
+
+npm install
+bundle install
+
+if [ -d .git ]; then
+  echo 'Setting up git hooks...'
+  for h in hooks/*; do ln -sf ../../$h .git/hooks/$(basename $h); done
+fi
+
+echo -n 'Setup finished. '
