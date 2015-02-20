@@ -22,7 +22,7 @@ module.exports = function(karma) {
       debug: true,
       bundleDelay: 1000, // to prevent double runs when watching, see https://github.com/nikku/karma-browserify/issues/67
       extensions: ['.hamlc', '.coffee'],
-      transform: [ 'coffeeify', 'haml-coffee-browserify', ['envify', { _: 'purge' }], 'brfs' ]
+      transform: [ 'coffeeify', 'yamlify', 'haml-coffee-browserify', ['envify', { _: 'purge' }], 'brfs' ]
     }
   });
 };
