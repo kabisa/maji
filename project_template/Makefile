@@ -1,7 +1,7 @@
-DIST_DIR       := ./dist
-export SHELL   := $(shell echo $$SHELL) -e -o pipefail
-export PATH    := $(PATH):$(shell npm bin)
-export APP_ENV ?=development
+export DIST_DIR ?= ./dist
+export SHELL    := $(shell echo $$SHELL) -e -o pipefail
+export PATH     := $(PATH):$(shell npm bin)
+export APP_ENV  ?=development
 
 dist: clean build-statics build-js build-icons build-css revhash
 
