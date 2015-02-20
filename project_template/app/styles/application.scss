@@ -22,6 +22,10 @@ a, a:active, a:hover, a:visited {
   color: #000;
 }
 
+#maji-app {
+  position: relative;
+}
+
 .page {
   position: absolute;
   width: 100%;
@@ -30,6 +34,7 @@ a, a:active, a:hover, a:visited {
   top: 0px;
 
   z-index: 2;
+  background: #fff;
 
   &.animated .header, &.slideout {
     position: absolute;

@@ -1,9 +1,19 @@
 body.platform-ios {
-  .header {
-    padding-top: 20px !important;
+  $offset-top: 15px;
 
-    .btn {
-      top: 10px !important;
+  #maji-app {
+    margin-top: $offset-top;
+  }
+
+  .header {
+    &:before {
+      content: '';
+      background: $color_header_bg;
+      height: $offset-top;
+      display: block;
+      position: absolute;
+      left: 0; right: 0;
+      top: -$offset-top;
     }
   }
 }
