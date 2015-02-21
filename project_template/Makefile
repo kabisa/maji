@@ -1,5 +1,5 @@
 export DIST_DIR ?= ./dist
-export SHELL    := $(shell echo $$SHELL) -e -o pipefail
+export SHELL    := /bin/bash -e -o pipefail
 export PATH     := $(PATH):$(shell npm bin)
 export APP_ENV  ?=development
 
