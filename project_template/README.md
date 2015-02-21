@@ -12,6 +12,9 @@
 * To create a static HTML5 app build run `make dist`. The app will be build into the `dist/` directory.
 * To run the app on a connected mobile device run `bin/run-on-device <platform>`.
 * To build a Cordova app run `bin/build-app <platform>`.
+* To run Javascript tests run `bin/karma start`. This will start a Karma server with Phantomjs and will continuously watch your Javascript files and run tests on changes.
+* To run features specs run `bundle exec rspec`.
+* To run all tests run `bin/ci`.
 
 
 ## Packaging native apps / running on your device
