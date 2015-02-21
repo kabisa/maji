@@ -32,6 +32,14 @@ program
     releaseArg = if options.release then '--release' else '--debug'
     executeScript('build-app', [platform, releaseArg])
 
+program
+  .command('new <package_name> <path>')
+  .description('create a new Maji app')
+  .on '--help', ->
+    console.log '  Example:\n  maji new org.example.my-app ~/Code/my-app'
+  .action (packageName, path) ->
+    executeScript('create-project', [packageName, path])
+
 program.on '--help', ->
   process.exit(1)
 
