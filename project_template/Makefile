@@ -38,7 +38,7 @@ build-icons:
 	DIST_DIR='$(DIST_DIR)' node bin/build-iconfont.js
 
 live:
-	[ -n "$$LIVE_RELOAD" ] && (node bin/livereload.js '$(DIST_DIR)/**/*' &) || return 0
+	[ -n "$$LIVE_RELOAD" ] && (node bin/livereload.js '$(DIST_DIR)/**/*' &) || exit 0
 
 serve: DIST_DIR := './tmp/watch-build'
 serve: clean build-statics build-icons build-css live
