@@ -53,7 +53,7 @@ serve: clean build-statics build-icons build-css live
 	 -t brfs \
 	 -x bugsnag-js \
 	 app/application.coffee -o $(DIST_DIR)/assets/app.js &
-	http-server -p 9090 $(DIST_DIR)
+	sleep 2 && http-server -p 9090 $(DIST_DIR)
 
 watch: serve
 
