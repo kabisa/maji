@@ -12,11 +12,11 @@ build-statics:
 	cp -R public/* $(DIST_DIR)/
 
 revhash:
-	HASH=$$(cat $(DIST_DIR)/assets/app.js | md5) && \
+	source bin/_functions ; HASH=$$(cat $(DIST_DIR)/assets/app.js | _md5) && \
 	mv $(DIST_DIR)/assets/app.js $(DIST_DIR)/assets/app-$$HASH.js && \
 	perl -i -pe s/app.js/app-$$HASH.js/ dist/index.html
 
-	HASH=$$(cat $(DIST_DIR)/assets/app.css | md5) && \
+	source bin/_functions ; HASH=$$(cat $(DIST_DIR)/assets/app.css | _md5) && \
 	mv $(DIST_DIR)/assets/app.css $(DIST_DIR)/assets/app-$$HASH.css && \
 	perl -i -pe s/app.css/app-$$HASH.css/ dist/index.html
 
