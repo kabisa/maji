@@ -1,0 +1,17 @@
+---
+linters:
+  LeadingZero:
+    enabled: false
+  PropertySortOrder:
+    enabled: false
+  SingleLinePerSelector:
+    enabled: false
+  ZeroUnit:
+    enabled: false
+  IdSelector:
+    enabled: false
+  QualifyingElement:
+    allow_element_with_attribute: true
+  PropertySpelling:
+    extra_properties:
+      - text-size-adjust

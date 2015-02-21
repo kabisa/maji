@@ -1,7 +1,7 @@
 @import 'normalize';
 @import 'maji/screen_transitions';
 @import 'fonts/lato';
-@import 'fonts/_icons';
+@import 'fonts/icons';
 @import 'variables';
 @import 'forms';
 @import 'platforms/ios';
@@ -9,10 +9,10 @@
 @charset 'utf-8';
 
 html, body {
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
   font-family: 'Lato';
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: none;
+  text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   user-select: none;
 }
@@ -69,6 +69,7 @@ a, a:active, a:hover, a:visited {
       @include icon(back);
       margin-left: -10px;
 
+      // scss-lint:disable NestingDepth
       &:before { float: left; }
     }
 
