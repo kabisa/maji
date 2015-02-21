@@ -13,7 +13,3 @@ $ ->
     initialWindowHeight = $(window).height() - window.containerOffsetTop
     app.mainRegion.$el.css('height', initialWindowHeight)
   , 0
-
-  $(document).on 'click', 'a[data-disable-target], .disabled', (e) ->
-    e.preventDefault()
-    e.stopImmediatePropagation()
