@@ -12,6 +12,7 @@ perl -pi -e "s/##APP_NAME##/$APP_NAME/" README.md
 perl -pi -e "s/##APP_NAME##/$APP_NAME/" package.json
 perl -pi -e "s/##APP_NAME##/$APP_NAME/" cordova/config.xml
 perl -pi -e "s/##APP_NAME##/$APP_NAME/" public/index.html
+perl -pi -e "s/##APP_NAME##/$APP_NAME/" app/modules/home/templates/index.hamlc
 perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/config.xml
 
 mv $TMP_DIR $APP_PATH

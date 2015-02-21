@@ -1,5 +1,5 @@
 .header
-  = 'My app'
+  = '##APP_NAME##'
 
 .body
   = @t('hello')
