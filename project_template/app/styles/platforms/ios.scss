@@ -8,7 +8,7 @@ body.platform-ios {
   .header {
     &:before {
       content: '';
-      background: $color_header_bg;
+      background: $color-header-bg;
       height: $offset-top;
       display: block;
       position: absolute;

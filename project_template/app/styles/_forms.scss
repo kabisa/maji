@@ -14,8 +14,8 @@ form {
     margin-bottom: 5px;
 
     outline: none;
-    background: $color_form_input_bg;
-    border: 1px solid $color_form_input_border;
+    background: $color-form-input-bg;
+    border: 1px solid $color-form-input-border;
 
     appearance: none;
     box-sizing: border-box;
@@ -23,14 +23,14 @@ form {
     border-radius: 0;
 
     &:focus {
-      border: 1px solid $color_form_input_border_focus;
+      border: 1px solid $color-form-input-border-focus;
     }
   }
 
   input[type=submit] {
     width: 100%;
-    background: $color_primary;
-    color: $color_primary_text;
+    background: $color-primary;
+    color: $color-primary-text;
     -webkit-appearance: none;
     outline: none;
 

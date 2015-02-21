@@ -52,17 +52,17 @@ a, a:active, a:hover, a:visited {
   line-height: 30px;
 
   padding: 10px;
-  background: $color_header_bg;
+  background: $color-header-bg;
 
   text-align: center;
-  color: $color_header_text;
+  color: $color-header-text;
   font-size: 1.2em;
 
   .btn {
     position: absolute;
     top: 0px;
 
-    color: $color_header_text;
+    color: $color-header-text;
     font-size: 0.8em;
 
     &[data-rel=back] {
