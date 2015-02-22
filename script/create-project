@@ -7,17 +7,18 @@ APP_PATH=$APP_DIR$APP_NAME
 
 TMP_DIR=$(mktemp -d -t maji)
 
-cd $(dirname "${BASH_SOURCE[0]}")/../
-cp -R project_template/ "$TMP_DIR"
+pushd $(dirname "${BASH_SOURCE[0]}")/../ >/dev/null 2>&1
+  cp -R project_template/ "$TMP_DIR"
 
-pushd "$TMP_DIR" >/dev/null 2>&1
-  perl -pi -e "s/##APP_NAME##/$APP_NAME/" README.md
-  perl -pi -e "s/##APP_NAME##/$APP_NAME/" package.json
-  perl -pi -e "s/##APP_NAME##/$APP_NAME/" cordova/config.xml
-  perl -pi -e "s/##APP_NAME##/$APP_NAME/" public/index.html
-  perl -pi -e "s/##APP_NAME##/$APP_NAME/" app/modules/home/templates/index.hamlc
-  perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/config.xml
-popd
+  pushd "$TMP_DIR" >/dev/null 2>&1
+    perl -pi -e "s/##APP_NAME##/$APP_NAME/" README.md
+    perl -pi -e "s/##APP_NAME##/$APP_NAME/" package.json
+    perl -pi -e "s/##APP_NAME##/$APP_NAME/" cordova/config.xml
+    perl -pi -e "s/##APP_NAME##/$APP_NAME/" public/index.html
+    perl -pi -e "s/##APP_NAME##/$APP_NAME/" app/modules/home/templates/index.hamlc
+    perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/config.xml
+  popd >/dev/null 2>&1
+popd >/dev/null 2>&1
 
 mv "$TMP_DIR" "$APP_PATH"
 
