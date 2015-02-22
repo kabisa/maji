@@ -176,36 +176,3 @@ $animation-duration: 350ms;
     transform: perspective(400px) rotateY(-180deg);
   }
 }
-
-@keyframes rotating {
-  0% {
-    transform: rotateY(0deg);
-  }
-
-  100% {
-    transform: rotateY(359deg);
-  }
-}
-
-@keyframes bounce {
-
-  0%, 30% {
-    transform: translateY(0%);
-  }
-
-  40% {
-    transform: translateY(-50%);
-  }
-
-  50% {
-    transform: translateY(0%);
-  }
-
-  60% {
-    transform: translateY(-50%);
-  }
-
-  70%, 100% {
-    transform: translateY(0%);
-  }
-}
