@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-[ -z "$APP_ENV" ] && APP_ENV='staging'
+[ -z "$APP_ENV" ] && APP_ENV='development'
 export APP_ENV=$APP_ENV
 export PATH=$PATH:$(npm bin)
 
