@@ -9,7 +9,7 @@ needing the application using it to compile it's sources to javascript first.
 To create a new app execute the following commands in your shell:
 
 ```
-$ npm install git@github.com:kabisaict/maji
+$ npm install git+ssh://git@github.com:kabisaict/maji
 $ ./node_modules/.bin/maji new org.example.my-app /desired/path/to/your/project/
 ```
 
