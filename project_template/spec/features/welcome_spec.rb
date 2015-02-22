@@ -6,6 +6,6 @@ describe 'Hello world' do
   end
 
   it 'shows a greeting' do
-    expect(page).to have_text 'hello world'
+    expect(page).to have_text 'Welcome to your Maji app'
   end
 end

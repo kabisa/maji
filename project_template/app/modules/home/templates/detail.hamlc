@@ -1,0 +1,5 @@
+.header
+  %a{href:'#/', class:'btn left', 'data-rel': 'back'}
+  = 'Detail'
+
+.body

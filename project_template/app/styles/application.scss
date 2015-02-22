@@ -92,3 +92,36 @@ a, a:active, a:hover, a:visited {
   display: inline-block;
   padding: 10px;
 }
+
+.listview {
+  list-style-type: none;
+  padding: 0;
+
+  margin: -15px;
+
+  li {
+    @include icon(back, after);
+
+    position: relative;
+    padding: 10px 15px;
+
+    border-bottom: 1px solid #e8e8e8;
+
+    &:after {
+      font-size: 12px;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      margin-top: -6px;
+      transform: rotate(180deg);
+    }
+
+    a {
+      display: block;
+      margin: -10px -15px;
+      padding: 10px 15px;
+
+      -webkit-tap-highlight-color: rgba(130, 130, 130, 0.2);
+    }
+  }
+}

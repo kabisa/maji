@@ -21,4 +21,7 @@ class ApplicationPage extends Maji.Page
     # for example while you're showing a loading indicator etc.
     false
 
+  navigate: (href, options = {}) ->
+    bus.commands.execute 'navigate', href, options
+
 module.exports = ApplicationPage

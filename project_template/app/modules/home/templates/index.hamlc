@@ -1,5 +1,15 @@
-.header
-  = '##APP_NAME##'
+.header= '##APP_NAME##'
 
 .body
-  = @t('hello')
+  %p.welcome{style: 'margin-top: 0'}= @t('hello')
+
+  %p
+    %strong Some example transitions:
+
+  %ul.listview
+    %li
+      %a{href: '#/detail', 'data-transition': 'slide'}= 'Slide'
+    %li
+      %a{href: '#/detail', 'data-transition': 'slideup'}= 'Slide up'
+    %li
+      %a{href: '#/detail', 'data-transition': 'flip'}= 'Flip'
