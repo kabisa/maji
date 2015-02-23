@@ -17,6 +17,12 @@ pushd $(dirname "${BASH_SOURCE[0]}")/../ >/dev/null 2>&1
     perl -pi -e "s/##APP_NAME##/$APP_NAME/" public/index.html
     perl -pi -e "s/##APP_NAME##/$APP_NAME/" app/modules/home/templates/index.hamlc
     perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/config.xml
+
+    # create needed symlinks, NPM removes them
+    (mkdir -p vendor/styles/maji && cd vendor/styles/maji && \
+      ln -s ../../../node_modules/maji/css/maji_screen_transitions.scss screen_transitions.scss)
+    (cd cordova/ && ln -s ../dist www)
+    (cd bin/ && ln -s ../node_modules/.bin/maji .)
   popd >/dev/null 2>&1
 popd >/dev/null 2>&1
 
