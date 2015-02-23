@@ -10,8 +10,8 @@
 
 * While developing you can run a local serve using `make watch`. This will start a server on http://localhost:9090.
 * To create a static HTML5 app build run `make dist`. The app will be build into the `dist/` directory.
-* To run the app on a connected mobile device run `bin/run-on-device <platform>`.
-* To build a Cordova app run `bin/build-app <platform>`.
+* To run the app on a connected mobile device run `bin/maji run <platform>`.
+* To build a Cordova app run `bin/maji build <platform>`.
 * To run Javascript tests run `bin/karma start`. This will start a Karma server with Phantomjs and will continuously watch your Javascript files and run tests on changes.
 * To run features specs run `bundle exec rspec`.
 * To run all tests run `bin/ci`.
@@ -20,7 +20,7 @@
 ## Packaging native apps / running on your device
 
 * Make sure you have fulfilled the platform specific [prerequisites](#prerequisites) for the platform you're targeting.
-* Running `bin/run-on-device` with the target platform as parameter, e.g. `bin/run-on-device ios` will launch the iOS simulator, while `bin/run-on-device android` will launch the app on the Android Emulator or your device if connected.
+* Running `bin/maji run` with the target platform as parameter, e.g. `bin/maji run ios` will launch the app on your connected iPhone, while `bin/maji run android` will launch the app on your connected Android device. Specifying `-e` on the `maji run` command will launch the app on the iOS Simulator or Android Emulator.
 
 
 ## Prerequisites
