@@ -38,6 +38,9 @@ program
   .on '--help', ->
     console.log '  Example:\n  maji new org.example.my-app ~/Code/my-app'
   .action (packageName, path) ->
+    if ! packageName.match /.*\..*\..*/
+      console.log 'Please specify a valid package name, for example org.example.my-app'
+      process.exit(1)
     executeScript('create-project', [packageName, path])
 
 program.on '--help', ->
