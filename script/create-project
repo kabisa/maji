@@ -26,7 +26,8 @@ pushd $(dirname "${BASH_SOURCE[0]}")/../ >/dev/null 2>&1
   popd >/dev/null 2>&1
 popd >/dev/null 2>&1
 
-mv "$TMP_DIR" "$APP_PATH"
+mkdir -p "$APP_PATH"
+mv "$TMP_DIR"/* "$APP_PATH"
 
 cd "$APP_PATH"
 bin/setup
