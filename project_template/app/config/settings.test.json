@@ -1,3 +1,4 @@
 {
-  "environment": "test"
+  "environment": "test",
+  "defaultLocale": "en-US"
 }
