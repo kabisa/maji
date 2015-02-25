@@ -3,8 +3,9 @@ I18n = require('i18n-js')
 # allows nl-NL to fallback to nl if no nl-NL translation is defined
 I18n.fallbacks = true
 
-I18n.autoDetectLocale = ->
+I18n.autoDetectLocale = ({ defaultLocale }) ->
   userLocale = navigator.userLanguage || navigator.language
+  I18n.defaultLocale = defaultLocale
 
   if userLocale of I18n.translations
     # exact locale is supported, use that

@@ -1,3 +1,4 @@
 {
-  "environment": "development"
+  "environment": "development",
+  "defaultLocale": "en-US"
 }
