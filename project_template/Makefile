@@ -58,8 +58,7 @@ serve: clean build-statics build-icons build-css live
 watch: serve
 
 test:
-	./node_modules/karma/bin/karma start --singleRun
-	PRE_BUILT=true rspec
+	bin/ci
 
 clean:
 	rm -rf $(DIST_DIR) && mkdir -p $(DIST_DIR)/assets
