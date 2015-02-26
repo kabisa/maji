@@ -30,7 +30,11 @@ pushd $(dirname "${BASH_SOURCE[0]}")/../ >/dev/null 2>&1
 popd >/dev/null 2>&1
 
 mkdir -p "$APP_PATH"
+
+# include hidden files as well
+shopt -s dotglob
 mv "$TMP_DIR"/* "$APP_PATH"
+rm -r "$TMP_DIR"
 
 cd "$APP_PATH"
 bin/setup
