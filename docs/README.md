@@ -21,7 +21,7 @@
   * Javascript bundling and minification including source maps
   * CommonJS module system using Browserify
   * CSS autoprefixer (no more vendor prefixes!)
-  * Iconfont builder. Drop an SVG in your project and it's instantly available in your iconfont.
+  * Iconfont builder. Drop an SVG in your project and it's instantly available in your iconfont. [Read more](./icons.md).
   * Livereload integration. Make changes and your browser will automatically reload, works on mobile too.
   
 * CLI tooling
