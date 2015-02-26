@@ -10,6 +10,7 @@ production:
 
 build-statics:
 	cp -R public/* $(DIST_DIR)/
+	[ '$(LIVERELOAD)' = 'true' ] && node bin/inject-livereload.js '$(DIST_DIR)/index.html' || exit 0
 
 revhash:
 	source bin/_functions ; HASH=$$(cat $(DIST_DIR)/assets/app.js | _md5) && \
@@ -37,11 +38,12 @@ build-css:
 build-icons:
 	DIST_DIR='$(DIST_DIR)' node bin/build-iconfont.js
 
-live:
-	[ -n "$$LIVE_RELOAD" ] && (node bin/livereload.js '$(DIST_DIR)/**/*' &) || exit 0
+
+livereload:
+	[ -n "$$LIVERELOAD" ] && ((sleep 5 && node bin/livereload.js '$(DIST_DIR)/**/*') &) || exit 0
 
 serve: DIST_DIR := './tmp/watch-build'
-serve: clean build-statics build-icons build-css live
+serve: clean build-statics build-icons build-css livereload
 	onchange 'public/**/*' -- make build-statics &
 	CSS_OUTPUT_STYLE=expanded onchange 'app/styles/**/*.scss' -- make build-css &
 	onchange 'app/styles/icons/*.svg' -- make build-icons &
