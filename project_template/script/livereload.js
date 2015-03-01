@@ -8,8 +8,8 @@ lr.listen(35729, function (err) { if(err) { throw err } });
 
 var watcher = chokidar.watch(process.argv[2]);
 watcher.on('ready', function(){
-  watcher.on('all', function() {
+  watcher.on('all', function(event, path) {
     console.log('Reloading browser...')
-    lr.changed({body: {files: ['dummy']}})
+    lr.changed({body: {files: [path]}})
   });
 });
