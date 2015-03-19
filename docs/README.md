@@ -1,6 +1,10 @@
 # Maji Mobile
 
-## What's in the box?
+* [What's in the box?](#inthebox)
+* [FAQ](faq.md)
+
+
+## <a name="inthebox"></a>What's in the box?
 
 * Project setup
   * Intuitive directory structure, ready to go for Backbone + Marionette development
