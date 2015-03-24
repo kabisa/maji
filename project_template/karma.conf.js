@@ -14,6 +14,12 @@ module.exports = function(karma) {
       'spec/**/*spec.coffee': [ 'browserify' ]
     },
 
+    client: {
+      mocha: {
+        reporter: 'html' // view on http://localhost:9876/debug.html
+      }
+    },
+
     reporters: ['mocha'],
     browsers: [ 'PhantomJS' ],
 
