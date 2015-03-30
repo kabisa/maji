@@ -1,5 +1,13 @@
 # Maji Mobile
 
+## About
+
+![Maji Mobile](img/maji-mobile-logo.png)
+
+Maji Mobile is a mobile platform development solution, that allows you to quickly create mobile applications for any platform, using web technologies.
+It allows any (Web-)developer to quickly start developing mobile applications for any mobile platform.
+
+Maji Mobile is not a framework on itself; it generates a ready-to-go project that utilises several frameworks and custom scripts to allow building and running on mobile platforms.
 Find sources in `src/`. Compiled javascript is stored in `lib/` and included
 in the repository so this module can be used straight from Github and without
 needing the application using it to compile it's sources to javascript first.
