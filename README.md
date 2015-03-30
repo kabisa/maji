@@ -47,8 +47,12 @@ needing the application using it to compile it's sources to javascript first.
 
 ## Frameworks
 
- * ![Apacho Cordova](https://cordova.apache.org) facilitates the translation to from web technologies to mobile platforms.
- * ![BackboneJS](http://backbonejs.org)
- * ![MarionetteJS](http://marionettejs.com)
- * ![FastClick](http://ftlabs.github.io/fastclick/)
- * ![jQuery](http://jquery.com)
+A Maji Mobile App comes with several frameworks built-in and configured to work together. It's these combinations of frameworks that makes a Maji Mobile App so easy to develop!
+
+ * ![Apache Cordova](https://cordova.apache.org) facilitates the translation from web technologies to mobile platforms. 
+ * ![BackboneJS](http://backbonejs.org) our JavaScript MV* framework
+ * ![MarionetteJS](http://marionettejs.com) Marionette simplifies Backbone Views
+ * ![FastClick](http://ftlabs.github.io/fastclick/) disable the delay between click and the action on iOS
+ * ![jQuery](http://jquery.com) JavaScript library for working with the DOM
+ * ![Browserify](http://browserify.org) require modules by bundling all dependencies
+ * ![BugSnagJS](https://github.com/bugsnag/bugsnag-js) JavaScript notifier for ![BugSnag](http://bugsnag.com/)
