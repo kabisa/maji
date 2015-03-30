@@ -25,8 +25,6 @@ Find sources in `src/`. Compiled javascript is stored in `lib/` and included
 in the repository so this module can be used straight from Github and without
 needing the application using it to compile it's sources to javascript first.
 
-### Usage
-
   Usage: `maji [options] [command]`
 
 
@@ -51,4 +49,15 @@ A Maji Mobile App comes with several frameworks built-in and configured to work 
  * [FastClick](http://ftlabs.github.io/fastclick/) disable the delay between click and the action on iOS
  * [jQuery](http://jquery.com) JavaScript library for working with the DOM
  * [Browserify](http://browserify.org) require modules by bundling all dependencies
- * [BugSnagJS](https://github.com/bugsnag/bugsnag-js) JavaScript notifier for ![BugSnag](http://bugsnag.com/)
+ * [BugSnagJS](https://github.com/bugsnag/bugsnag-js) JavaScript notifier for [BugSnag](http://bugsnag.com/)
+ * [Karma](http://karma-runner.github.io/) is a JavaScript testing environment
+ * [MochaJS](http://mochajs.org) a JavaScript testing framework that supports an RSpec style of writing tests
+ * [Chai](http://chaijs.com) is an assertion library that enables a TDD style of developing
+
+### Documentation
+
+Here are some common links to documentation you might need
+ * [Backbone](http://backbonejs.org)
+ * [Marionette](http://marionettejs.com/docs/current/)
+ * [Mocha](http://mochajs.org/#assertions)
+ * [Chai Expect/Should](http://chaijs.com/api/bdd/)
