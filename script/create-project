@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 APP_PACKAGE=$1
 APP_NAME=$(echo $1 | perl -pe 's/.*\.//')
-
-[[ "$2" != */ ]] && APP_DIR="$2/" || APP_DIR="$2"
-APP_PATH=$APP_DIR$APP_NAME
+APP_PATH="$2"
 
 TMP_DIR=$(mktemp -d -t maji)
 
