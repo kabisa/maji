@@ -60,3 +60,5 @@ Here are some common links to documentation you might need
  * [Mocha](http://mochajs.org/#assertions)
  * [Chai Expect/Should](http://chaijs.com/api/bdd/)
  * [Apache Cordova](http://cordova.apache.org/docs/en/4.0.0/)
+
+There is also a [FAQ](docs/faq.md)

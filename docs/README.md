@@ -19,7 +19,7 @@
   * Per environment configurable settings (development, test, staging, production etc)
   * Fastclick.js integrated, removes default 300ms touch event delay
   * Setup script to bootstrap local development environments
-  
+
 * Fast Node based build system
   * Compilation of Coffeescript and Sass
   * Javascript bundling and minification including source maps
@@ -27,7 +27,7 @@
   * CSS autoprefixer (no more vendor prefixes!)
   * Iconfont builder. Drop an SVG in your project and it's instantly available in your iconfont. [Read more](./icons.md).
   * Livereload integration. Make changes and your browser will automatically reload, works on mobile too.
-  
+
 * CLI tooling
   * Create new projects
   * Build Cordova apps
@@ -40,4 +40,3 @@
   * Coffeescript linting
   * Commit hooks for linting
   * CI script + CI Dockerfile
-  
