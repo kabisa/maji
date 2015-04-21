@@ -15,7 +15,7 @@ What do we have with Swahili? Maji Mobile is product of [Kabisa](http://www.kabi
 ## What knowledge do I need to build apps with Maji?
 
 When you are developing apps with Maji you will be making Web Apps that are packaged into a Cordova wrapper, so you will need to know how to build web apps.
-To be specific, aside from HTML 5 / CSS3 / JavasScript, you need to know how to build apps with [BackboneJS](http://backbonejs.org) (and [MarionetteJS](http://marionettejs.org)). To use mobile specific features, you need to know how to use [Apache Cordova](http://cordova.apache.org) Plugins.
+To be specific, aside from HTML 5 / CSS3 / JavasScript, you need to know how to build apps with [BackboneJS](http://backbonejs.org) (and [MarionetteJS](http://marionettejs.com)). To use mobile specific features, you need to know how to use [Apache Cordova](http://cordova.apache.org) Plugins.
 
 That's it! Maji will take care of the rest.
 
