@@ -9,6 +9,20 @@ Whether you want to develop for iOS or Android, mobile or tablet, or any of the 
 
 Your Idea. Our Technology. For Everyone.
 
+## Prerequisites
+
+Before you can use Maji, make sure you have the following:
+
+### Mac OS X
+
+* [Homebrew](http://brew.sh) a Mac OS X package manager
+
+### Linux
+
+* [Nodejs](http://nodejs.org) allows Javascript to be run Server-side
+* [Apache Ant](http://ant.apache.org) is used for building Java Applications
+* [PhantomJS](http://phantomjs.org/download.html) is a headless WebKit Browser, scriptable with a JavaScript API
+
 ## Getting started
 
 To create a new app execute the following commands in your shell:
