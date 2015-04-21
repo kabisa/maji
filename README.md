@@ -35,7 +35,7 @@ $ bin/setup
 ```
 
 Your new Maji app will now be generated at the supplied path.
-To start your app `cd` into it's directory, execute `make watch` and navigate to http://localhost:9090/ with your browser.
+To start your app `cd` into its directory, execute `make watch` and navigate to http://localhost:9090/ with your browser.
 
 
   Usage: `maji [options] [command]`
@@ -70,7 +70,7 @@ A Maji Mobile App comes with several frameworks built-in and configured to work 
 ## Build-up
 
 You can find the sources in the `src\` folder.
-Compiled javascript is stored in `lib/`.  It is included in this repository so this module can be used straight from Github. Now an application using Maji doesn't have to to compile it's sources to javascript first.
+Compiled javascript is stored in `lib/`.  It is included in this repository so this module can be used straight from Github. Now an application using Maji doesn't have to to compile its sources to javascript first.
 
 ### Documentation
 
