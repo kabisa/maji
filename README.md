@@ -13,6 +13,13 @@ Your Idea. Our Technology. For Everyone.
 
 Before you can use Maji, make sure you have the following:
 
+
+### General
+
+* Ruby, for the Cucumber specs
+* NodeJS, for the build system (`bin/setup` will install this if you've got Homebrew)
+* Homebrew (`bin/setup` will use this to hook you up with all of the dependencies, except Ruby)
+
 ### Mac OS X
 
 * [Homebrew](http://brew.sh) a Mac OS X package manager
@@ -35,8 +42,8 @@ $ bin/setup
 ```
 
 Your new Maji app will now be generated at the supplied path.
-To start your app `cd` into its directory, execute `make watch` and navigate to http://localhost:9090/ with your browser.
 
+### bin/maji
 
   Usage: `bin/maji [options] [command]`
 
@@ -52,8 +59,33 @@ To start your app `cd` into its directory, execute `make watch` and navigate to 
     -h, --help     output usage information
     -V, --version  output the version number
 
-## Frameworks
+## Using Maji Apps
 
+### Starting in the browser
+
+To start your app, `cd` into its directory, execute `make watch` and navigate to http://localhost:9090/ with your browser.
+
+### Running tests
+
+To run test, you have several options; keeping the Javascript test runner open, running Javascript tests once, running RSpec tests once or running all tests once:
+* To run Javascript tests run `bin/karma start`. This will start a Karma server with Phantomjs and will continuously watch your Javascript files and run tests on changes.
+* To run Javascript tests once, run `bin/karma start --single-run`.
+* To run features specs once, run `bundle exec rspec`.
+* To run all tests once, run `bin/ci`.
+
+### Creating builds
+
+To build a static HTML5 app, run `make dist`.
+
+To build a native app, run `bin/maji build <platform>`.
+
+## Build-up
+
+You can find the sources in the `src\` folder.
+Compiled javascript is stored in `lib/`.  It is included in this repository so this module can be used straight from Github. Now an application using Maji doesn't have to compile its sources to javascript first.
+
+### Frameworks
+q
 A Maji Mobile App comes with several frameworks built-in and configured to work together. It's these combinations of frameworks that makes a Maji Mobile App so easy to develop!
 
  * [Apache Cordova](https://cordova.apache.org) facilitates the translation from web technologies to mobile platforms.
@@ -67,18 +99,14 @@ A Maji Mobile App comes with several frameworks built-in and configured to work 
  * [MochaJS](http://mochajs.org) a JavaScript testing framework that supports a BDD style of writing tests
  * [Chai](http://chaijs.com) is an assertion library that enables a BDD style of developing
 
-## Build-up
-
-You can find the sources in the `src\` folder.
-Compiled javascript is stored in `lib/`.  It is included in this repository so this module can be used straight from Github. Now an application using Maji doesn't have to compile its sources to javascript first.
-
 ### Documentation
 
-Here are some common links to documentation you might need
+Here are some links to documentation you might need:
+
  * [Backbone](http://backbonejs.org)
  * [Marionette](http://marionettejs.com/docs/v1.8.7/)
  * [Mocha](http://mochajs.org/#assertions)
  * [Chai Expect/Should](http://chaijs.com/api/bdd/)
  * [Apache Cordova](http://cordova.apache.org/docs/en/4.0.0/)
 
-There is also a [FAQ](docs/faq.md)
+There is also a [Maji Mobile FAQ](docs/faq.md).
