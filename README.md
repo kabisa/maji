@@ -38,7 +38,7 @@ Your new Maji app will now be generated at the supplied path.
 To start your app `cd` into its directory, execute `make watch` and navigate to http://localhost:9090/ with your browser.
 
 
-  Usage: `maji [options] [command]`
+  Usage: `bin/maji [options] [command]`
 
 
   Commands:
