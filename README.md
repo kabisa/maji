@@ -16,6 +16,8 @@ To create a new app execute the following commands in your shell:
 ```
 $ npm install git+ssh://git@github.com:kabisaict/maji
 $ ./node_modules/.bin/maji new org.example.my-app /desired/path/to/your/project/
+$ cd /desired/path/to/your/project/
+$ bin/setup
 ```
 
 Your new Maji app will now be generated at the supplied path.
