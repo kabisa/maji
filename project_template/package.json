@@ -32,7 +32,6 @@
     "http-server": "^0.7.4",
     "karma": "^0.12.31",
     "karma-browserify": "^3.0.1",
-    "karma-chai": "^0.1.0",
     "karma-mocha": "^0.1.10",
     "karma-mocha-reporter": "^0.3.1",
     "karma-sinon-chai": "~0.3.0",
