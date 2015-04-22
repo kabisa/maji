@@ -8,7 +8,7 @@
 
 * Project setup
   * Intuitive directory structure, ready to go for Backbone + Marionette development
-  * Mobile page transitions integrated
+  * Mobile page transitions integrated: 'slide', 'slideup' and 'flip'
   * I18n with autodetection of user locale, includes interpolation and pluralization. Uses YML files to define translations.
   * Haml Coffee templates with I18n and other template helpers integrated
   * Cordova support
