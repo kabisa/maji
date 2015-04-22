@@ -110,3 +110,8 @@ Here are some links to documentation you might need:
  * [Apache Cordova](http://cordova.apache.org/docs/en/4.0.0/)
 
 There is also a [Maji Mobile FAQ](docs/faq.md).
+
+
+## License
+
+Maji Mobile is released under the [MIT License](http://opensource.org/licenses/MIT)
