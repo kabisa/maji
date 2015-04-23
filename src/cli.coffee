@@ -47,4 +47,4 @@ program.on '--help', ->
   process.exit(1)
 
 program.parse(process.argv)
-program.help() unless program.args.length
+program.help() unless process.argv.slice(2).length
