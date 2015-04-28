@@ -43,5 +43,3 @@
 * Android platform 10+.
 * Ant (`brew install ant`)
 * `android` and `adb` in your $PATH (add `path/to/android-sdk-macosx/tools` and `path/to/android-sdk-macosx/platform-tools` to your $PATH).
-
-
