@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 APP_PACKAGE=$1
 APP_NAME=$(echo $1 | perl -pe 's/.*\.//')
-
-[[ "$2" != */ ]] && APP_DIR="$2/" || APP_DIR="$2"
-APP_PATH=$APP_DIR$APP_NAME
+APP_PATH="$2"
 
 TMP_DIR=$(mktemp -d -t maji)
 
@@ -23,11 +21,18 @@ pushd $(dirname "${BASH_SOURCE[0]}")/../ >/dev/null 2>&1
       ln -s ../../../node_modules/maji/css/maji_screen_transitions.scss screen_transitions.scss)
     (cd cordova/ && ln -s ../dist www)
     (cd bin/ && ln -s ../node_modules/.bin/maji .)
+
+    # npm renames .gitignore to .npmignore
+    mv .npmignore .gitignore
   popd >/dev/null 2>&1
 popd >/dev/null 2>&1
 
 mkdir -p "$APP_PATH"
+
+# include hidden files as well
+shopt -s dotglob
 mv "$TMP_DIR"/* "$APP_PATH"
+rm -r "$TMP_DIR"
 
 cd "$APP_PATH"
 bin/setup

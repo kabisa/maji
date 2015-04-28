@@ -46,5 +46,9 @@ program
 program.on '--help', ->
   process.exit(1)
 
+program.on '*', (action) ->
+  console.log "Unknown command '#{action}'"
+  program.help()
+
 program.parse(process.argv)
-program.help() unless program.args.length
+program.help() unless process.argv.slice(2).length

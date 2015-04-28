@@ -3,7 +3,7 @@
 module.exports = function(karma) {
   karma.set({
 
-    frameworks: [ 'mocha', 'chai', 'browserify' ],
+    frameworks: [ 'mocha', 'sinon-chai', 'browserify' ],
 
     files: [
       'spec/spec_helper.coffee', 'spec/**/*spec.coffee'
@@ -12,6 +12,12 @@ module.exports = function(karma) {
     preprocessors: {
       'spec/spec_helper.coffee': [ 'browserify' ],
       'spec/**/*spec.coffee': [ 'browserify' ]
+    },
+
+    client: {
+      mocha: {
+        reporter: 'html' // view on http://localhost:9876/debug.html
+      }
     },
 
     reporters: ['mocha'],
