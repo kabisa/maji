@@ -13,23 +13,18 @@ Your Idea. Our Technology. For Everyone.
 
 Before you can use Maji, make sure you have the following:
 
+* [Ruby](https://www.ruby-lang.org/en/) >= 2.0 and [Bundler](http://bundler.io)
+* [Node](http://nodejs.org) >= 0.10 and npm
+* [Git](http://git-scm.com)
+* [Bash](https://www.gnu.org/s/bash/bash.html)
 
-### General
+### Developing for iOS
+* [Xcode](https://developer.apple.com/xcode/)
 
-* Ruby, for the Cucumber specs
-* NodeJS, for the build system (`bin/setup` will install this if you've got Homebrew)
-* Homebrew (`bin/setup` will use this to hook you up with all of the dependencies, except Ruby)
+### Developing for Android
 
-### Mac OS X
-
-* [Homebrew](http://brew.sh) a Mac OS X package manager
-* [Bundler](http://bundler.io) a Ruby Gem 'package manager'
-
-### Linux
-
-* [Nodejs](http://nodejs.org) allows JavaScript to be run Server-side
-* [Apache Ant](http://ant.apache.org) is used for building Java Applications
-* [PhantomJS](http://phantomjs.org/download.html) is a headless WebKit Browser, scriptable with a JavaScript API
+* [Android SDK Tools](http://developer.android.com/sdk/installing/index.html?pkg=tools) or the complete [Android Studio](http://developer.android.com/sdk/installing/index.html?pkg=studio)
+* An android emulator, like the one packaged in Android Studio or [GenyMotion](http://genymotion.com/#!/download)
 
 ## Getting started
 
@@ -38,8 +33,6 @@ To create a new app execute the following commands in your shell:
 ```
 $ npm install git+ssh://git@github.com:kabisaict/maji
 $ ./node_modules/.bin/maji new org.example.my-app /desired/path/to/your/project/
-$ cd /desired/path/to/your/project/
-$ bin/setup
 ```
 
 Your new Maji app will now be generated at the supplied path.
