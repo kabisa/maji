@@ -23,6 +23,7 @@ Before you can use Maji, make sure you have the following:
 ### Mac OS X
 
 * [Homebrew](http://brew.sh) a Mac OS X package manager
+* [Bundler](http://bundler.io) a Ruby Gem 'package manager'
 
 ### Linux
 
