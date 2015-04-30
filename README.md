@@ -114,4 +114,4 @@ There is also a [Maji Mobile FAQ](docs/faq.md).
 
 ## License
 
-Maji Mobile is released under the [MIT License](http://opensource.org/licenses/MIT)
+Maji Mobile is released under the [MIT License](LICENSE).
