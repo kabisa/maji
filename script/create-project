@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
+shopt -s dotglob # include hidden files in globs
+set -e # fail fast
+
 APP_PACKAGE=$1
 APP_NAME=$(echo $1 | perl -pe 's/.*\.//')
 APP_PATH="$2"
 
-TMP_DIR=$(mktemp -d -t maji)
+TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji)
 
 pushd $(dirname "${BASH_SOURCE[0]}")/../ >/dev/null 2>&1
-  cp -R project_template/ "$TMP_DIR"
+  cp -R project_template/* "$TMP_DIR"
 
   pushd "$TMP_DIR" >/dev/null 2>&1
     perl -pi -e "s/##APP_NAME##/$APP_NAME/" README.md
@@ -23,14 +26,12 @@ pushd $(dirname "${BASH_SOURCE[0]}")/../ >/dev/null 2>&1
     (cd bin/ && ln -s ../node_modules/.bin/maji .)
 
     # npm renames .gitignore to .npmignore
-    mv .npmignore .gitignore
+    [ -f .npmignore ] && (mv .npmignore .gitignore || exit 0)
   popd >/dev/null 2>&1
 popd >/dev/null 2>&1
 
 mkdir -p "$APP_PATH"
 
-# include hidden files as well
-shopt -s dotglob
 mv "$TMP_DIR"/* "$APP_PATH"
 rm -r "$TMP_DIR"
 
