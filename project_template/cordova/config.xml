@@ -16,6 +16,10 @@
     <preference name="SplashScreen" value="splash" />
     <preference name="SplashScreenDelay" value="1500" />
 
+    <!-- target Android SDK versions //-->
+    <preference name="android-minSdkVersion" value="15" />
+    <preference name="android-targetSdkVersion" value="19" />
+
     <!-- disable icloud storage sync -->
     <preference name="BackupWebStorage" value="local"/>
 </widget>
