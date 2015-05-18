@@ -1,0 +1,36 @@
+/**
+ * Basic Maji Mobile SCSS
+ *
+ * Based on SMACSS and HTML5 Boilerplate.
+ * TODO: Think about themeing and how this combines with _settings.scss and modules
+ */
+
+// Settings for your Maji app
+@import 'settings';
+
+// Device-specific SCSS
+@import 'device/ios';
+
+// Normalize browser differences
+@import 'normalize';
+
+// Default Maji screen transition animations
+@import 'maji/screen_transitions';
+
+// Mixins, functions, helpers
+@import 'tools/mixins';
+
+// Base
+@import 'base/base';
+@import 'base/fonts';
+@import 'fonts/icons'; // TODO: maybe have this point to the base dir as well? Or move the SVGs outside styles dir
+
+// Layout
+// @import 'layout/header';
+// @import 'layout/nav';
+// @import 'layout/footer';
+
+// Modules
+@import 'modules/temporary_old_scss';
+
+@charset 'utf-8';

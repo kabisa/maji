@@ -1,3 +1,30 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+
+// Old application.scss:
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato';
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  user-select: none;
+}
+
+a, a:active, a:hover, a:visited {
+  text-decoration: none;
+  color: #000;
+}
+
+
+// Old forms.scss:
 :focus {
   outline: none;
 }

@@ -1,27 +1,3 @@
-@import 'normalize';
-@import 'maji/screen_transitions';
-@import 'fonts/lato';
-@import 'fonts/icons';
-@import 'variables';
-@import 'forms';
-@import 'platforms/ios';
-
-@charset 'utf-8';
-
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Lato';
-  text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  user-select: none;
-}
-
-a, a:active, a:hover, a:visited {
-  text-decoration: none;
-  color: #000;
-}
-
 #maji-app {
   position: relative;
 }
