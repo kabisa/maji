@@ -24,10 +24,9 @@
   z-index: 1000;
 
   margin: 0;
-  height: 30px;
-  line-height: 30px;
+  height: 40px;
+  line-height: 40px;
 
-  padding: 10px;
   background: $color-header-bg;
 
   text-align: center;
@@ -36,7 +35,8 @@
 
   .btn {
     position: absolute;
-    top: 0px;
+    top: 0;
+    padding: 0 10px;
 
     color: $color-header-text;
     font-size: 0.8em;
