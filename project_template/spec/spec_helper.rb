@@ -10,6 +10,10 @@ RSpec.configure do |config|
   config.order = 'random'
 end
 
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, {extensions: ['spec/support/function_bind_polyfill.js']})
+end
+
 Capybara.default_driver = :poltergeist
 
 if ENV['PRE_BUILT']
