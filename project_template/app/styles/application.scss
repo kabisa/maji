@@ -105,7 +105,7 @@ a, a:active, a:hover, a:visited {
     position: relative;
     padding: 10px 15px;
 
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid $color-listview-li-border;
 
     &:after {
       font-size: 12px;
