@@ -34,7 +34,7 @@ a, a:active, a:hover, a:visited {
   top: 0px;
 
   z-index: 2;
-  background: #fff;
+  background: $color-page-background;
 
   &.animated .header, &.slideout {
     position: absolute;
