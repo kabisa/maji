@@ -19,7 +19,7 @@ html, body {
 
 a, a:active, a:hover, a:visited {
   text-decoration: none;
-  color: #000;
+  color: $color-link;
 }
 
 #maji-app {
@@ -34,7 +34,7 @@ a, a:active, a:hover, a:visited {
   top: 0px;
 
   z-index: 2;
-  background: #fff;
+  background: $color-page-background;
 
   &.animated .header, &.slideout {
     position: absolute;
@@ -105,7 +105,7 @@ a, a:active, a:hover, a:visited {
     position: relative;
     padding: 10px 15px;
 
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid $color-listview-li-border;
 
     &:after {
       font-size: 12px;
