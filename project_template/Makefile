@@ -1,7 +1,8 @@
-export DIST_DIR ?= ./dist
-export SHELL    := /bin/bash -e -o pipefail
-export PATH     := $(PATH):$(shell npm bin)
-export APP_ENV  ?=development
+export DIST_DIR    ?= ./dist
+export SHELL       := /bin/bash -e -o pipefail
+export PATH        := $(PATH):$(shell npm bin)
+export APP_ENV     ?=development
+export SERVER_PORT := 9090
 
 dist: clean build-statics build-js build-icons build-css revhash
 
@@ -41,8 +42,11 @@ build-icons:
 livereload:
 	[ -n "$$LIVERELOAD" ] && ((sleep 5 && node script/livereload.js '$(DIST_DIR)/**/*') &) || exit 0
 
+check-server-port:
+	@nc -z 127.0.0.1 $(SERVER_PORT) >/dev/null && echo 'Port $(SERVER_PORT) occupied, is a server already running?' && exit 1 || exit 0
+
 serve: DIST_DIR := './tmp/watch-build'
-serve: clean build-statics build-icons build-css livereload
+serve: check-server-port clean build-statics build-icons build-css livereload
 	onchange 'public/**/*' -- make build-statics &
 	CSS_OUTPUT_STYLE=expanded onchange 'app/styles/**/*.scss' -- make build-css &
 	onchange 'app/styles/icons/*.svg' -- make build-icons &
@@ -54,7 +58,7 @@ serve: clean build-statics build-icons build-css livereload
 	 -t brfs \
 	 -x bugsnag-js \
 	 app/application.coffee -o $(DIST_DIR)/assets/app.js &
-	sleep 2 && http-server -p 9090 $(DIST_DIR)
+	sleep 2 && http-server -p $(SERVER_PORT) $(DIST_DIR)
 
 watch: serve
 
