@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 group :development, :test do
-  gem 'rspec'
-  gem 'capybara'
-  gem 'poltergeist'
-  gem 'scss_lint'
+  gem 'rspec', '~> 3.2.0'
+  gem 'capybara', '~> 2.4.4'
+  gem 'poltergeist', '~> 1.6.0'
+  gem 'scss_lint', '0.38.0'
 end
