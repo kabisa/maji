@@ -15,6 +15,7 @@ module.exports = function(karma) {
     },
 
     client: {
+      captureConsole: true,
       mocha: {
         reporter: 'html' // view on http://localhost:9876/debug.html
       }
