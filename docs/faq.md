@@ -45,4 +45,4 @@ See the [Cordova Plugin API](http://docs.phonegap.com/en/4.0.0/cordova_plugins_p
 
 ## Can I use the [marionette.inspector](https://github.com/marionettejs/marionette.inspector) to inspect my Maji App?
 
-Yes you can, but note that we use Broweserify in Maji App, so please note the [caveats](https://github.com/marionettejs/marionette.inspector#caveats) section.
+Yes you can, but note that Maji apps use Broweserify, so please note the [Marionette Inspector caveats](https://github.com/marionettejs/marionette.inspector#caveats) section.
