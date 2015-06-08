@@ -99,6 +99,10 @@ A Maji Mobile App comes with several frameworks built-in and configured to work 
  * [MochaJS](http://mochajs.org) a JavaScript testing framework that supports a BDD style of writing tests
  * [Chai](http://chaijs.com) is an assertion library that enables a BDD style of developing
 
+### FAQ
+
+For our Frequently Asked Questions, see [here](docs/faq.md).
+
 ### Documentation
 
 Here are some links to documentation you might need:
@@ -108,8 +112,6 @@ Here are some links to documentation you might need:
  * [Mocha](http://mochajs.org/#assertions)
  * [Chai Expect/Should](http://chaijs.com/api/bdd/)
  * [Apache Cordova](http://cordova.apache.org/docs/en/4.0.0/)
-
-There is also a [Maji Mobile FAQ](docs/faq.md).
 
 
 ## License

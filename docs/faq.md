@@ -42,3 +42,7 @@ Apache Cordova is easily configurable to create a Mobile Application that uses e
 You can access any mobile device features by adding the corresponding plug-in, either one created by Apache or one of the many plug-ins made by the active community.
 
 See the [Cordova Plugin API](http://docs.phonegap.com/en/4.0.0/cordova_plugins_pluginapis.md.html) for more details.
+
+## Can I use the [marionette.inspector](https://github.com/marionettejs/marionette.inspector) to inspect my Maji App?
+
+Yes you can, but note that Maji apps use Broweserify, so please note the [Marionette Inspector caveats](https://github.com/marionettejs/marionette.inspector#caveats) section.
