@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "lib/index.js",
   "bin" : { "maji" : "./lib/cli.js" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kabisaict/maji"
+  },
   "devDependencies": {
     "coffee-script": "1.9.0"
   },
