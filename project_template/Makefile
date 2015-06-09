@@ -34,7 +34,7 @@ build-js:
 		app/application.coffee | exorcist $(DIST_DIR)/assets/app.js.map | sed '/^\s*$$/d' > $(DIST_DIR)/assets/app.js
 
 build-css:
-	node-sass --stdout --output-style $${CSS_OUTPUT_STYLE:-compressed} --include-path vendor/styles app/styles/application.scss | autoprefixer -b 'ios >= 8, android >= 4, ie >=10' > $(DIST_DIR)/assets/app.css
+	node-sass --stdout --output-style $${CSS_OUTPUT_STYLE:-compressed} --include-path vendor/styles app/styles/application.scss | postcss --use autoprefixer --autoprefixer.browsers 'ios >= 8, android >= 4, ie >=10' > $(DIST_DIR)/assets/app.css
 
 build-icons:
 	DIST_DIR='$(DIST_DIR)' node script/build-iconfont.js
