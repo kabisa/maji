@@ -35,7 +35,7 @@ Before you can use Maji, make sure you have the following:
 To create a new app execute the following commands in your shell:
 
 ```
-$ npm install git://github.com/kabisaict/maji.git
+$ npm install kabisaict/maji#develop
 $ ./node_modules/.bin/maji new org.example.my-app /desired/path/to/your/project/
 $ cd /desired/path/to/your/project/
 $ bin/setup
