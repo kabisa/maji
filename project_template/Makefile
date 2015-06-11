@@ -1,8 +1,16 @@
-export DIST_DIR    ?= ./dist
-export SHELL       := /bin/bash -e -o pipefail
-export PATH        := $(PATH):$(shell npm bin)
-export APP_ENV     ?=development
-export SERVER_PORT := 9090
+export DIST_DIR        ?= ./dist
+export SHELL           := /bin/bash -e -o pipefail
+export PATH            := $(PATH):$(shell npm bin)
+export APP_ENV         ?=development
+SERVER_PORT            ?= 9090
+BROWSERIFY_BASE_CONFIG = \
+	-t coffeeify \
+	-t aliasify \
+	-t yamlify \
+	-t [ haml-coffee-browserify ] \
+	-t [ envify purge ] \
+	-t brfs \
+	--extension .hamlc --extension .coffee
 
 dist: clean build-statics build-js build-icons build-css revhash
 
@@ -23,15 +31,7 @@ revhash:
 	perl -i -pe s/app.css/app-$$HASH.css/ dist/index.html
 
 build-js:
-	browserify --extension .hamlc --extension .coffee \
-		-g uglifyify \
-		-t coffeeify \
-		-t aliasify \
-		-t yamlify \
-		-t [ haml-coffee-browserify ] \
-		-t [ envify purge ] \
-		-t brfs \
-		--debug \
+	browserify -g uglifyify $(BROWSERIFY_BASE_CONFIG) --debug \
 		app/application.coffee | exorcist $(DIST_DIR)/assets/app.js.map | sed '/^\s*$$/d' > $(DIST_DIR)/assets/app.js
 
 build-css:
@@ -51,14 +51,7 @@ serve: check-server-port clean build-statics build-icons build-css livereload
 	onchange 'public/**/*' -- make build-statics &
 	CSS_OUTPUT_STYLE=expanded onchange 'app/styles/**/*.scss' -- make build-css &
 	onchange 'app/styles/icons/*.svg' -- make build-icons &
-	watchify -v --extension .hamlc --extension .coffee \
-	 -t coffeeify \
-	 -t aliasify \
-	 -t yamlify \
-	 -t [ haml-coffee-browserify ] \
-	 -t [ envify purge ] \
-	 -t brfs \
-	 -x bugsnag-js \
+	watchify -v $(BROWSERIFY_BASE_CONFIG) -x bugsnag-js \
 	 app/application.coffee -o $(DIST_DIR)/assets/app.js &
 	sleep 2 && http-server -p $(SERVER_PORT) $(DIST_DIR)
 
