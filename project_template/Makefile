@@ -26,6 +26,7 @@ build-js:
 	browserify --extension .hamlc --extension .coffee \
 		-g uglifyify \
 		-t coffeeify \
+		-t aliasify \
 		-t yamlify \
 		-t [ haml-coffee-browserify ] \
 		-t [ envify purge ] \
@@ -52,6 +53,7 @@ serve: check-server-port clean build-statics build-icons build-css livereload
 	onchange 'app/styles/icons/*.svg' -- make build-icons &
 	watchify -v --extension .hamlc --extension .coffee \
 	 -t coffeeify \
+	 -t aliasify \
 	 -t yamlify \
 	 -t [ haml-coffee-browserify ] \
 	 -t [ envify purge ] \

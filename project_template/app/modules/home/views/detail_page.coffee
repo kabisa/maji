@@ -1,4 +1,4 @@
-ApplicationPage = require('../../../views/application_page')
+ApplicationPage = require('app/views/application_page')
 template        = require('../templates/detail')
 
 class DetailPage extends ApplicationPage
