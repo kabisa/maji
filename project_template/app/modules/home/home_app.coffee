@@ -1,4 +1,4 @@
-app        = require('../../app')
+app        = require('app/app')
 Marionette = require('backbone.marionette')
 
 HomeApp = app.module('home')
