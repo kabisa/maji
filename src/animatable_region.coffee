@@ -22,7 +22,7 @@ class AnimatableRegion extends Marionette.Region
     @back = true
     @navigationOptions = options
 
-    route ?= @navigationStack.get(@navigationStack.length() - 2).route
+    route ?= @navigationStack.get(@navigationStack.length() - 2)?.route
     route ?= ''
 
     window.location.hash = route
@@ -43,8 +43,6 @@ class AnimatableRegion extends Marionette.Region
   # Marionette provides this hook to open a view. It is recommended to implement
   # transitions etc at this point.
   open: (view) ->
-    return super(view) unless @showTransitions
-
     currentFragment = Backbone.history.getFragment()
 
     # Try to unwind the navigation stack until the current route.
@@ -80,7 +78,7 @@ class AnimatableRegion extends Marionette.Region
     # reset all navigation options
     @navigationOptions = null
 
-    if @transition == false
+    if ! @showTransitions || ! @transition
       return super(view)
 
     newPage = view
