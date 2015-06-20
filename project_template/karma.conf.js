@@ -6,7 +6,8 @@ module.exports = function(karma) {
     frameworks: [ 'mocha', 'sinon-chai', 'browserify' ],
 
     files: [
-      'spec/spec_helper.coffee', 'spec/**/*spec.coffee'
+      { pattern: 'spec/spec_helper.coffee', watched: false, included: true, served: true },
+      { pattern: 'spec/**/*spec.coffee', watched: false, included: true, served: true }
     ],
 
     preprocessors: {
@@ -27,7 +28,6 @@ module.exports = function(karma) {
     // browserify configuration
     browserify: {
       debug: true,
-      bundleDelay: 1000, // to prevent double runs when watching, see https://github.com/nikku/karma-browserify/issues/67
       extensions: ['.hamlc', '.coffee'],
       transform: [ 'coffeeify', 'aliasify', 'yamlify', 'haml-coffee-browserify', ['envify', { _: 'purge' }], 'brfs' ]
     }
