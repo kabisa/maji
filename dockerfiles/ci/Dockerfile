@@ -9,10 +9,12 @@ RUN apt-get update && apt-get -y install apt-utils \
            libcurl4-openssl-dev \
            libxslt-dev libxml2-dev \
            xvfb \
-           nodejs-legacy npm \
+           nodejs-legacy \
            locales
 
 RUN cd /tmp && curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2 -o phantomjs.tar.bz2 && tar xjf phantomjs.tar.bz2 && mv /tmp/phantomjs-*/bin/phantomjs /usr/bin/ && rm -r /tmp/phantomjs*
+
+RUN curl https://www.npmjs.com/install.sh | sh
 
 ENV CONTAINER_INIT /usr/local/bin/init-container
 RUN echo '#!/usr/bin/env bash' > $CONTAINER_INIT ; chmod +x $CONTAINER_INIT
