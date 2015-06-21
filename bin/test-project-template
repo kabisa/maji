@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+
+TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji-tests)
+lib/cli.js new nl.kabisa.test-app $TMP_DIR
+
+pushd $TMP_DIR
+  bin/setup
+  bin/ci
+popd
