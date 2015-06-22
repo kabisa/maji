@@ -1,5 +1,7 @@
 ![Maji Mobile](img/maji-mobile-logo.png)
 
+[![Build Status](https://ci.kabisa.nl/buildStatus/icon?job=maji)](https://ci.kabisa.nl/job/maji/)
+
 Maji Mobile is a mobile platform development solution, that allows you to quickly create mobile applications for any platform, using web technologies.
 It allows any (Web-)developer to quickly start developing mobile applications for any mobile platform.
 
@@ -12,7 +14,6 @@ Your Idea. Our Technology. For Everyone.
 ## Prerequisites
 
 Before you can use Maji, make sure you have the following:
-
 
 ### General
 
