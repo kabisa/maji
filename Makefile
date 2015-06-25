@@ -1,5 +1,4 @@
-export SHELL   := $(shell echo $$SHELL)
-export PATH    := $(PATH):$(shell npm bin)
+export PATH    := $(shell npm bin):$(PATH)
 
 build:
 	coffee --output lib --compile src
