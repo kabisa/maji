@@ -11,7 +11,7 @@ class ApplicationPage extends Maji.Page
 
   goBack: (e) ->
     e && e.preventDefault()
-    bus.execute('go-back', this.$('a[data-rel=back]').attr('href'))
+    bus.execute('go-back', e.target.getAttribute('href'))
 
   onBackButton: (e) ->
     bus.execute('go-back') unless @shouldIgnoreBackButton()
