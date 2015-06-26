@@ -18,6 +18,9 @@ class AnimatableRegion extends Marionette.Region
     @navigationOptions = options
     Backbone.history.navigate route, options
 
+  canGoBack: ->
+    @navigationStack.length() > 1
+
   goBack: (route, options = {}) ->
     @back = true
     @navigationOptions = options
