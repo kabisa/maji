@@ -31,6 +31,7 @@ class AnimatableRegion extends Marionette.Region
     window.location.hash = route
 
   show: (view, options = {}) ->
+    view._parent = this
     return super(view, options) unless @showTransitions
 
     # determine what transition to use, @navigationOptions takes precedence
