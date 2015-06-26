@@ -5,15 +5,33 @@ class TestPage extends Page
   render: ->
 
 describe 'AnimatableRegion', ->
-  before ->
-    @region = new AnimatableRegion(el: 'body')
 
-  it 'transitions pages', (done) ->
-    @region.show(new TestPage(id: 'page-1'))
-    @region.show(new TestPage(id: 'page-2'))
-
+  delayedAssert = (assert) ->
     setTimeout ->
-      expect($('#page-1')).not.to.exist
-      expect($('#page-2')).to.exist
+      assert()
       done()
     , 1000
+
+  currentPage = new TestPage(id: 'page-1')
+  nextPage = new TestPage(id: 'page-2')
+
+  before ->
+    @region = new AnimatableRegion(el: 'body')
+    @region.show(currentPage)
+
+  context 'with no transitions', ->
+    it 'can go back returns false', ->
+      expect(@region.canGoBack()).to.be.false
+
+  context 'after transition', ->
+    beforeEach ->
+      @region.show(nextPage)
+
+      it 'can go back returns true', ->
+        expect(@region.canGoBack()).to.be.true
+
+      it 'current page does not exist any longer', (done) ->
+        delayedAssert( -> expect($('#page-1')).not.to.exist)
+
+      it 'next page does not exist any longer', (done) ->
+        delayedAssert( -> expect($('#page-2')).to.exist)
