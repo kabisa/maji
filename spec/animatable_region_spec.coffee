@@ -19,7 +19,7 @@ describe 'AnimatableRegion', ->
     @region = new AnimatableRegion(el: 'body')
     @region.show(currentPage)
 
-  context 'with no transitions', ->
+  context 'When no transactions have taken place yet', ->
     it 'can go back returns false', ->
       expect(@region.canGoBack()).to.be.false
 
@@ -33,5 +33,5 @@ describe 'AnimatableRegion', ->
       it 'current page does not exist any longer', (done) ->
         delayedAssert( -> expect($('#page-1')).not.to.exist)
 
-      it 'next page does not exist any longer', (done) ->
+      it 'next page is available', (done) ->
         delayedAssert( -> expect($('#page-2')).to.exist)
