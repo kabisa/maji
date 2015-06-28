@@ -116,6 +116,7 @@ class AnimatableRegion extends Marionette.Region
           if @currentPage
             if @currentPage.close then @currentPage.close()
             else @currentPage.remove()
+            @currentPage = null
 
           @back = undefined
 
