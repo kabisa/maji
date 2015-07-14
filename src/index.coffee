@@ -1,9 +1,10 @@
 module.exports =
   Application      : require('./application')
-  ApplicationState : require('./application_state')
+  ApplicationState : require('./storage/application_state')
   AnimatableRegion : require('./animatable_region')
   bus              : require('./bus')
-  Cache            : require('./cache')
+  Cache            : require('./storage/cache')
+  JsonSetting      : require('./storage/json_setting')
   I18n             : require('./i18n')
   TemplateHelpers  : require('./template_helpers')
   Page             : require('./page')
