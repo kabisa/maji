@@ -1,3 +1,4 @@
+require './spec_helper'
 AnimatableRegion = require '../src/animatable_region'
 Page             = require '../src/page'
 
