@@ -24,7 +24,7 @@
     "coffeeify": "~1.0.0",
     "aliasify": "~1.7.2",
     "coffeelint": "~1.5.2",
-    "cordova": "~4.1.2",
+    "cordova": "~4.3.0",
     "envify": "~3.2.0",
     "exorcist": "~0.1.6",
     "chokidar": "~1.0.0-rc3",
