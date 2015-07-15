@@ -1,5 +1,7 @@
 ![Maji Mobile](img/maji-mobile-logo.png)
 
+[![Build Status](https://ci.kabisa.nl/buildStatus/icon?job=maji)](https://ci.kabisa.nl/job/maji/)
+
 Maji Mobile is a mobile platform development solution, that allows you to quickly create mobile applications for any platform, using web technologies.
 It allows any (Web-)developer to quickly start developing mobile applications for any mobile platform.
 
@@ -12,7 +14,6 @@ Your Idea. Our Technology. For Everyone.
 ## Prerequisites
 
 Before you can use Maji, make sure you have the following:
-
 
 ### General
 
@@ -35,7 +36,7 @@ Before you can use Maji, make sure you have the following:
 To create a new app execute the following commands in your shell:
 
 ```
-$ npm install git+ssh://git@github.com:kabisaict/maji
+$ npm install kabisa/maji
 $ ./node_modules/.bin/maji new org.example.my-app /desired/path/to/your/project/
 $ cd /desired/path/to/your/project/
 $ bin/setup
@@ -99,6 +100,10 @@ A Maji Mobile App comes with several frameworks built-in and configured to work 
  * [MochaJS](http://mochajs.org) a JavaScript testing framework that supports a BDD style of writing tests
  * [Chai](http://chaijs.com) is an assertion library that enables a BDD style of developing
 
+### FAQ
+
+For our Frequently Asked Questions, see [here](docs/faq.md).
+
 ### Documentation
 
 Here are some links to documentation you might need:
@@ -108,8 +113,6 @@ Here are some links to documentation you might need:
  * [Mocha](http://mochajs.org/#assertions)
  * [Chai Expect/Should](http://chaijs.com/api/bdd/)
  * [Apache Cordova](http://cordova.apache.org/docs/en/4.0.0/)
-
-There is also a [Maji Mobile FAQ](docs/faq.md).
 
 
 ## License

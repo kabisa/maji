@@ -1,7 +1,16 @@
-export DIST_DIR ?= ./dist
-export SHELL    := /bin/bash -e -o pipefail
-export PATH     := $(PATH):$(shell npm bin)
-export APP_ENV  ?=development
+export DIST_DIR        ?= ./dist
+export SHELL           := /bin/bash -e -o pipefail
+export PATH            := $(PATH):$(shell npm bin)
+export APP_ENV         ?=development
+SERVER_PORT            ?= 9090
+BROWSERIFY_BASE_CONFIG = \
+	-t coffeeify \
+	-t aliasify \
+	-t yamlify \
+	-t [ haml-coffee-browserify ] \
+	-t [ envify purge ] \
+	-t brfs \
+	--extension .hamlc --extension .coffee
 
 dist: clean build-statics build-js build-icons build-css revhash
 
@@ -22,18 +31,11 @@ revhash:
 	perl -i -pe s/app.css/app-$$HASH.css/ dist/index.html
 
 build-js:
-	browserify --extension .hamlc --extension .coffee \
-		-g uglifyify \
-		-t coffeeify \
-		-t yamlify \
-		-t [ haml-coffee-browserify ] \
-		-t [ envify purge ] \
-		-t brfs \
-		--debug \
+	browserify -g uglifyify $(BROWSERIFY_BASE_CONFIG) --debug \
 		app/application.coffee | exorcist $(DIST_DIR)/assets/app.js.map | sed '/^\s*$$/d' > $(DIST_DIR)/assets/app.js
 
 build-css:
-	node-sass --stdout --output-style $${CSS_OUTPUT_STYLE:-compressed} --include-path vendor/styles app/styles/application.scss | autoprefixer -b 'ios >= 8, android >= 4, ie >=10' > $(DIST_DIR)/assets/app.css
+	node-sass --stdout --output-style $${CSS_OUTPUT_STYLE:-compressed} --include-path vendor/styles app/styles/application.scss | postcss --use autoprefixer --autoprefixer.browsers 'ios >= 8, android >= 4, ie >=10' > $(DIST_DIR)/assets/app.css
 
 build-icons:
 	DIST_DIR='$(DIST_DIR)' node script/build-iconfont.js
@@ -41,20 +43,17 @@ build-icons:
 livereload:
 	[ -n "$$LIVERELOAD" ] && ((sleep 5 && node script/livereload.js '$(DIST_DIR)/**/*') &) || exit 0
 
+check-server-port:
+	@nc -z 127.0.0.1 $(SERVER_PORT) >/dev/null && echo 'Port $(SERVER_PORT) occupied, is a server already running?' && exit 1 || exit 0
+
 serve: DIST_DIR := './tmp/watch-build'
-serve: clean build-statics build-icons build-css livereload
+serve: check-server-port clean build-statics build-icons build-css livereload
 	onchange 'public/**/*' -- make build-statics &
 	CSS_OUTPUT_STYLE=expanded onchange 'app/styles/**/*.scss' -- make build-css &
 	onchange 'app/styles/icons/*.svg' -- make build-icons &
-	watchify -v --extension .hamlc --extension .coffee \
-	 -t coffeeify \
-	 -t yamlify \
-	 -t [ haml-coffee-browserify ] \
-	 -t [ envify purge ] \
-	 -t brfs \
-	 -x bugsnag-js \
+	watchify -v $(BROWSERIFY_BASE_CONFIG) -x bugsnag-js \
 	 app/application.coffee -o $(DIST_DIR)/assets/app.js &
-	sleep 2 && http-server -p 9090 $(DIST_DIR)
+	sleep 2 && http-server -p $(SERVER_PORT) $(DIST_DIR)
 
 watch: serve
 

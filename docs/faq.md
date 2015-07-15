@@ -10,7 +10,7 @@ It is *not* a framework itself, it is an opinionated combination of tools, frame
 
 Maji is Swahili for 'water'. We choose this name as Maji Mobile is flexible, it has to adapt to the situation, just like water flows to match the surroundings.
 
-What do we have with Swahili? Maji Mobile is product of [Kabisa](http://www.kabisa.nl), which is also a Swahili word.
+What do we have with Swahili? Maji Mobile originated from a [Kabisa](http://www.kabisa.nl) project. Kabisa is a Dutch company, but its name is also a Swahili word.
 
 ## What knowledge do I need to build apps with Maji?
 
@@ -42,3 +42,7 @@ Apache Cordova is easily configurable to create a Mobile Application that uses e
 You can access any mobile device features by adding the corresponding plug-in, either one created by Apache or one of the many plug-ins made by the active community.
 
 See the [Cordova Plugin API](http://docs.phonegap.com/en/4.0.0/cordova_plugins_pluginapis.md.html) for more details.
+
+## Can I use the [marionette.inspector](https://github.com/marionettejs/marionette.inspector) to inspect my Maji App?
+
+Yes you can, but note that Maji apps use Broweserify, so please note the [Marionette Inspector caveats](https://github.com/marionettejs/marionette.inspector#caveats) section.
