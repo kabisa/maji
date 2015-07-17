@@ -1,4 +1,3 @@
-require './spec_helper'
 NavigationStack = require '../src/navigation_stack'
 
 

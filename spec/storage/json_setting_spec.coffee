@@ -1,4 +1,3 @@
-require '../spec_helper'
 JsonSetting = require '../../src/storage/json_setting'
 
 describe 'JsonSetting', ->

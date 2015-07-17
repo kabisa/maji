@@ -1,4 +1,3 @@
-require '../spec_helper'
 Cache = require '../../src/storage/cache'
 
 describe 'Cache', ->
