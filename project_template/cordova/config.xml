@@ -22,4 +22,14 @@
 
     <!-- disable icloud storage sync -->
     <preference name="BackupWebStorage" value="local"/>
+
+    <!-- plugins -->
+    <feature name="Splashscreen">
+        <param name="id" value="org.apache.cordova.splashscreen" />
+    </feature>
+    <feature name="Network Activity Plugin for Cordova iOS">
+        <param name="id" value="com.mallzee.plugin.networkactivity" />
+        <param name="url" value="https://github.com/mallzee/network-activity.git#0904b83c3109560bad8e7dd9be1320bb9303899d" />
+    </feature>
+
 </widget>
