@@ -6,4 +6,7 @@ class ApplicationState
   set: (key, value) ->
     localStorage.setItem(key, JSON.stringify(value))
 
+  reset: (key) ->
+    localStorage.removeItem(key)
+
 module.exports = new ApplicationState()

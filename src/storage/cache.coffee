@@ -41,7 +41,7 @@ class Cache
       .map (key) => [key, @_rawGet(key)]
       .filter ([key, item]) => new Date(item.expiresAt) < @_currentDate()
       .each ([key, item]) ->
-          localStorage.removeItem(key)
+        ApplicationState.reset(key)
 
   _currentDate: ->
     new Date()
