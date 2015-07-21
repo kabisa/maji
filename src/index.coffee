@@ -1,4 +1,9 @@
 module.exports =
+  RecoverableError          : require('./errors/base_error').RecoverableError
+  UnrecoverableError        : require('./errors/base_error').UnrecoverableError
+  ServiceError              : require('./errors/service_error')
+  ServiceUnavailableError   : require('./errors/service_unavailable_error')
+
   bus                       : require('./lib/bus')
   I18n                      : require('./lib/i18n')
   TemplateHelpers           : require('./lib/template_helpers')
