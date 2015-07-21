@@ -80,6 +80,8 @@ To build a static HTML5 app, run `make dist`.
 
 To build a native app, run `bin/maji build <platform>`.
 
+For CI docker files are included, which can be used incombination with the [kabisa jenkins-docker tooling](https://github.com/kabisa/jenkins-docker). `dockerfiles` includes files for tests only or build android packages.
+
 ## Build-up
 
 You can find the sources in the `src\` folder.
