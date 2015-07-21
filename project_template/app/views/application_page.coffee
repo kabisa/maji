@@ -3,18 +3,23 @@ bus  = require('../app').bus
 
 class ApplicationPage extends Maji.Page
   events:
+    'click [data-rel=home]': 'goHome'
     'click [data-rel=back]': 'goBack'
 
   constructor: ->
     super
     @listenTo bus.vent, 'app:backbutton', @onBackButton
 
+  goHome: (e) ->
+    e && e.preventDefault()
+    @transitionHome(e.target.getAttribute('href'), 'slide')
+
   goBack: (e) ->
     e && e.preventDefault()
-    bus.execute('go-back', this.$('a[data-rel=back]').attr('href'))
+    @transitionBack(this.$('a[data-rel=back]').attr('href'))
 
   onBackButton: (e) ->
-    bus.execute('go-back') unless @shouldIgnoreBackButton()
+    @transitionBack() unless @shouldIgnoreBackButton()
 
   shouldIgnoreBackButton: ->
     # implement your logic here when to ignore the back button,

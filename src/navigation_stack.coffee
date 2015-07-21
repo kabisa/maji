@@ -5,6 +5,9 @@ class NavigationStack
     @stack = []
     @_prevRoute = null
 
+  unshift: (navigationElement) ->
+    @stack.unshift navigationElement
+
   push: (navigationElement) ->
     @stack.push navigationElement
 
