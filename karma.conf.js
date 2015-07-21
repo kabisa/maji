@@ -3,7 +3,7 @@
 module.exports = function(karma) {
   karma.set({
 
-    frameworks: [ 'mocha', 'chai', 'chai-jquery', 'browserify' ],
+    frameworks: [ 'mocha', 'sinon-chai', 'browserify', 'chai-jquery' ],
 
     files: [
       { pattern: 'spec/spec_helper.coffee', watched: false, included: true, served: true },

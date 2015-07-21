@@ -12,6 +12,6 @@ class JsonSetting
     ApplicationState.set(@key, value)
 
   reset: ->
-    localStorage.removeItem(@key)
+    ApplicationState.reset(@key)
 
 module.exports = JsonSetting

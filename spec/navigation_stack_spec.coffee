@@ -1,5 +1,6 @@
 NavigationStack = require '../src/navigation_stack'
 
+
 describe 'NavigationStack', ->
   beforeEach ->
     @stack = new NavigationStack()
