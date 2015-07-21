@@ -1,7 +1,7 @@
 _               = require('underscore')
 Backbone        = require('backbone')
 Marionette      = require('backbone.marionette')
-NavigationStack = require('./navigation_stack')
+NavigationStack = require('../lib/navigation_stack')
 
 class AnimatableRegion extends Marionette.Region
   constructor: (opts = {}) ->
