@@ -1,4 +1,4 @@
-NavigationStack = require '../src/navigation_stack'
+NavigationStack = require '../../src/lib/navigation_stack'
 
 
 describe 'NavigationStack', ->

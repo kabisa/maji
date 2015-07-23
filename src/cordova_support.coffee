@@ -1,5 +1,5 @@
 $          = require('jquery')
-bus        = require('./bus')
+bus        = require('./lib/bus')
 
 publishOnBus = (e) ->
   bus.trigger("app:#{e.type}")
