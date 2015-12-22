@@ -84,7 +84,7 @@ For CI docker files are included, which can be used incombination with the [kabi
 
 ## Build-up
 
-You can find the sources in the `src\` folder.
+You can find the sources in the `src/` folder.
 Compiled javascript is stored in `lib/`.  It is included in this repository so this module can be used straight from Github. Now an application using Maji doesn't have to compile its sources to javascript first.
 
 ### Frameworks
