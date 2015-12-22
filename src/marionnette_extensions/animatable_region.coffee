@@ -52,7 +52,7 @@ class AnimatableRegion extends Marionette.Region
   # Marionette provides this hook to open a view. It is recommended to implement
   # transitions etc at this point.
   attachHtml: (view) ->
-    currentFragment = Backbone.history.location.pathname;
+    currentFragment = Backbone.history.getHash()
 
     # Try to unwind the navigation stack until the current route.
     # If we somehow navigate to a route we've already been before we

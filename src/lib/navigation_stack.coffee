@@ -16,7 +16,7 @@ class NavigationStack
 
   unwind: (route) ->
     for item, i in @stack by -1
-      if item.route == route
+      if item.route == route || item.route == route.replace('\/', '')
         @_prevRoute = @stack[i + 1] || @stack[i]
         @stack = @stack[0.. i]
         return @_prevRoute
