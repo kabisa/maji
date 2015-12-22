@@ -51,7 +51,7 @@ serve: check-server-port clean build-statics build-icons build-css livereload
 	onchange 'public/**/*' -- make build-statics &
 	CSS_OUTPUT_STYLE=expanded onchange 'app/styles/**/*.scss' -- make build-css &
 	onchange 'app/styles/icons/*.svg' -- make build-icons &
-	watchify -v $(BROWSERIFY_BASE_CONFIG) -x bugsnag-js \
+	watchify -d -v $(BROWSERIFY_BASE_CONFIG) -x bugsnag-js \
 	 app/application.coffee -o $(DIST_DIR)/assets/app.js &
 	sleep 2 && http-server -p $(SERVER_PORT) $(DIST_DIR)
 
