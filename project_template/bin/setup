@@ -20,6 +20,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 npm install
+
+# Temporary fix because falafel has a dependency on acorn 0.11.0, this can be removed when those packages are upgraded
+# my-app@1.0.0
+# └─┬    aliasify@1.8.0
+#     └─┬ browserify-transform-tools@1.3.3
+#         └─┬ falafel@1.0.1
+#             └── acorn@0.11.0
+npm upgrade acorn
+
 bundle install
 
 if [ -d .git ]; then
