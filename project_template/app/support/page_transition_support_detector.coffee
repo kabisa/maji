@@ -1,4 +1,4 @@
-$ = require('jquery')
+require('maji/lib/jquery-browser-detect')
 
 class PageTransitionSupportDetector
   @supportsTransitions: ->

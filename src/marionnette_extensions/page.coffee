@@ -1,6 +1,6 @@
 Marionette = require('backbone.marionette')
 
-class Page extends Marionette.Layout
+class Page extends Marionette.LayoutView
   transition: 'slide'
   className: 'page'
 
