@@ -12,10 +12,10 @@ class HomeApp.Router extends Marionette.AppRouter
 API =
   home: ->
     IndexPage = require('./views/index_page')
-    app.mainRegion.show new IndexPage()
+    app.mainRegion.show new IndexPage(), preventDestroy: true
   detail: ->
     DetailPage = require('./views/detail_page')
-    app.mainRegion.show new DetailPage()
+    app.mainRegion.show new DetailPage(), preventDestroy: true
 
 HomeApp.addInitializer ->
   new HomeApp.Router
