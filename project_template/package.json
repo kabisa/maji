@@ -44,7 +44,7 @@
     "onchange": "~1.0.0",
     "tiny-lr": "~0.1.5",
     "uglifyify": "~3.0.1",
-    "vinyl-fs": "~0.3.13",
+    "vinyl-fs": "~2.2.1",
     "watchify": "~2.6.0",
     "yamlify": "~0.1.2"
   },
