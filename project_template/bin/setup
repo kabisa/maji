@@ -6,7 +6,18 @@ echo "Setting up $PROJECT"
 if brew_available ; then
   brew_dep_installed 'node' || brew install node
   brew_dep_installed 'ant' || brew install ant
-  brew_dep_installed 'phantomjs' || brew install phantomjs
+
+  if ! command_available 'phantomjs' ; then
+    # This can be removed when Homebrew supplies a working PhantomJS build for El Capitan again
+    if [[ "$OSTYPE" == "darwin15"* ]]; then
+      # If there is no phantomjs available and we're on El Capitan, we cannot install
+      # it automatically.
+      echo 'No PhantomJS detected and unable to install it through Homebrew on OS X El Capitan. You can download and install a working build from the PhantomJS website: http://phantomjs.org/download.html'
+      exit 1
+    else
+      brew install phantomjs
+    fi
+  fi
 
   # npm is included with node in newer version, so this normally shouldn't be needed.
   command_available 'npm' || brew install npm
