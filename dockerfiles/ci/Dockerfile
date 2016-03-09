@@ -1,4 +1,4 @@
-FROM ruby:2.1
+FROM ruby:2.3.0
 
 RUN apt-get update && apt-get -y install apt-utils \
            build-essential \
@@ -19,7 +19,6 @@ RUN curl https://www.npmjs.com/install.sh | sh
 ENV CONTAINER_INIT /usr/local/bin/init-container
 RUN echo '#!/usr/bin/env bash' > $CONTAINER_INIT ; chmod +x $CONTAINER_INIT
 
-RUN gem install bundler
 RUN bundle config --global path /cache/bundle
 RUN echo 'bundle config --global jobs $(cat /proc/cpuinfo | grep -c processor)' >> $CONTAINER_INIT
 RUN echo 'Xvfb :0 -ac -screen 0 1024x768x24 >/dev/null 2>&1 &' >> $CONTAINER_INIT
