@@ -1,20 +1,23 @@
 FROM ruby:2.3.0
 
-RUN apt-get update && apt-get -y install apt-utils \
-           build-essential \
-           git-core \
-           curl libssl-dev \
-           libreadline-dev \
-           zlib1g zlib1g-dev \
-           libcurl4-openssl-dev \
-           libxslt-dev libxml2-dev \
-           xvfb \
-           nodejs-legacy \
-           locales
+RUN apt-get update \
+  && apt-get -y install apt-utils \
+          build-essential \
+          git-core \
+          curl libssl-dev \
+          libreadline-dev \
+          zlib1g zlib1g-dev \
+          libcurl4-openssl-dev \
+          libxslt-dev libxml2-dev \
+          xvfb \
+          locales \
+  && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Install NodeJS 5
+RUN curl -sL https://deb.nodesource.com/setup_5.x | bash - \
+    && apt-get install --yes nodejs
 
 RUN cd /tmp && curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2 -o phantomjs.tar.bz2 && tar xjf phantomjs.tar.bz2 && mv /tmp/phantomjs-*/bin/phantomjs /usr/bin/ && rm -r /tmp/phantomjs*
-
-RUN curl https://www.npmjs.com/install.sh | sh
 
 ENV CONTAINER_INIT /usr/local/bin/init-container
 RUN echo '#!/usr/bin/env bash' > $CONTAINER_INIT ; chmod +x $CONTAINER_INIT
