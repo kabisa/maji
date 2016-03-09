@@ -17,6 +17,7 @@
     "maji": "kabisa/maji"
   },
   "devDependencies": {
+    "acorn": "~2.6.4",
     "autoprefixer": "~6.2.1",
     "postcss-cli": "~2.3.2",
     "brfs": "~1.4.1",
