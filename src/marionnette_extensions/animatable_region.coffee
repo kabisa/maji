@@ -13,10 +13,10 @@ class AnimatableRegion extends Marionette.Region
 
     super
 
-  navigate: (route, options = {}) ->
+  navigate: (route, options = {}, history) ->
     @back = false
     @navigationOptions = options
-    Backbone.history.navigate route, options
+    history.navigate route, options
 
   canGoBack: ->
     @navigationStack.length() > 1
@@ -51,8 +51,8 @@ class AnimatableRegion extends Marionette.Region
 
   # Marionette provides this hook to open a view. It is recommended to implement
   # transitions etc at this point.
-  open: (view) ->
-    currentFragment = Backbone.history.getFragment()
+  attachHtml: (view) ->
+    currentFragment = Backbone.history.getHash()
 
     # Try to unwind the navigation stack until the current route.
     # If we somehow navigate to a route we've already been before we
@@ -119,7 +119,7 @@ class AnimatableRegion extends Marionette.Region
 
           # remove the current page, if any
           if @currentPage
-            if @currentPage.close then @currentPage.close()
+            if @currentPage.destroy then @currentPage.destroy()
             else @currentPage.remove()
             @currentPage = null
 
