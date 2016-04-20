@@ -91,7 +91,7 @@ class AnimatableRegion extends Marionette.Region
       return super(view)
 
     newPage = view
-    newPage.$el.addClass('page-pre-in')
+    newPage.$el.addClass('maji-page-pre-in')
     newPage.$el.css('z-index', 10)
 
     @$el.append(newPage.$el)
@@ -100,21 +100,21 @@ class AnimatableRegion extends Marionette.Region
 
     if @currentPage
       @currentPage.trigger 'transitionstart'
-      @$el.addClass("viewport-transitioning viewport-#{@transition}")
+      @$el.addClass("maji-viewport-transitioning maji-viewport-#{@transition}")
 
       setTimeout((=>
         window.scrollTo(0,0)
-        @currentPage.$el.addClass("animated #{@transition} out#{if @back then ' reverse' else ''}")
+        @currentPage.$el.addClass("maji-page-animated maji-page-#{@transition} maji-page-out#{if @back then ' maji-page-reverse' else ''}")
 
-        newPage.$el.removeClass('page-pre-in')
-        newPage.$el.addClass("animated #{@transition} in#{if @back then ' reverse' else ''}")
+        newPage.$el.removeClass('maji-page-pre-in')
+        newPage.$el.addClass("maji-page-animated maji-page-#{@transition} maji-page-in#{if @back then ' maji-page-reverse' else ''}")
 
         # newPage.$el.one 'webkitAnimationEnd mozAnimationEnd msAnimationEnd oAnimationEnd animationend', =>
         # FIXME: this is a temporary workaround for animationend events often times not
         # firing on WP8. Transitions in the app all use the same duration so a setTimeout is good
         # enough as a workaround.
         setTimeout((=>
-          newPage.$el.removeClass("animated #{@transition} in reverse")
+          newPage.$el.removeClass("maji-page-animated maji-page-#{@transition} maji-page-in maji-page-reverse")
           newPage.$el.css('z-index', '')
 
           # remove the current page, if any
@@ -125,14 +125,14 @@ class AnimatableRegion extends Marionette.Region
 
           @back = undefined
 
-          @$el.removeClass('viewport-transitioning')
-          @$el.removeClass("viewport-#{@transition}")
+          @$el.removeClass('maji-viewport-transitioning')
+          @$el.removeClass("maji-viewport-#{@transition}")
 
           newPage.trigger 'transitioned'
         ), @_transitionDuration(@transition))
       ), 1)
     else
-      newPage.$el.removeClass('page-pre-in')
+      newPage.$el.removeClass('maji-page-pre-in')
       @back = undefined
       newPage.trigger 'transitioned'
 
@@ -149,7 +149,8 @@ class AnimatableRegion extends Marionette.Region
       console.log.apply console, arguments
 
   _transitionDuration: (transtionType) ->
-    return 750 if transtionType == 'flip'
-    return 350
+    # Keep time values in sync with CSS in maji_screen_transitions.scss
+    return 400 if transtionType == 'flip'
+    return 200
 
 module.exports = AnimatableRegion

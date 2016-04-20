@@ -1,64 +1,64 @@
-$prefix-for-mozilla: false;
-$animation-duration: 350ms;
+// Keep time values in sync with JavaScript in animatable_region.coffee
+$animation-duration: 200ms;
+$animation-page-flip-duration: 400ms;
 
-.viewport-transitioning {
+.maji-viewport-transitioning {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
   overflow: hidden;
 }
 
-.page-pre-in {
+.maji-page-pre-in {
   opacity: 0;
 }
 
-.animated {
+.maji-page-animated {
   animation-fill-mode: both;
   animation-duration: $animation-duration;
 }
 
-.slide {
-  &.in {
-    animation-name: slideInRight;
-    animation-delay: -2ms;
+.maji-page-slide {
+  &.maji-page-in {
+    animation-name: majiPageSlideInRight;
   }
 
-  &.out { animation-name: slideOutLeft; }
+  &.maji-page-out { animation-name: majiPageSlideOutLeft; }
 
-  &.reverse {
-    &.in { animation-name: slideInLeft; }
-    &.out { animation-name: slideOutRight; }
+  &.maji-page-reverse {
+    &.maji-page-in { animation-name: majiPageSlideInLeft; }
+    &.maji-page-out { animation-name: majiPageSlideOutRight; }
   }
 }
 
-.slideup {
-  &.in { animation-name: slideInUp; }
-  &.out { animation-name: fadeOut; }
+.maji-page-slideup {
+  &.maji-page-in { animation-name: majiPageSlideInUp; }
+  &.maji-page-out { animation-name: majiPageFadeOut; }
 
-  &.reverse {
-    &.in {
-      animation-name: fadeIn;
+  &.maji-page-reverse {
+    &.maji-page-in {
+      animation-name: majiPageFadeIn;
       animation-delay: 100ms;
     }
 
-    &.out { animation-name: slideOutDown; }
+    &.maji-page-out { animation-name: majiPageSlideOutDown; }
   }
 }
 
-.flip {
+.maji-page-flip {
   backface-visibility: hidden;
-  animation-duration: 750ms;
+  animation-duration: $animation-page-flip-duration;
 
-  &.in { animation-name: flipInLeft; z-index: 2; }
-  &.out { animation-name: flipOutRight; }
+  &.maji-page-in { animation-name: majiPageFlipInLeft; z-index: 2; }
+  &.maji-page-out { animation-name: majiPageFlipOutRight; }
 
-  &.reverse {
-    &.in { animation-name: flipInRight; }
-    &.out { animation-name: flipOutLeft; }
+  &.maji-page-reverse {
+    &.maji-page-in { animation-name: majiPageFlipInRight; }
+    &.maji-page-out { animation-name: majiPageFlipOutLeft; }
   }
 }
 
-@keyframes fadeIn {
+@keyframes majiPageFadeIn {
   0% {
     opacity: 0;
   }
@@ -68,7 +68,7 @@ $animation-duration: 350ms;
   }
 }
 
-@keyframes fadeOut {
+@keyframes majiPageFadeOut {
   0% {
     opacity: 1;
   }
@@ -78,7 +78,7 @@ $animation-duration: 350ms;
   }
 }
 
-@keyframes slideInUp {
+@keyframes majiPageSlideInUp {
   0% {
     transform: translateY(100%);
   }
@@ -88,7 +88,7 @@ $animation-duration: 350ms;
   }
 }
 
-@keyframes slideOutDown {
+@keyframes majiPageSlideOutDown {
   0% {
     transform: translateY(0);
   }
@@ -98,7 +98,7 @@ $animation-duration: 350ms;
   }
 }
 
-@keyframes slideInLeft {
+@keyframes majiPageSlideInLeft {
   0% {
     transform: translateX(-100%);
   }
@@ -108,7 +108,7 @@ $animation-duration: 350ms;
   }
 }
 
-@keyframes slideInRight {
+@keyframes majiPageSlideInRight {
   0% {
     transform: translateX(100%);
   }
@@ -118,7 +118,7 @@ $animation-duration: 350ms;
   }
 }
 
-@keyframes slideOutLeft {
+@keyframes majiPageSlideOutLeft {
   0% {
     transform: translateX(0);
   }
@@ -128,7 +128,7 @@ $animation-duration: 350ms;
   }
 }
 
-@keyframes slideOutRight {
+@keyframes majiPageSlideOutRight {
   0% {
     transform: translateX(0);
   }
@@ -138,7 +138,7 @@ $animation-duration: 350ms;
   }
 }
 
-@keyframes flipOutRight {
+@keyframes majiPageFlipOutRight {
   0% {
     transform: perspective(400px) rotateY(0deg);
   }
@@ -148,7 +148,7 @@ $animation-duration: 350ms;
   }
 }
 
-@keyframes flipInLeft {
+@keyframes majiPageFlipInLeft {
   0% {
     transform: perspective(400px) rotateY(-180deg);
   }
@@ -158,7 +158,7 @@ $animation-duration: 350ms;
   }
 }
 
-@keyframes flipInRight {
+@keyframes majiPageFlipInRight {
   0% {
     transform: perspective(400px) rotateY(180deg);
   }
@@ -168,7 +168,7 @@ $animation-duration: 350ms;
   }
 }
 
-@keyframes flipOutLeft {
+@keyframes majiPageFlipOutLeft {
   0% {
     transform: perspective(400px) rotateY(0deg);
   }
