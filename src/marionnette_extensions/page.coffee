@@ -1,7 +1,7 @@
 Marionette = require('backbone.marionette')
 
 class Page extends Marionette.View
-  transition: 'maji-page-slide'
+  transition: 'slide'
   className: 'maji-page'
 
   canGoBack: ->
