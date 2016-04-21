@@ -82,6 +82,17 @@ To build a native app, run `bin/maji build <platform>`.
 
 For CI docker files are included, which can be used incombination with the [kabisa jenkins-docker tooling](https://github.com/kabisa/jenkins-docker). `dockerfiles` includes files for tests only or build android packages.
 
+## Developing Maji
+
+When making changes to the Maji framework, you can test them by letting Node know you'll be using your local Maji version in a test app.
+
+* Checkout Maji from Github
+* Make changes in Maji
+* Do a `npm link` in the Maji repo directory
+* Create a new project so you can test changes to the framework: `node lib/cli.js new org.example.mytestapp /path/to/mytestapp`
+* In the newly created project, link your local Maji: `npm link maji` and do a `bin/setup`
+* Do a `bin/setup` every time you want to test the changes in your Maji code
+
 ## Build-up
 
 You can find the sources in the `src/` folder.
