@@ -45,7 +45,7 @@ class AnimatableRegion extends Marionette.Region
 
     if @transition
       @currentPage = @currentView
-      options.preventClose = true
+      options.preventDestroy = true
 
     super(view, options)
 
