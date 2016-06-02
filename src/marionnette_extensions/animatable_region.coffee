@@ -71,7 +71,7 @@ class AnimatableRegion extends Marionette.Region
 
       # use the transition that got us here, unless transitions were overridden
       if ! @navigationOptions?.transition?
-        @transition = previousNavigationItem?.transition || @transition
+        @transition = previousNavigationItem?.transition || @currentPage.transition
     else
       @back = false
       unless @navigationOptions?.intermediate || previousNavigationItem
