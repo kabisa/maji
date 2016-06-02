@@ -23,7 +23,6 @@ class AnimatableRegion extends Marionette.Region
 
   goHome: (route, transition) ->
     @navigationStack.clear()
-    @navigationStack.unshift { route: route, transition: transition }
     @goBack route, { transition: transition }
 
   goBack: (route, options = {}) ->
