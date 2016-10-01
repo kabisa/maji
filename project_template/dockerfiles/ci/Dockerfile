@@ -26,7 +26,6 @@ RUN cd /tmp && curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs
 ENV CONTAINER_INIT /usr/local/bin/init-container
 RUN echo '#!/usr/bin/env bash' > $CONTAINER_INIT ; chmod +x $CONTAINER_INIT
 
-RUN bundle config --global path /cache/bundle
 RUN echo 'bundle config --global jobs $(cat /proc/cpuinfo | grep -c processor)' >> $CONTAINER_INIT
 RUN echo 'Xvfb :0 -ac -screen 0 1024x768x24 >/dev/null 2>&1 &' >> $CONTAINER_INIT
 
@@ -39,3 +38,4 @@ ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 ENV PHANTOMJS_BIN /usr/bin/phantomjs
+ENV BUNDLE_PATH /cache/bundle
