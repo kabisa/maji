@@ -23,8 +23,7 @@ class AnimatableRegion extends Marionette.Region
 
   goHome: (route, transition) ->
     @navigationStack.clear()
-    @navigationStack.unshift { route: route, transition: transition }
-    @goBack(route)
+    @goBack route, { transition: transition }
 
   goBack: (route, options = {}) ->
     @back = true
@@ -72,7 +71,7 @@ class AnimatableRegion extends Marionette.Region
 
       # use the transition that got us here, unless transitions were overridden
       if ! @navigationOptions?.transition?
-        @transition = previousNavigationItem?.transition || @transition
+        @transition = @currentPage?.transition || previousNavigationItem?.transition
     else
       @back = false
       unless @navigationOptions?.intermediate || previousNavigationItem
