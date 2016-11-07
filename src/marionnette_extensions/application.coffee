@@ -10,8 +10,8 @@ class Application extends Marionette.Application
     _.defaults opts,
       showTransitions: true
 
-    require('./marionnette_extensions/marionette_renderer').setup()
-    require('./cordova_support')
+    require('./marionette_renderer').setup()
+    require('../cordova_support')
     this.bus = bus
 
     @addRegions
