@@ -94,13 +94,13 @@ class AnimatableRegion extends Marionette.Region
     newPage.$el.addClass('page-pre-in')
     newPage.$el.css('z-index', 10)
 
-    this.$el.append(newPage.$el)
+    @$el.append(newPage.$el)
 
     @_log 'Using transition', @transition, 'and back =', @back
 
     if @currentPage
       @currentPage.trigger 'transitionstart'
-      this.$el.addClass("viewport-transitioning viewport-#{@transition}")
+      @$el.addClass("viewport-transitioning viewport-#{@transition}")
 
       setTimeout((=>
         window.scrollTo(0,0)
@@ -125,8 +125,8 @@ class AnimatableRegion extends Marionette.Region
 
           @back = undefined
 
-          this.$el.removeClass('viewport-transitioning')
-          this.$el.removeClass("viewport-#{@transition}")
+          @$el.removeClass('viewport-transitioning')
+          @$el.removeClass("viewport-#{@transition}")
 
           newPage.trigger 'transitioned'
         ), @_transitionDuration(@transition))
