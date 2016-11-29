@@ -14,10 +14,9 @@ class Application extends Marionette.Application
     require('./cordova_support')
     this.bus = bus
 
-    @addRegions
-      mainRegion: new AnimatableRegion(
-        el: '#maji-app',
-        showTransitions: opts.showTransitions
-      )
+    @addRegion('mainRegion', new AnimatableRegion(
+      el: '#maji-app',
+      showTransitions: opts.showTransitions
+    ))
 
 module.exports = Application
