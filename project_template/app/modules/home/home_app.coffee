@@ -8,10 +8,11 @@ class HomeRouter extends Marionette.AppRouter
 
   home: ->
     IndexPage = require('./views/index_page')
-    app.mainRegion.show new IndexPage()
+    app.showView new IndexPage()
+
   detail: ->
     DetailPage = require('./views/detail_page')
-    app.mainRegion.show new DetailPage()
+    app.showView new DetailPage()
 
 app.on 'start', ->
   new HomeRouter
