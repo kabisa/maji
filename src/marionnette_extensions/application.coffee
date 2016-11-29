@@ -8,8 +8,8 @@ class Application extends Marionette.Application
   regionClass: AnimatableRegion
 
   initialize: (opts = {}) ->
-    require('./marionnette_extensions/marionette_renderer').setup()
-    require('./cordova_support')
+    require('./marionette_renderer').setup()
+    require('../cordova_support')
     @bus = bus
 
     _.defaults opts,
