@@ -96,7 +96,7 @@ The best way to start is to checkout the updated example app.
        'my_route/:resource_id' : 'openMyRoute'
        
      openMyRoute: (resourceId) -> # Method in class now
-       app.mainRegion.show new EditorPage(
+       app.showView new EditorPage( # Use showView
          model: model
        )
    
