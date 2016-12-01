@@ -1,24 +1,19 @@
 app        = require('app/app')
 Marionette = require('backbone.marionette')
 
-HomeApp = app.module('home')
-HomeApp.startWithParent = false
-
-class HomeApp.Router extends Marionette.AppRouter
-  appRoutes:
+class HomeRouter extends Marionette.AppRouter
+  routes:
     ''       : 'home'
     'detail' : 'detail'
 
-API =
   home: ->
     IndexPage = require('./views/index_page')
-    app.mainRegion.show new IndexPage()
+    app.showView new IndexPage()
+
   detail: ->
     DetailPage = require('./views/detail_page')
-    app.mainRegion.show new DetailPage()
+    app.showView new DetailPage()
 
-HomeApp.addInitializer ->
-  new HomeApp.Router
-    controller: API
+app.on 'start', ->
+  new HomeRouter
 
-module.exports = HomeApp

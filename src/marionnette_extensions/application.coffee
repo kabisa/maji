@@ -4,20 +4,16 @@ AnimatableRegion = require('./animatable_region')
 bus              = require('../lib/bus')
 
 class Application extends Marionette.Application
-  constructor: (opts = {}) ->
-    super
+  region: '#maji-app'
+  regionClass: AnimatableRegion
+
+  initialize: (opts = {}) ->
+    require('./marionette_renderer').setup()
+    require('../cordova_support')
+    @bus = bus
 
     _.defaults opts,
       showTransitions: true
-
-    require('./marionette_renderer').setup()
-    require('../cordova_support')
-    this.bus = bus
-
-    @addRegions
-      mainRegion: new AnimatableRegion(
-        el: '#maji-app',
-        showTransitions: opts.showTransitions
-      )
+    @getRegion().showTransitions = opts.showTransitions
 
 module.exports = Application
