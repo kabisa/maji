@@ -8,7 +8,7 @@
     "backbone.marionette": "3.1.0",
     "backbone.wreqr": "~1.3.7",
     "fastclick": "~1.0.6",
-    "jquery": "~2.1.3",
+    "jquery": "~3.0.0",
     "underscore": "~1.8.3",
     "bugsnag-js": "~2.4.9",
     "maji": "kabisa/maji#2-0-stable"
@@ -53,8 +53,7 @@
   },
   "aliasify": {
     "aliases": {
-      "app": "./app",
-      "when": "when/dist/browser/when.min"
+      "app": "./app"
     }
   }
 }

@@ -19,8 +19,6 @@ $ = Backbone.$ = require('jquery')
 #
 window.memo = require('memo-is')
 
-When = require('when')
-
 # Use wait for to wait for data to come in,
 # DOM elements to exist, or spies
 # to have been called
@@ -30,15 +28,19 @@ When = require('when')
 # waitFor(=> @view.$('element').length > 0).then -> # assertions
 #
 window.waitFor = (test) ->
-  d = When.defer()
+  d = $.Deferred()
+  timeout = null
   i = setInterval(
     ->
       if (result = test())
         clearInterval i
+        clearTimeout timeout
         d.resolve(result)
     2
   )
-  d.promise.timeout(1500, new Error('waitFor never resolved'))
-    .catch (e) ->
+  timeout = setTimeout(1500,
+    ->
       clearInterval i
-      throw e
+      d.reject(new Error('waitFor never resolved'))
+  )
+  d.promise()
