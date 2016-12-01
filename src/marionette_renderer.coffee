@@ -1,2 +1,2 @@
 # for backwards compatibility
-module.exports = require('./marionnette_extensions/marionette_renderer')
+module.exports = require('./marionette_extensions/marionette_renderer')

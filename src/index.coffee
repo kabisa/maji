@@ -8,9 +8,9 @@ module.exports =
   I18n                      : require('./lib/i18n')
   TemplateHelpers           : require('./lib/template_helpers')
 
-  Application               : require('./marionnette_extensions/application')
-  AnimatableRegion          : require('./marionnette_extensions/animatable_region')
-  Page                      : require('./marionnette_extensions/page')
+  Application               : require('./marionette_extensions/application')
+  AnimatableRegion          : require('./marionette_extensions/animatable_region')
+  Page                      : require('./marionette_extensions/page')
 
   ApplicationState          : require('./storage/application_state')
   Cache                     : require('./storage/cache')

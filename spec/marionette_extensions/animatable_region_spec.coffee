@@ -1,5 +1,5 @@
-AnimatableRegion = require '../../src/marionnette_extensions/animatable_region'
-Page             = require '../../src/marionnette_extensions/page'
+AnimatableRegion = require '../../src/marionette_extensions/animatable_region'
+Page             = require '../../src/marionette_extensions/page'
 
 class TestPage extends Page
   render: ->
