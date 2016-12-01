@@ -32,15 +32,16 @@ window.waitFor = (test) ->
   timeout = null
   i = setInterval(
     ->
-      if (result = test())
-        clearInterval i
-        clearTimeout timeout
-        d.resolve(result)
+      return unless (result = test())
+      clearInterval i
+      clearTimeout timeout
+      d.resolve(result)
     2
   )
-  timeout = setTimeout(1500,
+  timeout = setTimeout(
     ->
       clearInterval i
       d.reject(new Error('waitFor never resolved'))
+    1500
   )
   d.promise()
