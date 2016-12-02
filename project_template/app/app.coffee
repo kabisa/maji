@@ -5,6 +5,7 @@ require('./config/template_helpers')
 
 Backbone                      = require('backbone')
 Marionette                    = require('backbone.marionette')
+Radio                         = require('backbone.radio')
 PageTransitionSupportDetector = require('./support/page_transition_support_detector')
 Maji                          = require('maji')
 
@@ -22,17 +23,14 @@ app.on 'before:start', ->
   app.on 'start', (options) ->
     Backbone.history.start()
 
-app.bus.reqres.setHandler 'view:current', ->
-  app.getView()
-
-app.bus.reqres.setHandler 'uri:current', ->
-  Backbone.history.fragment
-
-app.bus.commands.setHandler 'navigate', (location, options = {}) ->
-  app.getRegion().navigate(location, options, Backbone.history)
-
-app.bus.commands.setHandler 'go-back', (where, opts) ->
-  where = undefined if where == '#'
-  app.getRegion().goBack(where, opts)
+Radio.channel('app').reply(
+  'view:current': -> app.getView()
+  'uri:current': -> Backbone.history.fragment
+  'navigate': (location, options = {}) ->
+    app.getRegion().navigate(location, options, Backbone.history)
+  'go-back': (where, opts) ->
+    where = undefined if where == '#'
+    app.getRegion().goBack(where, opts)
+)
 
 module.exports = app

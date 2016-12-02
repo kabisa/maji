@@ -1,8 +1,6 @@
-$          = require('jquery')
-bus        = require('./lib/bus')
+$     = require('jquery')
+Radio = require('backbone.radio')
 
-publishOnBus = (e) ->
-  bus.trigger("app:#{e.type}")
 
 initCordova = ->
   $(document).on 'deviceready', ->
@@ -10,7 +8,7 @@ initCordova = ->
 
   for eventName in ['pause', 'resume', 'backbutton', 'offline', 'online']
     $(document).on eventName, (e) ->
-      publishOnBus(e)
+      Radio.channel('app').trigger(e.type)
 
   $ ->
     $('body').addClass("platform-#{cordova.platformId}")
