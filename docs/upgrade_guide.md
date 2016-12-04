@@ -5,7 +5,7 @@ In Maji 2.0.0 the Marionette dependency has been updated to 3.1.0.
 This means that your app has to update from Marionette 2.4.4 to 3.1.0.
 The `Maji.bus` (using `backbone.wreqr`) is also removed in favor of using `backbone.radio`.
 
-Marionette has an [upgrade guide available online](http://marionettejs.com/docs/v3.1.0/upgrade.html), to find pointers not covered in this guide.
+Marionette has an [upgrade guide available online][marionette-upgrade], to find pointers not covered in this guide.
 
 The best way to start is to checkout the updated example app.
 
@@ -119,3 +119,8 @@ The best way to start is to checkout the updated example app.
    * `getChildView: ->` is now `childView: ->`
 
 With these steps your app should become functional again, depending on how much custom stuff your app uses (like overwriting private implementations of Marionette).
+
+5. Update all uses of the `Maji.bus` to Backbone.Radio ([see documentation of radio here][backbone-radio])
+
+[marionette-upgrade]: http://marionettejs.com/docs/v3.1.0/upgrade.html
+[backbone-radio]: https://github.com/marionettejs/backbone.radio
