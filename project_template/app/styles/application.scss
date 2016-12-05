@@ -1,6 +1,5 @@
 @import 'normalize';
 @import 'maji/screen_transitions';
-@import 'fonts/lato';
 @import 'fonts/icons';
 @import 'variables';
 @import 'forms';
@@ -11,7 +10,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Lato';
+  // use native font stack
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
   text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   user-select: none;
