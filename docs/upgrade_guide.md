@@ -118,8 +118,16 @@ The best way to start is to checkout the updated example app.
    * Update use of *Regions*. `@myRegion.show new MySubView` is now `@showChildView('myRegion', new MySubView)`
    * `getChildView: ->` is now `childView: ->`
 
-With these steps your app should become functional again, depending on how much custom stuff your app uses (like overwriting private implementations of Marionette).
 
+5. Maji 2.x uses Cordova plugin management
+
+This means that the Cordova plugins you wish to use should now be defined in `cordova/config.xml`, instead of `cordova/plugins.txt`.
+
+Refer to the Cordova documentation for details: https://cordova.apache.org/docs/en/latest/platform_plugin_versioning_ref/
+
+
+
+With these steps your app should become functional again, depending on how much custom stuff your app uses (like overwriting private implementations of Marionette).
 5. Update all uses of the `Maji.bus` to Backbone.Radio ([see documentation of radio here][backbone-radio])
 
 [marionette-upgrade]: http://marionettejs.com/docs/v3.1.0/upgrade.html
