@@ -1,15 +1,23 @@
-# Upgrade guide 1.1.0 -> 1.x.x
+# Upgrade guide 1.1.0 -> 2.0.0
 
-In version 1.x.x the Marionette dependency has been updated to 3.1.0.
-This means that your app has to update from Marionette 2.4.4 to 3.1.0
+In Maji 2.0.0 the Marionette dependency has been updated to 3.1.0.
 
-Marionatte has an [upgrade guide available online](http://marionettejs.com/docs/v3.1.0/upgrade.html).
+This means that your app has to update from Marionette 2.4.4 to 3.1.0.
+The `Maji.bus` (using `backbone.wreqr`) is also removed in favor of using `backbone.radio`.
+
+Marionette has an [upgrade guide available online][marionette-upgrade], to find pointers not covered in this guide.
 
 The best way to start is to checkout the updated example app.
 
 1. Update `app/application.coffee` You can probably look up the example app version
 
 2. Update `app/app.coffee`:
+
+   Add in the top of the file:
+   
+   ```coffee
+   Radio = require('backbone.radio')
+   ```
 
    Change the following:
    
@@ -43,21 +51,18 @@ The best way to start is to checkout the updated example app.
        Backbone.history.start()
    ```
    
-   Update the implementation of the bus functions:
+   Update the implementation of the bus functions to:
    
    ```coffee
-   app.bus.reqres.setHandler 'view:current', ->
-    app.getView()
-
-   app.bus.reqres.setHandler 'uri:current', ->
-     Backbone.history.fragment
-
-   app.bus.commands.setHandler 'navigate', (location, options = {}) ->
-     app.getRegion().navigate(location, options, Backbone.history)
-
-   app.bus.commands.setHandler 'go-back', (where, opts) ->
-     where = undefined if where == '#'
-     app.getRegion().goBack(where, opts)
+   Radio.channel('app').reply(
+     'view:current': -> app.getView()
+     'uri:current': -> Backbone.history.fragment
+     'navigate': (location, options = {}) ->
+       app.getRegion().navigate(location, options, Backbone.history)
+     'go-back': (where, opts = {}) ->
+       where = undefined if where == '#'
+       app.getRegion().goBack(where, opts)
+   )
   ``` 
   
 3. The best approachs is to disable all modules, and enable/update them one by one, starting with the main module 'app' file:
@@ -114,3 +119,8 @@ The best way to start is to checkout the updated example app.
    * `getChildView: ->` is now `childView: ->`
 
 With these steps your app should become functional again, depending on how much custom stuff your app uses (like overwriting private implementations of Marionette).
+
+5. Update all uses of the `Maji.bus` to Backbone.Radio ([see documentation of radio here][backbone-radio])
+
+[marionette-upgrade]: http://marionettejs.com/docs/v3.1.0/upgrade.html
+[backbone-radio]: https://github.com/marionettejs/backbone.radio
