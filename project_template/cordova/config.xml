@@ -22,4 +22,7 @@
 
     <!-- disable icloud storage sync -->
     <preference name="BackupWebStorage" value="local"/>
+
+    <plugin name="cordova-plugin-splashscreen" spec="~4.0.0"/>
+    <plugin name="com.mallzee.plugin.networkactivity" spec="https://github.com/mallzee/network-activity.git#0904b83c3109560bad8e7dd9be1320bb9303899d"/>
 </widget>

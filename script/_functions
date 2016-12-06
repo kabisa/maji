@@ -17,7 +17,8 @@ function brew_available() {
 }
 
 function warning() {
-  echo "$(tput setaf 3)$@$(tput sgr0)"
+  [[ $# -eq 0 ]] && local message=$(cat -) || local message="$@"
+  echo "$(tput setaf 3)$message$(tput sgr0)"
 }
 
 function npm_package_available() {
