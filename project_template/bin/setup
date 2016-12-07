@@ -7,10 +7,6 @@ if brew_available ; then
   brew_dep_installed 'node' || brew install node
   brew_dep_installed 'ant' || brew install ant
 
-  if ! command_available 'phantomjs' ; then
-    brew install phantomjs
-  fi
-
   # npm is included with node in newer version, so this normally shouldn't be needed.
   command_available 'npm' || brew install npm
 else

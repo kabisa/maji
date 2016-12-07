@@ -28,8 +28,7 @@ Before you can use Maji, make sure you have the following:
 ### Linux
 
 * [Nodejs](http://nodejs.org) allows JavaScript to be run Server-side
-* [Apache Ant](http://ant.apache.org) is used for building Java Applications
-* [PhantomJS](http://phantomjs.org/download.html) is a headless WebKit Browser, scriptable with a JavaScript API
+* [Apache Ant](http://ant.apache.org) is used for building Android Applications
 
 ## Getting started
 
@@ -69,7 +68,7 @@ To start your app, `cd` into its directory, execute `make watch` and navigate to
 ### Running tests
 
 To run test, you have several options:
-* To run JavaScript tests run `bin/karma start`. This will start a Karma server with Phantomjs and will continuously watch your Javascript files and run tests on changes.
+* To run JavaScript tests run `bin/karma start`. This will start a Karma server with Phantomjs headless browser and will continuously watch your Javascript files and run tests on changes.
 * To run JavaScript tests once, run `bin/karma start --single-run`.
 * To run features specs once, run `bundle exec rspec`.
 * To run all tests once, run `bin/ci`.

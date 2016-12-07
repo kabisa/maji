@@ -11,7 +11,10 @@ RSpec.configure do |config|
 end
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, {extensions: ['spec/support/function_bind_polyfill.js']})
+  Capybara::Poltergeist::Driver.new(app, {
+    extensions: ['spec/support/function_bind_polyfill.js'],
+    phantomjs: File.expand_path('node_modules/phantomjs-prebuilt/bin/phantomjs')
+  })
 end
 
 Capybara.default_driver = :poltergeist
