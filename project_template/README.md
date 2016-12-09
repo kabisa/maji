@@ -27,7 +27,7 @@
 
 ### General
 
-* Ruby, for the Cucumber specs
+* Ruby, for the Capybara integration specs
 * NodeJS, for the build system (`bin/setup` will install this if you've got Homebrew)
 * Homebrew (`bin/setup` will use this to hook you up with all of the dependencies, except Ruby)
 
