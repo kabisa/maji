@@ -27,9 +27,8 @@
 
 ### General
 
-* Ruby, for the Cucumber specs
-* NodeJS, for the build system (`bin/setup` will install this if you've got Homebrew)
-* Homebrew (`bin/setup` will use this to hook you up with all of the dependencies, except Ruby)
+* Ruby + Bundler, for the integration specs
+* NodeJS + NPM, for the build system
 
 ### iOS
 
@@ -41,5 +40,4 @@
 * Android SDK
 * Android platform tools installed
 * Android platform 10+.
-* Ant (`brew install ant`)
 * `android` and `adb` in your $PATH (add `path/to/android-sdk-macosx/tools` and `path/to/android-sdk-macosx/platform-tools` to your $PATH).

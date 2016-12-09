@@ -17,18 +17,8 @@ Before you can use Maji, make sure you have the following:
 
 ### General
 
-* Ruby, for the Cucumber specs
-* NodeJS, for the build system (`bin/setup` will install this if you've got Homebrew)
-* Homebrew (`bin/setup` will use this to hook you up with all of the dependencies, except Ruby)
-
-### Mac OS X
-
-* [Homebrew](http://brew.sh) a Mac OS X package manager
-
-### Linux
-
-* [Nodejs](http://nodejs.org) allows JavaScript to be run Server-side
-* [Apache Ant](http://ant.apache.org) is used for building Android Applications
+* Ruby + Bundler, for the integration specs
+* NodeJS + NPM, for the build system
 
 ## Getting started
 
