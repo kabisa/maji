@@ -10,6 +10,7 @@ class AnimatableRegion extends Marionette.Region
 
     @showTransitions = opts.showTransitions
     @navigationStack = new NavigationStack()
+    @transitioning = false
 
     super
 
@@ -35,6 +36,12 @@ class AnimatableRegion extends Marionette.Region
 
     window.location.hash = route
 
+  _empty: (view, shouldDestroy) ->
+    # we manage destroying views ourselves, if we're transitioning
+    # In this case we need to prevent Marionette from destroying the currentView
+    # before we've transitioned to the new view
+    super unless @transitioning
+
   show: (view, options = {}) ->
     view._parent = this
     return super(view, options) unless @showTransitions
@@ -42,10 +49,10 @@ class AnimatableRegion extends Marionette.Region
     # determine what transition to use, @navigationOptions takes precedence
     @transition = @navigationOptions?.transition
     @transition ?= view.transition || options.transition
+    @transitioning = true
 
     if @transition
       @currentPage = @currentView
-      options.preventDestroy = true
 
     super(view, options)
 
@@ -124,6 +131,7 @@ class AnimatableRegion extends Marionette.Region
             @currentPage = null
 
           @back = undefined
+          @transitioning = false
 
           @$el.removeClass('viewport-transitioning')
           @$el.removeClass("viewport-#{@transition}")
@@ -134,6 +142,7 @@ class AnimatableRegion extends Marionette.Region
     else
       newPage.$el.removeClass('page-pre-in')
       @back = undefined
+      @transitioning = false
       newPage.trigger 'transitioned'
 
   _isNavigatingBack: (fragment) ->
