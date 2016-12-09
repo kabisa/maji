@@ -3,16 +3,6 @@ source "$(dirname ${BASH_SOURCE[0]})/_functions"
 PROJECT=$(basename $(pwd))
 echo "Setting up $PROJECT"
 
-if brew_available ; then
-  brew_dep_installed 'node' || brew install node
-  brew_dep_installed 'ant' || brew install ant
-
-  # npm is included with node in newer version, so this normally shouldn't be needed.
-  command_available 'npm' || brew install npm
-else
-  warning 'Warning: Homebrew not detected. Not installing some dependencies.'
-fi
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
   npm_package_available 'ios-deploy@1.8.5' || npm install 'ios-deploy@1.9.0'
   npm_package_available 'ios-sim@5.0.6' || npm install 'ios-sim@5.0.12'

@@ -12,16 +12,8 @@ function _md5() {
   return 0
 }
 
-function brew_dep_installed() {
-  brew list | grep "^$@$" >/dev/null 2>&1
-}
-
 function command_available() {
   command -v "$@" >/dev/null 2>&1
-}
-
-function brew_available() {
-  command_available 'brew'
 }
 
 function warning() {
