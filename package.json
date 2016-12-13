@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kabisaict/maji"
+    "url": "https://github.com/kabisa/maji"
   },
   "devDependencies": {
     "backbone": "^1.2.3",
