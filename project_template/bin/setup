@@ -4,8 +4,8 @@ PROJECT=$(basename $(pwd))
 echo "Setting up $PROJECT"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  npm_package_available 'ios-deploy@1.8.5' || npm install 'ios-deploy@1.9.0'
-  npm_package_available 'ios-sim@5.0.6' || npm install 'ios-sim@5.0.12'
+  npm_package_available 'ios-deploy@1.9.0' || npm install 'ios-deploy@1.9.0'
+  npm_package_available 'ios-sim@5.0.12' || npm install 'ios-sim@5.0.12'
 fi
 
 npm install
