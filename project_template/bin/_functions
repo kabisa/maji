@@ -19,8 +19,3 @@ function command_available() {
 function warning() {
   echo "$(tput setaf 3)$@$(tput sgr0)"
 }
-
-function npm_package_available() {
-  local package=$(npm list --depth=0 2>/dev/null | grep "$@" | cut -d ' ' -f2)
-  [[ $package == "$@" ]]
-}

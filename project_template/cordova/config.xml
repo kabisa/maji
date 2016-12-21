@@ -5,6 +5,8 @@
     <content src="index.html" />
     <access origin="*" />
 
+    <hook type="before_platform_add" src="../node_modules/maji/cordova/hooks/before_platform_add.js" />
+
     <preference name="DisallowOverscroll" value="true"/>
     <preference name="Orientation" value="portrait" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
