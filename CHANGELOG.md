@@ -19,3 +19,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Maji plugin management (`cordova/plugins.txt`) in favor of Cordova plugin management
 - Maji application bus in favor of Backbone.Radio
+- Maji Cordova platform management, see upgrade guide for details

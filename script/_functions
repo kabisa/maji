@@ -1,9 +1,5 @@
 set -e
 
-function platform_installed() {
-  cordova platforms | head -n 1 | grep $1 >/dev/null
-}
-
 function command_available() {
   command -v "$@" >/dev/null 2>&1
 }

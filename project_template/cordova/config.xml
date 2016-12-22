@@ -7,6 +7,9 @@
 
     <hook type="before_platform_add" src="../node_modules/maji/cordova/hooks/before_platform_add.js" />
 
+    <engine name="android" spec="~6.0.0" />
+    <engine name="ios" spec="~4.2.1" />
+
     <preference name="DisallowOverscroll" value="true"/>
     <preference name="Orientation" value="portrait" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
