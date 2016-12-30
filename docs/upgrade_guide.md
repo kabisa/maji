@@ -1,4 +1,8 @@
-# Upgrade guide 1.1.0 -> 2.0.0
+# Upgrade guide Maji 1.1.0 -> 2.0.0
+
+Maji 2.0 contains several (breaking) changes. Follow the steps outlined in this document to upgrade your app to Maji 2.0.
+
+## MarionetteJS
 
 In Maji 2.0.0 the Marionette dependency has been updated to 3.1.0.
 
@@ -14,34 +18,34 @@ The best way to start is to checkout the updated example app.
 2. Update `app/app.coffee`:
 
    Add in the top of the file:
-   
+
    ```coffee
    Radio = require('backbone.radio')
    ```
 
    Change the following:
-   
+
    ```coffee
    app.addInitializer ->
      require('./modules/home/home_app').start()
    ```
-   
+
    to:
-   
+
    ```coffee
    app.on 'before:start', ->
      require('./modules/home/home_app')
    ```
-   
+
    Change the kickoff of the backbone history:
-   
+
    ```coffee
    app.on 'start', (options) ->
      Backbone.history.start()
    ```
-   
+
    to:
-   
+
    ```coffee
    app.on 'before:start', (options) ->
      # Bind the start event in after the inclusion of
@@ -50,9 +54,9 @@ The best way to start is to checkout the updated example app.
      app.on 'start', (options) ->
        Backbone.history.start()
    ```
-   
+
    Update the implementation of the bus functions to:
-   
+
    ```coffee
    Radio.channel('app').reply(
      'view:current': -> app.getView()
@@ -63,6 +67,7 @@ The best way to start is to checkout the updated example app.
        where = undefined if where == '#'
        app.getRegion().goBack(where, opts)
    )
+   ```
   ``` 
   
 3. The best approachs is to disable all modules, and enable/update them one by one, starting with the main module 'app' file:
@@ -88,11 +93,11 @@ The best way to start is to checkout the updated example app.
        controller: API
        
    module.exports = EditorApp
-   ```
-   
+  ```
+
    To:
-   
-   ```coffee
+
+```coffee
    # Notice creation of module is gone;
    # New name for router
    
@@ -109,7 +114,7 @@ The best way to start is to checkout the updated example app.
      new MyModuleRouter # No passing of controller
    
    # No Module exports    
-   ```
+```
 
 4. Update all your views:
 
@@ -119,16 +124,33 @@ The best way to start is to checkout the updated example app.
    * `getChildView: ->` is now `childView: ->`
 
 
-5. Maji 2.x uses Cordova plugin management
+## Cordova plugin management
+
+Maji 2.x uses Cordova plugin management
 
 This means that the Cordova plugins you wish to use should now be defined in `cordova/config.xml`, instead of `cordova/plugins.txt`.
 
 Refer to the Cordova documentation for details: https://cordova.apache.org/docs/en/latest/platform_plugin_versioning_ref/
 
+## Cordova platform management
+
+In Maji 2.0, Maji no longer automatically adds Cordova platforms when you invoke `maji run` or `maji build`. Instead it is expected that you define the platform versions in your `cordova/config.xml` like so:
+
+```xml
+<!-- cordova/config.xml -->
+<engine name="android" spec="~6.0.0" />
+<engine name="ios" spec="~4.3.1" />
+```
+
+All projects created with Maji 2.0 are configured like this out of the box.
+
+## Maji bus 
+
+Update all uses of the `Maji.bus` to Backbone.Radio ([see documentation of radio here][backbone-radio])
+
 
 
 With these steps your app should become functional again, depending on how much custom stuff your app uses (like overwriting private implementations of Marionette).
-5. Update all uses of the `Maji.bus` to Backbone.Radio ([see documentation of radio here][backbone-radio])
 
 [marionette-upgrade]: http://marionettejs.com/docs/v3.1.0/upgrade.html
 [backbone-radio]: https://github.com/marionettejs/backbone.radio

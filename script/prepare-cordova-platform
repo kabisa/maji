@@ -3,7 +3,6 @@ source "$(dirname ${BASH_SOURCE[0]})/_functions"
 PLATFORM=$1
 
 pushd cordova >/dev/null 2>&1
-  platform_installed $PLATFORM || cordova platforms add $PLATFORM
   cordova prepare $PLATFORM
 
   if [ -f plugins.txt ]; then
