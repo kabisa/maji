@@ -5,4 +5,7 @@ group :development, :test do
   gem 'capybara', '~> 2.4.4'
   gem 'poltergeist', '~> 1.6.0'
   gem 'scss_lint', '0.38.0'
+
+  # temporary workaround for https://github.com/sickill/rainbow/issues/44
+  gem 'rainbow', '2.1.0'
 end
