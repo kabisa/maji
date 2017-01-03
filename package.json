@@ -4,7 +4,8 @@
   "license": "MIT",
   "main": "lib/index.js",
   "bin": {
-    "maji": "./lib/cli.js"
+    "maji": "./lib/cli.js",
+    "maji-dev-server": "./src/maji-dev-server.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,10 @@
   },
   "dependencies": {
     "i18n-js": "http://github.com/fnando/i18n-js/archive/v3.0.0.rc8.tar.gz",
-    "commander": "~2.6.0"
+    "commander": "~2.9.0",
+    "express": "4.14.0",
+    "tiny-lr": "1.0.3",
+    "chokidar": "1.6.1",
+    "connect-livereload": "0.6.0"
   }
 }
