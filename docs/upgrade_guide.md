@@ -148,7 +148,9 @@ All projects created with Maji 2.0 are configured like this out of the box.
 
 Update all uses of the `Maji.bus` to Backbone.Radio ([see documentation of radio here][backbone-radio])
 
+## Switch from Browserify to webpack (optional)
 
+With Maji 2.x new projects use webpack for module bundling. While not required it's recommended that you migrate your projects to webpack, see [this Pull Request](https://github.com/kabisa/maji/pull/128) for reasoning and benefits. This PR can be used as a basis to migrate your project to webpack.
 
 With these steps your app should become functional again, depending on how much custom stuff your app uses (like overwriting private implementations of Marionette).
 
