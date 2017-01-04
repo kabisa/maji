@@ -13,8 +13,7 @@ RUN apt-get update \
           locales \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install NodeJS 5
-RUN curl -sL https://deb.nodesource.com/setup_5.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt-get install --yes nodejs
 
 ENV CONTAINER_INIT /usr/local/bin/init-container
