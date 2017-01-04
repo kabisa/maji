@@ -1,5 +1,5 @@
 {
-  "name": "##APP_NAME##",
+  "name": "example",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -14,43 +14,32 @@
     "maji": "kabisa/maji#2-0-stable"
   },
   "devDependencies": {
-    "acorn": "~2.6.4",
     "autoprefixer": "~6.3.3",
-    "postcss-cli": "~2.5.1",
-    "brfs": "~1.4.3",
-    "browserify": "~13.0.0",
-    "coffeeify": "~2.0.1",
-    "aliasify": "~1.9.0",
     "chai": "~3.5.0",
+    "coffee-loader": "^0.7.2",
     "coffeelint": "~1.15.0",
     "cordova": "~6.4.0",
-    "envify": "~3.4.0",
-    "exorcist": "~0.4.0",
     "gulp-iconfont": "~6.0.0",
     "gulp-iconfont-css": "~2.0.0",
     "haml-coffee-browserify": "~0.0.4",
-    "sinon": "~1.17.2",
+    "json-loader": "^0.5.4",
     "karma": "~0.13.22",
-    "karma-browserify": "~5.0.2",
     "karma-mocha": "~0.2.2",
     "karma-mocha-reporter": "~2.0.0",
-    "karma-sinon-chai": "~1.2.0",
     "karma-phantomjs-launcher": "~1.0.0",
-    "lolex": "^1.4.0",
+    "karma-sinon-chai": "~1.2.0",
+    "karma-webpack": "^1.8.1",
+    "memo-is": "0.0.2",
     "mocha": "~3.1.2",
     "node-sass": "~3.13.0",
     "onchange": "~2.1.2",
     "phantomjs-prebuilt": "~2.1.3",
+    "postcss-cli": "~2.5.1",
+    "sinon": "~1.17.2",
     "sinon-chai": "2.8.0",
-    "uglifyify": "~3.0.1",
+    "transform-loader": "^0.2.3",
     "vinyl-fs": "~2.4.2",
-    "watchify": "~3.7.0",
-    "yamlify": "~0.1.2",
-    "memo-is": "0.0.2"
-  },
-  "aliasify": {
-    "aliases": {
-      "app": "./app"
-    }
+    "webpack": "^2.2.0-rc.3",
+    "yaml-loader": "^0.4.0"
   }
 }

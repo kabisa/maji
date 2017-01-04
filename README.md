@@ -85,7 +85,7 @@ A Maji Mobile App comes with several frameworks built-in and configured to work 
  * [MarionetteJS](http://marionettejs.com) Marionette simplifies Backbone Views
  * [FastClick](http://ftlabs.github.io/fastclick/) disable the delay between click and the action on iOS
  * [jQuery](http://jquery.com) JavaScript library for working with the DOM
- * [Browserify](http://browserify.org) is a JavaScript module system that supports CommonJS syntax
+ * [Webpack](https://webpack.js.org/) is a JavaScript module bundler
  * [BugSnagJS](https://github.com/bugsnag/bugsnag-js) JavaScript client for [BugSnag](http://bugsnag.com/) exception tracker
  * [Karma](http://karma-runner.github.io/) is a JavaScript test runner
  * [MochaJS](http://mochajs.org) a JavaScript testing framework that supports a BDD style of writing tests

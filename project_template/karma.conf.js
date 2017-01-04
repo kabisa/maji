@@ -3,16 +3,14 @@
 module.exports = function(karma) {
   karma.set({
 
-    frameworks: [ 'mocha', 'sinon-chai', 'browserify' ],
+    frameworks: [ 'mocha', 'sinon-chai' ],
 
     files: [
-      { pattern: 'spec/spec_helper.coffee', watched: false, included: true, served: true },
-      { pattern: 'spec/**/*spec.coffee', watched: false, included: true, served: true }
+      'spec/spec_index.coffee'
     ],
 
     preprocessors: {
-      'spec/spec_helper.coffee': [ 'browserify' ],
-      'spec/**/*spec.coffee': [ 'browserify' ]
+      'spec/spec_index.coffee': ['webpack']
     },
 
     client: {
@@ -25,11 +23,9 @@ module.exports = function(karma) {
     reporters: ['mocha'],
     browsers: [ 'PhantomJS' ],
 
-    // browserify configuration
-    browserify: {
-      debug: true,
-      extensions: ['.hamlc', '.coffee'],
-      transform: [ 'coffeeify', 'aliasify', 'yamlify', 'haml-coffee-browserify', ['envify', { _: 'purge' }], 'brfs' ]
+    webpack: require('./webpack.config.js'),
+    webpackMiddleware: {
+      stats: 'errors-only'
     }
   });
 };

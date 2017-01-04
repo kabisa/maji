@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Updated Mocha to 3.1.2
 - Updated jQuery to 3.0.0
 - Node.js >= 6 is now required
+- Switched from Browserify to webpack module bundler
 
 ### Removed
 

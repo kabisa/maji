@@ -2,14 +2,6 @@ export DIST_DIR        ?= ./dist
 export SHELL           := /bin/bash -e -o pipefail
 export PATH            := $(PATH):$(shell npm bin)
 export APP_ENV         ?=development
-BROWSERIFY_BASE_CONFIG = \
-	-t coffeeify \
-	-t aliasify \
-	-t yamlify \
-	-t [ haml-coffee-browserify ] \
-	-t [ envify purge ] \
-	-t brfs \
-	--extension .hamlc --extension .coffee
 
 dist: clean build-statics build-js build-icons build-css revhash
 
@@ -29,8 +21,7 @@ revhash:
 	perl -i -pe s/app.css/app-$$HASH.css/ dist/index.html
 
 build-js:
-	browserify -g uglifyify $(BROWSERIFY_BASE_CONFIG) --debug \
-		app/application.coffee | exorcist $(DIST_DIR)/assets/app.js.map | sed '/^\s*$$/d' > $(DIST_DIR)/assets/app.js
+	webpack --output-path $(DIST_DIR)/assets/
 
 build-css:
 	node-sass --stdout --output-style $${CSS_OUTPUT_STYLE:-compressed} --include-path vendor/styles app/styles/application.scss | postcss --use autoprefixer --autoprefixer.browsers 'ios >= 8, android >= 4, ie >=10' > $(DIST_DIR)/assets/app.css
@@ -43,8 +34,7 @@ serve: clean build-statics build-icons build-css
 	onchange 'public/**/*' -- make build-statics &
 	CSS_OUTPUT_STYLE=expanded onchange 'app/styles/**/*.scss' -- make build-css &
 	onchange 'app/styles/icons/*.svg' -- make build-icons &
-	watchify -d -v $(BROWSERIFY_BASE_CONFIG) -x bugsnag-js \
-	 app/application.coffee -o $(DIST_DIR)/assets/app.js &
+	webpack --output-path $(DIST_DIR)/assets/ --watch &
 	sleep 2 && maji-dev-server $(DIST_DIR) --port=$(SERVER_PORT) --livereload=$(LIVERELOAD)
 
 watch: serve
