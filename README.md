@@ -18,7 +18,7 @@ Before you can use Maji, make sure you have the following:
 ### General
 
 * Ruby + Bundler, for the integration specs
-* NodeJS + NPM, for the build system
+* Node.js >= 6 + NPM, for the build system
 
 ## Getting started
 
