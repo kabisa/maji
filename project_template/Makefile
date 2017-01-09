@@ -69,14 +69,13 @@ watch:
 	@BUILD_DIR=$(WATCH_BUILD_DIR) $(MAKE) doWatch
 
 doWatch: check-env $(ALL_TARGETS)
-	@onchange 'public/**/*' -- $(MAKE) FILE='{{changed}}' copy-watched-file &
+	@onchange 'public/**/*' -- $(MAKE) BUILD_DIR="$(WATCH_BUILD_DIR)" FILE='{{changed}}' copy-watched-file &
 	@CSS_OUTPUT_STYLE=expanded onchange 'app/styles/**/*.scss' -- $(MAKE) $(BUILD_DIR)/assets/app.css &
 	@onchange 'app/styles/icons/*.svg' -- $(MAKE) -s $(BUILD_DIR)/assets/fonts/icons.eot &
 	@webpack --output-path $(BUILD_DIR)/assets/ --watch &
 	@sleep 2 && maji-dev-server $(BUILD_DIR) --port=$(SERVER_PORT) --livereload=$(LIVERELOAD)
 
-copy-watched-file:
-	@echo "Copying $(FILE)"
-	@cp "$(FILE)" "$(BUILD_DIR)/"
+
+copy-watched-file: $(FILE:public/%=$(BUILD_DIR)/%)
 
 .PHONY: clean dist test check-env copy-to-dist watch doWatch copy-watched-file
