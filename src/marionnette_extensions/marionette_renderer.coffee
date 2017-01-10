@@ -5,9 +5,9 @@ templateHelpers = require('../lib/template_helpers')
 module.exports.setup = ->
   defaultRender = Marionette.Renderer.render
 
-  Marionette.Renderer.render = (template, data) ->
+  Marionette.Renderer.render = ->
     data.t = -> I18n.t.apply(I18n, arguments)
     data.l = -> I18n.l.apply(I18n, arguments)
     data.h = templateHelpers
 
-    defaultRender(template, data)
+    defaultRender.apply(Marionette.Renderer, arguments)
