@@ -6,7 +6,7 @@ initCordova = ->
   $(document).on 'deviceready', ->
     require('./cordova/ios_network_activity').init()
 
-  for eventName in ['pause', 'resume', 'backbutton', 'offline', 'online']
+  for eventName in ['deviceready', 'pause', 'resume', 'backbutton', 'offline', 'online']
     $(document).on eventName, (e) ->
       Radio.channel('app').trigger(e.type)
 
