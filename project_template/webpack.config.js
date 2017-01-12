@@ -23,7 +23,7 @@ module.exports = {
   module: {
     rules: [
       { test: /\.coffee$/, loader: 'coffee-loader' },
-      { test: /\.hamlc$/, loader: 'transform-loader?haml-coffee-browserify' },
+      { test: /\.hamlc$/, loader: 'hamlc-loader' },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.yml$/, loader: 'json-loader!yaml-loader' },
     ]
