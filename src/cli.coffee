@@ -95,7 +95,7 @@ program
   .command('start')
   .description('Run the maji dev server and compile changes on the fly')
   .option('-p --port [port]', 'Port to listen on [9090]', parsePort, 9090)
-  .option('-l --livereload [flag]', 'Enable livereload [true]', parseBoolean, false)
+  .option('-l --livereload [flag]', 'Enable livereload [false]', parseBoolean, false)
   .action (options) ->
     env = {
       'SERVER_PORT': options.port,
