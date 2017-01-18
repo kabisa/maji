@@ -40,9 +40,11 @@ Your new Maji app will now be generated at the supplied path.
 
   Commands:
 
-    run [options] <platform>    build and run a native app for the specified platform
-    build [options] <platform>  build a native app for the specified platform
-    new <package_name> <path>   create a new Maji app
+    new <package_name> <path>   Create a new Maji app
+    run [options] <platform>    Build and run a native app for the specified platform
+    build [options] [platform]  Build a native app for the specified platform
+    test [options]              Run your project tests
+    start [options]             Run the maji dev server and compile changes on the fly
 
   Options:
 
@@ -53,15 +55,15 @@ Your new Maji app will now be generated at the supplied path.
 
 ### Starting in the browser
 
-To start your app, `cd` into its directory, execute `make watch` and navigate to http://localhost:9090/ with your browser.
+To start your app, `cd` into its directory, execute `bin/maji start` and navigate to http://localhost:9090/ with your browser.
 
 ### Running tests
 
 To run test, you have several options:
-* To run JavaScript tests run `bin/karma start`. This will start a Karma server with Phantomjs headless browser and will continuously watch your Javascript files and run tests on changes.
-* To run JavaScript tests once, run `bin/karma start --single-run`.
-* To run features specs once, run `bundle exec rspec`.
-* To run all tests once, run `bin/ci`.
+* To run JavaScript tests run `bin/maji test --watch`. This will start a Karma server with Phantomjs headless browser and will continuously watch your Javascript files and run tests on changes.
+* To run JavaScript tests once, run `bin/maji test --unit`.
+* To run features specs once, run `bin/maji test --integration`.
+* To run all tests once, run `bin/maji test`.
 
 ### Creating builds
 

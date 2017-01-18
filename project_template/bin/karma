@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-export APP_ENV=test
-./node_modules/karma/bin/karma "$@"
