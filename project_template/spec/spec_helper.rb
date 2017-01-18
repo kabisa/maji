@@ -21,7 +21,7 @@ Capybara.default_driver = :poltergeist
 
 if ENV['PRE_BUILT']
   # Make sure our app is built
-  system('make dist')
+  system('bin/maji build')
   Capybara.app = Rack::File.new('dist/')
 else
   Capybara.app_host = 'http://localhost:9090/'

@@ -8,7 +8,7 @@ source "$(dirname ${BASH_SOURCE[0]})/_functions"
 PLATFORM=$2
 
 # build all assets
-make dist
+bin/maji build
 
 export PATH=$(npm bin):$PATH
 $(dirname ${BASH_SOURCE[0]})/prepare-cordova-platform "${@:2}"
