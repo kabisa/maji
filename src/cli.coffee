@@ -51,12 +51,15 @@ program
     executeScript('run-on-device', [platform, deviceTypeArg, program.args...])
 
 program
-  .command('build <platform>')
+  .command('build [platform]')
   .description('Build a native app for the specified platform')
   .option('--release', 'create a release build')
   .action (platform, options) ->
-    releaseArg = if options.release then '--release' else '--debug'
-    executeScript('build-app', [platform, releaseArg, program.args...])
+    if platform
+      releaseArg = if options.release then '--release' else '--debug'
+      executeScript('build-app', [platform, releaseArg, program.args...])
+    else
+      runNpm(['run', 'build'])
 
 program
   .command('test')
