@@ -22,7 +22,7 @@ program
   .option('-e, --emulator', 'run on emulator instead of an actual device')
   .action (platform, options) ->
     deviceTypeArg = if options.emulator then '--emulator' else '--device'
-    executeScript('run-on-device', [platform, deviceTypeArg])
+    executeScript('run-on-device', [platform, deviceTypeArg, program.args...])
 
 program
   .command('build <platform>')
@@ -30,7 +30,7 @@ program
   .option('--release', 'create a release build')
   .action (platform, options) ->
     releaseArg = if options.release then '--release' else '--debug'
-    executeScript('build-app', [platform, releaseArg])
+    executeScript('build-app', [platform, releaseArg, program.args...])
 
 program
   .command('new <package_name> <path>')
