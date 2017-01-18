@@ -2,6 +2,14 @@
   "name": "example",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "test": "bin/ci",
+    "test:unit": "APP_ENV=test karma start --single-run",
+    "test:features": "APP_ENV=test PRE_BUILT=true bundle exec rspec",
+    "test:watch": "APP_ENV=test karma start --watch",
+    "start": "make watch",
+    "build": "make dist"
+  },
   "dependencies": {
     "backbone": "1.3.3",
     "backbone.localstorage": "~1.1.16",
