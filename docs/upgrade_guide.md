@@ -154,5 +154,31 @@ With Maji 2.x new projects use webpack for module bundling. While not required i
 
 With these steps your app should become functional again, depending on how much custom stuff your app uses (like overwriting private implementations of Marionette).
 
+## Maji CLI
+
+Maji 2.x adds several new subcommands to the Maji CLI, streamlining the development workflow to have a single way to interact with your project:
+
+* `maji start` - starts the development server
+* `maji build` - build static assets
+* `maji test` - runs your projects tests once
+* `maji test --unit` - runs your unit test once
+* `maji test --integration` - runs your integration test once
+* `maji test --watch` - runs your tests whenever files are changed
+
+All these commands delegate to NPM run scripts. When upgrading from Maji 1.x to Maji 2.x you can add the following snippet to your `package.json` to add support for these commands:
+
+```json
+"scripts": {
+  "test": "bin/ci",
+  "test:unit": "APP_ENV=test karma start --single-run",
+  "test:features": "APP_ENV=test PRE_BUILT=true bundle exec rspec",
+  "test:watch": "APP_ENV=test karma start --watch",
+  "start": "make watch",
+  "build": "make dist"
+}
+```
+
+Should you choose the use a different test runner for example then the only thing that needs to change are the NPM scripts defined in your `package.json` and everything will continue to work.
+
 [marionette-upgrade]: http://marionettejs.com/docs/v3.1.0/upgrade.html
 [backbone-radio]: https://github.com/marionettejs/backbone.radio
