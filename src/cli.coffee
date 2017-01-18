@@ -86,7 +86,7 @@ program
     if options.unit
       return runNpm(['run', 'test:unit'])
 
-    if options.features
+    if options.integration
       return runNpm(['run', 'test:integration'])
 
     runNpm(['test'])

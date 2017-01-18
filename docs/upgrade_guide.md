@@ -171,7 +171,7 @@ All these commands delegate to NPM run scripts. When upgrading from Maji 1.x to 
 "scripts": {
   "test": "bin/ci",
   "test:unit": "APP_ENV=test karma start --single-run",
-  "test:features": "APP_ENV=test PRE_BUILT=true bundle exec rspec",
+  "test:integration": "APP_ENV=test PRE_BUILT=true bundle exec rspec",
   "test:watch": "APP_ENV=test karma start --watch",
   "start": "make watch",
   "build": "make dist"
