@@ -23,7 +23,7 @@
 * Fast Node based build system
   * Compilation of Coffeescript and Sass
   * Javascript bundling and minification including source maps
-  * CommonJS module system using Browserify
+  * CommonJS module system using Webpack
   * CSS autoprefixer (no more vendor prefixes!)
   * Iconfont builder. Drop an SVG in your project and it's instantly available in your iconfont. [Read more](./icons.md).
   * Livereload integration. Make changes and your browser will automatically reload, works on mobile too.
