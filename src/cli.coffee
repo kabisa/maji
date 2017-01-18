@@ -28,8 +28,8 @@ runCmd = (cmd, args, env_args = {}) ->
   child.on 'exit', (exitCode) ->
     process.exit(exitCode)
 
-executeScript = (scriptName, args) ->
-  runCmd(path.resolve(__dirname + "/../script/#{scriptName}"), args)
+runScript = (scriptName, args, env_args = {}) ->
+  runCmd(path.resolve(__dirname + "/../script/#{scriptName}"), args, env_args)
 
 program
   .command('new <package_name> <path>')
@@ -40,26 +40,38 @@ program
     if ! packageName.match /.*\..*\..*/
       console.log 'Please specify a valid package name, for example org.example.my-app'
       process.exit(1)
-    executeScript('create-project', [packageName, path])
+    runScript('create-project', [packageName, path])
 
 program
   .command('run <platform>')
   .description('Build and run a native app for the specified platform')
   .option('-e, --emulator', 'run on emulator instead of an actual device')
+  .option('--env --environment [environment]', 'APP_ENV to run with [development]')
   .action (platform, options) ->
+    app_env = options.environment || 'development'
+    env = {
+      'APP_ENV': app_env
+    }
+
     deviceTypeArg = if options.emulator then '--emulator' else '--device'
-    executeScript('run-on-device', [platform, deviceTypeArg, program.args...])
+    runScript('run-on-device', [platform, deviceTypeArg, program.args...], env)
 
 program
   .command('build [platform]')
   .description('Build a native app for the specified platform')
   .option('--release', 'create a release build')
+  .option('--env --environment [environment]', 'APP_ENV to build with [production]')
   .action (platform, options) ->
+    app_env = options.environment || 'production'
+    env = {
+      'APP_ENV': app_env
+    }
+
     if platform
       releaseArg = if options.release then '--release' else '--debug'
-      executeScript('build-app', [platform, releaseArg, program.args...])
+      runScript('build-app', [platform, releaseArg, program.args...], env)
     else
-      runNpm(['run', 'build'])
+      runNpm(['run', 'build'], env)
 
 program
   .command('test')
@@ -90,7 +102,7 @@ program
       'LIVERELOAD': options.livereload
     }
 
-    runCmd('npm', ['start'], env)
+    runNpm(['start'], env)
 
 program.on '--help', ->
   process.exit(1)
