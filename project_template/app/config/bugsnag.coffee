@@ -1,7 +1,5 @@
 Settings = require('./settings')
 
-try
+if Settings.bugsnagApiKey
   Bugsnag = require('bugsnag-js')
-  Bugsnag.apiKey = Settings.bugsnagApiKey if Settings.bugsnagApiKey
-catch
-  # ignore, bugsnag may not be included
+  Bugsnag.apiKey = Settings.bugsnagApiKey
