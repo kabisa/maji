@@ -31,6 +31,14 @@ runCmd = (cmd, args, env_args = {}) ->
 runScript = (scriptName, args, env_args = {}) ->
   runCmd(path.resolve(__dirname + "/../script/#{scriptName}"), args, env_args)
 
+literalArgs = ->
+  # commander.js program.args is broken for this purpose
+  # https://github.com/tj/commander.js/issues/582
+  if program.rawArgs.indexOf('--') == -1
+    []
+  else
+    program.rawArgs.slice(program.rawArgs.indexOf('--') + 1)
+
 program
   .command('new <package_name> <path>')
   .description('Create a new Maji app')
@@ -54,7 +62,7 @@ program
     }
 
     deviceTypeArg = if options.emulator then '--emulator' else '--device'
-    runScript('run-on-device', [platform, deviceTypeArg, program.args...], env)
+    runScript('run-on-device', [platform, deviceTypeArg, literalArgs()...], env)
 
 program
   .command('build [platform]')
@@ -69,7 +77,7 @@ program
 
     if platform
       releaseArg = if options.release then '--release' else '--debug'
-      runScript('build-app', [platform, releaseArg, program.args...], env)
+      runScript('build-app', [platform, releaseArg, literalArgs()...], env)
     else
       runNpm(['run', 'build'], env)
 
