@@ -1,0 +1,50 @@
+///////////////////////////////////////////////////////////
+//
+// Header for your application
+//
+///////////////////////////////////////////////////////////
+.app-header {
+    background: $header-background;
+    color: $header-text;
+    height: $header-height;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // Make room for iOS bar
+    .platform-ios & {
+        height: calc(#{$header-height} + #{$header-ios-offset});
+        padding-top: $header-ios-offset;
+    }
+
+    a,
+    h1 {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a {
+        width: $header-button-width;
+    }
+
+    h1 {
+        flex: 1;
+
+        &:first-child {
+            // Compensate for no button on the left side
+            margin-left: $header-button-width;
+        }
+
+        &:last-child {
+            // Compensate for no button on the right side
+            margin-right: $header-button-width;
+        }
+    }
+}
+
+.app-header-back {
+    @include icon(back);
+}

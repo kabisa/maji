@@ -16,4 +16,3 @@ class HomeRouter extends Marionette.AppRouter
 
 app.on 'start', ->
   new HomeRouter
-

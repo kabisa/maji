@@ -1,0 +1,52 @@
+///////////////////////////////////////////////////////////
+//
+// Base styles
+//
+///////////////////////////////////////////////////////////
+html {
+    background: $page-background;
+    font-family: $default-font-stack;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    // Avoid horizontal squeeze under minimum mobile screen width
+    min-width: 320px;
+}
+
+html,
+body,
+#maji-app {
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 1.25;
+}
+
+// Maji sets height hardcoded on this element. We don't want
+// that so we overwrite it here. Better would be to not
+// set this height at all! (TODO)
+#maji-app {
+    // scss-lint:disable ImportantRule
+    height: 100% !important;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+    color: inherit;
+}
+
+strong {
+    font-weight: $font-weight-bold;
+}
+
+p {
+    margin-bottom: 1em;
+}

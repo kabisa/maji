@@ -1,0 +1,15 @@
+///////////////////////////////////////////////////////////
+//
+// Generic values
+//
+///////////////////////////////////////////////////////////
+$page-padding: 1rem;   // Distance from edge of screen
+$border-radius: 0.5rem;
+$border-radius-small: 0.125rem;
+$easing: cubic-bezier(0.4, 0, 0.2, 1); // Uniform animation easing
+
+$header-height: 3rem;
+$header-ios-offset: 16px;
+$header-button-width: $header-height;
+
+$navigation-list-height: 3rem;

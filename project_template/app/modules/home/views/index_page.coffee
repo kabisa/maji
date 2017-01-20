@@ -6,10 +6,9 @@ class IndexPage extends ApplicationPage
   template: template
 
   events:
-    'click': (e) ->
-      e.preventDefault()
-      target = $(e.target)
-
+    'click a[data-transition]': (e) ->
+      target = $(e.currentTarget)
       @navigate(target.attr('href'), transition: target.data('transition'))
+      return false
 
 module.exports = IndexPage
