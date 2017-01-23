@@ -1,5 +1,6 @@
 spawn = require('child_process').spawn
 path  = require('path')
+maji_package = require('../package.json')
 
 parseBoolean = (value) ->
   value == 'true'
@@ -8,7 +9,7 @@ parsePort = (value) ->
   parseInt(value) || null
 
 program = require('commander')
-program.version('1.0.0')
+program.version(maji_package.version)
 
 runNpm = (args, env_args = {}) ->
   runCmd('npm', [args..., '--silent'], env_args)
