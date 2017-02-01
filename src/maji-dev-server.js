@@ -45,7 +45,11 @@ if(livereload) {
     .use(tinylr.middleware({ app: server, dashboard: true }))
     .use(require('connect-livereload')({
       src: '/livereload.js?snipver=1',
-      include: [ '/', '.*\.html']
+      include: [ '/', '.*\.html'],
+      rules: [{
+        match: /<\/head>(?![\s\S]*<\/head>)/i,
+        fn: function(w, s) { return s + w; }
+      }]
     }));
 }
 
