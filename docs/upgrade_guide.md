@@ -9,11 +9,30 @@ In Maji 2.0.0 the Marionette dependency has been updated to 3.1.0.
 This means that your app has to update from Marionette 2.4.4 to 3.1.0.
 The `Maji.bus` (using `backbone.wreqr`) is also removed in favor of using `backbone.radio`.
 
-Marionette has an [upgrade guide available online][marionette-upgrade], to find pointers not covered in this guide.
+Marionette has an [upgrade guide available online][marionette-upgrade], which you can use to find more help upgrading after using this guide.
 
-The best way to start is to checkout the updated example app.
+The best way to start is to checkout the updated example app and compare it to your app.
 
-1. Update `app/application.coffee` You can probably look up the example app version
+1. Update `app/application.coffee`:
+    1. At the top of the file, replace
+        ```coffee
+        attachFastClick       = require('fastclick')
+        ```
+
+        with
+
+        ```coffee
+        FastClick = require('fastclick)
+        ```
+
+    1. In the method `setTimeout`, replace both instances of
+        ```coffee
+        app.mainRegion.$el
+        ```
+        with
+        ```coffee
+        $(app.getRegion().el)
+        ```
 
 2. Update `app/app.coffee`:
 
@@ -40,7 +59,7 @@ The best way to start is to checkout the updated example app.
    Change the kickoff of the backbone history:
 
    ```coffee
-   app.on 'start', (options) ->
+   app.on 'initialize:after', (options) ->
      Backbone.history.start()
    ```
 
@@ -51,8 +70,8 @@ The best way to start is to checkout the updated example app.
      # Bind the start event in after the inclusion of
      # the modules, so that the routers are initialized
      # before the kick-off of the backbone history
-     app.on 'start', (options) ->
-       Backbone.history.start()
+       app.on 'start', (options) ->
+           Backbone.history.start()
    ```
 
    Update the implementation of the bus functions to:
@@ -68,12 +87,11 @@ The best way to start is to checkout the updated example app.
        app.getRegion().goBack(where, opts)
    )
    ```
-  ``` 
-  
+
 3. The best approachs is to disable all modules, and enable/update them one by one, starting with the main module 'app' file:
 
-   Change: 
-   
+   Change:
+
    ```coffee
    MyModuleApp = app.module('my_module')
    MyModuleApp.startWithParent = false
@@ -81,40 +99,40 @@ The best way to start is to checkout the updated example app.
    class MyModuleApp.Router extends Marionette.AppRouter
      appRoutes:
        'my_route/:resource_id' : 'openMyRoute'
-       
+
    API =
      openMyRoute: (resourceId) ->
        app.mainRegion.show new EditorPage(
          model: model
        )
-   
+
    MyModuleApp.addInitializer ->
      new EditorApp.Router
        controller: API
-       
+
    module.exports = EditorApp
-  ```
+    ```
 
    To:
 
-```coffee
+    ```coffee
    # Notice creation of module is gone;
    # New name for router
-   
+
    class MyModuleRouter extends Marionette.AppRouter
      routes: # previously appRoutes
        'my_route/:resource_id' : 'openMyRoute'
-       
+
      openMyRoute: (resourceId) -> # Method in class now
        app.showView new EditorPage( # Use showView
          model: model
        )
-   
+
    app.on 'start', ->
      new MyModuleRouter # No passing of controller
-   
-   # No Module exports    
-```
+
+   # No Module exports
+    ```
 
 4. Update all your views:
 
@@ -144,7 +162,7 @@ In Maji 2.0, Maji no longer automatically adds Cordova platforms when you invoke
 
 All projects created with Maji 2.0 are configured like this out of the box.
 
-## Maji bus 
+## Maji bus
 
 Update all uses of the `Maji.bus` to Backbone.Radio ([see documentation of radio here][backbone-radio])
 
