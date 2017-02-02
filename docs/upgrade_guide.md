@@ -87,11 +87,11 @@ The best way to start is to checkout the updated example app and compare it to y
        app.getRegion().goBack(where, opts)
    )
    ```
-  
+
 3. The best approachs is to disable all modules, and enable/update them one by one, starting with the main module 'app' file:
 
-   Change: 
-   
+   Change:
+
    ```coffee
    MyModuleApp = app.module('my_module')
    MyModuleApp.startWithParent = false
@@ -99,40 +99,40 @@ The best way to start is to checkout the updated example app and compare it to y
    class MyModuleApp.Router extends Marionette.AppRouter
      appRoutes:
        'my_route/:resource_id' : 'openMyRoute'
-       
+
    API =
      openMyRoute: (resourceId) ->
        app.mainRegion.show new EditorPage(
          model: model
        )
-   
+
    MyModuleApp.addInitializer ->
      new EditorApp.Router
        controller: API
-       
+
    module.exports = EditorApp
-  ```
+    ```
 
    To:
 
     ```coffee
    # Notice creation of module is gone;
    # New name for router
-   
+
    class MyModuleRouter extends Marionette.AppRouter
      routes: # previously appRoutes
        'my_route/:resource_id' : 'openMyRoute'
-       
+
      openMyRoute: (resourceId) -> # Method in class now
        app.showView new EditorPage( # Use showView
          model: model
        )
-   
+
    app.on 'start', ->
      new MyModuleRouter # No passing of controller
-   
-   # No Module exports    
-```
+
+   # No Module exports
+    ```
 
 4. Update all your views:
 
@@ -162,7 +162,7 @@ In Maji 2.0, Maji no longer automatically adds Cordova platforms when you invoke
 
 All projects created with Maji 2.0 are configured like this out of the box.
 
-## Maji bus 
+## Maji bus
 
 Update all uses of the `Maji.bus` to Backbone.Radio ([see documentation of radio here][backbone-radio])
 
