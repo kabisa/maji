@@ -11,9 +11,28 @@ The `Maji.bus` (using `backbone.wreqr`) is also removed in favor of using `backb
 
 Marionette has an [upgrade guide available online][marionette-upgrade], to find pointers not covered in this guide.
 
-The best way to start is to checkout the updated example app.
+The best way to start is to checkout the updated example app and compare it to your app.
 
-1. Update `app/application.coffee` You can probably look up the example app version
+1. Update `app/application.coffee`:
+    1. At the top of the file, replace
+        ```coffee
+        attachFastClick       = require('fastclick')
+        ```
+
+        with
+
+        ```coffee
+        FastClick = require('fastclick)
+        ```
+
+    1. In the method `setTimeout`, replace both instances of
+        ```coffee
+        app.mainRegion.$el
+        ```
+        with
+        ```coffee
+        $(app.getRegion().el)
+        ```
 
 2. Update `app/app.coffee`:
 
