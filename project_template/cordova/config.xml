@@ -17,9 +17,8 @@
     <!-- allows programmatic focus() calls to trigger the keyboard on iOS -->
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
 
-    <!-- only for android -->
     <preference name="SplashScreen" value="splash" />
-    <preference name="SplashScreenDelay" value="1500" />
+    <preference name="SplashScreenDelay" value="0" />
 
     <!-- target Android SDK versions //-->
     <preference name="android-minSdkVersion" value="14" />
