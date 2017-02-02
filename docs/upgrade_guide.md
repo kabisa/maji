@@ -87,7 +87,6 @@ The best way to start is to checkout the updated example app and compare it to y
        app.getRegion().goBack(where, opts)
    )
    ```
-  ``` 
   
 3. The best approachs is to disable all modules, and enable/update them one by one, starting with the main module 'app' file:
 
@@ -116,7 +115,7 @@ The best way to start is to checkout the updated example app and compare it to y
 
    To:
 
-```coffee
+    ```coffee
    # Notice creation of module is gone;
    # New name for router
    
