@@ -59,7 +59,7 @@ The best way to start is to checkout the updated example app and compare it to y
    Change the kickoff of the backbone history:
 
    ```coffee
-   app.on 'start', (options) ->
+   app.on 'initialize:after', (options) ->
      Backbone.history.start()
    ```
 
