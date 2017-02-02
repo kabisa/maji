@@ -9,7 +9,7 @@ In Maji 2.0.0 the Marionette dependency has been updated to 3.1.0.
 This means that your app has to update from Marionette 2.4.4 to 3.1.0.
 The `Maji.bus` (using `backbone.wreqr`) is also removed in favor of using `backbone.radio`.
 
-Marionette has an [upgrade guide available online][marionette-upgrade], to find pointers not covered in this guide.
+Marionette has an [upgrade guide available online][marionette-upgrade], which you can use to find more help upgrading after using this guide.
 
 The best way to start is to checkout the updated example app and compare it to your app.
 
@@ -70,8 +70,8 @@ The best way to start is to checkout the updated example app and compare it to y
      # Bind the start event in after the inclusion of
      # the modules, so that the routers are initialized
      # before the kick-off of the backbone history
-     app.on 'start', (options) ->
-       Backbone.history.start()
+       app.on 'start', (options) ->
+           Backbone.history.start()
    ```
 
    Update the implementation of the bus functions to:
