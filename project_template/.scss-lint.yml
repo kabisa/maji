@@ -15,3 +15,5 @@ linters:
   PropertySpelling:
     extra_properties:
       - text-size-adjust
+  Indentation:
+    width: 4

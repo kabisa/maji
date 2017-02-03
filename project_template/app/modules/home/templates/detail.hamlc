@@ -1,5 +1,8 @@
-.header
-  %a{href:'#/', class:'btn left', 'data-rel': 'back'}
-  = 'Detail'
+%header.app-header
+    %a.app-header-back{href:'#/', 'data-rel': 'back'}
+    %h1= 'Detail'
 
-.body
+
+%main.app-content
+    %p
+        This is the detail page

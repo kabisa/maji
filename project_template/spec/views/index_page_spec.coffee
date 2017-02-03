@@ -7,4 +7,4 @@ describe 'IndexPage', ->
 
   it 'shows a message', ->
     DOM.append @view.render().el
-    expect(@view.$el.find('p.welcome').text().trim()).to.eq('Welcome to your Maji app!')
+    expect(@view.$el.find('p:first-child').text().trim()).to.eq('Welcome to your Maji app!')
