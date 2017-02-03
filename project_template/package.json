@@ -46,7 +46,7 @@
     "sinon": "~1.17.2",
     "sinon-chai": "2.8.0",
     "vinyl-fs": "~2.4.2",
-    "webpack": "^2.2.0-rc.3",
+    "webpack": "^2.2.1",
     "yaml-loader": "^0.4.0"
   }
 }
