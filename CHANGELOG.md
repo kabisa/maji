@@ -26,3 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Maji application bus in favor of Backbone.Radio
 - Maji Cordova platform management, see upgrade guide for details
 - Dependency installation via Homebrew. [#119](https://github.com/kabisa/maji/pull/119)
+
+### Upgrading
+
+Please refer to the [upgrade guide](https://github.com/kabisa/maji/blob/master/docs/upgrade_guide.md) when upgrading Maji 1.x apps to Maji 2.
