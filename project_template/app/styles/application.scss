@@ -1,127 +1,57 @@
-@import 'normalize';
-@import 'maji/screen_transitions';
-@import 'fonts/lato';
-@import 'fonts/icons';
-@import 'variables';
-@import 'forms';
-@import 'platforms/ios';
-
 @charset 'utf-8';
 
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Lato';
-  text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  user-select: none;
-}
+///////////////////////////////////////////////////////////
+//
+// Use Maji's app-like screen transitions
+//
+///////////////////////////////////////////////////////////
+@import 'maji/screen_transitions';
+@import 'fonts/icons';
 
-a, a:active, a:hover, a:visited {
-  text-decoration: none;
-  color: $color-link;
-}
+///////////////////////////////////////////////////////////
+//
+// Global settings for the project
+//
+///////////////////////////////////////////////////////////
+@import 'settings/general';
+@import 'settings/colors';
+@import 'settings/typography';
 
-#maji-app {
-  position: relative;
-}
+///////////////////////////////////////////////////////////
+//
+// Globally available tooling
+//
+///////////////////////////////////////////////////////////
+@import 'tools/mixins';
 
-.page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0px;
-  top: 0px;
+///////////////////////////////////////////////////////////
+//
+// High-level styles
+//
+///////////////////////////////////////////////////////////
+@import 'generic/reset';
+@import 'generic/box-sizing';
 
-  z-index: 2;
-  background: $color-page-background;
+///////////////////////////////////////////////////////////
+//
+// Bare, unclassed Elements
+//
+///////////////////////////////////////////////////////////
+@import 'elements/base';
 
-  &.animated .header, &.slideout {
-    position: absolute;
-  }
-}
+///////////////////////////////////////////////////////////
+//
+// Basic building blocks of the layout
+//
+///////////////////////////////////////////////////////////
+@import 'objects/media-object';
 
-.header {
-  left: 0;
-  right: 0;
-  position: absolute;
-  z-index: 1000;
-
-  margin: 0;
-  height: 30px;
-  line-height: 30px;
-
-  padding: 10px;
-  background: $color-header-bg;
-
-  text-align: center;
-  color: $color-header-text;
-  font-size: 1.2em;
-
-  .btn {
-    position: absolute;
-    top: 0px;
-
-    color: $color-header-text;
-    font-size: 0.8em;
-
-    &[data-rel=back] {
-      @include icon(back);
-      margin-left: -10px;
-
-      // scss-lint:disable NestingDepth
-      &:before { float: left; }
-    }
-
-    &.left {
-      left: 5px;
-    }
-
-    &.right {
-      right: 5px;
-    }
-  }
-}
-
-.body {
-  padding: 65px 15px 15px;
-  box-sizing: border-box;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px;
-}
-
-.listview {
-  list-style-type: none;
-  padding: 0;
-
-  margin: -15px;
-
-  li {
-    @include icon(back, after);
-
-    position: relative;
-    padding: 10px 15px;
-
-    border-bottom: 1px solid $color-listview-li-border;
-
-    &:after {
-      font-size: 12px;
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      margin-top: -6px;
-      transform: rotate(180deg);
-    }
-
-    a {
-      display: block;
-      margin: -10px -15px;
-      padding: 10px 15px;
-
-      -webkit-tap-highlight-color: rgba(130, 130, 130, 0.2);
-    }
-  }
-}
+///////////////////////////////////////////////////////////
+//
+// UI components
+//
+///////////////////////////////////////////////////////////
+@import 'components/page';
+@import 'components/header';
+@import 'components/content';
+@import 'components/navigation-list';

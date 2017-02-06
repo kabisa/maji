@@ -3,8 +3,8 @@ set -e
 
 export APP_ENV=test
 
-PRE_BUILT=true bundle exec rspec
-./node_modules/karma/bin/karma start --singleRun
+npm run test:unit
+npm run test:integration
 
 find app/ \
   -type f -name '*.coffee' \

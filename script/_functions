@@ -1,23 +1,12 @@
 set -e
 
-function platform_installed() {
-  cordova platforms | head -n 1 | grep $1 >/dev/null
-}
-
-function brew_dep_installed() {
-  brew list | grep "^$@$" >/dev/null 2>&1
-}
-
 function command_available() {
   command -v "$@" >/dev/null 2>&1
 }
 
-function brew_available() {
-  command_available 'brew'
-}
-
 function warning() {
-  echo "$(tput setaf 3)$@$(tput sgr0)"
+  [[ $# -eq 0 ]] && local message=$(cat -) || local message="$@"
+  echo "$(tput setaf 3)$message$(tput sgr0)"
 }
 
 function npm_package_available() {

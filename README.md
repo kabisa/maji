@@ -17,26 +17,15 @@ Before you can use Maji, make sure you have the following:
 
 ### General
 
-* Ruby, for the Cucumber specs
-* NodeJS, for the build system (`bin/setup` will install this if you've got Homebrew)
-* Homebrew (`bin/setup` will use this to hook you up with all of the dependencies, except Ruby)
-
-### Mac OS X
-
-* [Homebrew](http://brew.sh) a Mac OS X package manager
-
-### Linux
-
-* [Nodejs](http://nodejs.org) allows JavaScript to be run Server-side
-* [Apache Ant](http://ant.apache.org) is used for building Java Applications
-* [PhantomJS](http://phantomjs.org/download.html) is a headless WebKit Browser, scriptable with a JavaScript API
+* Ruby + Bundler, for the integration specs
+* Node.js >= 6 + NPM, for the build system
 
 ## Getting started
 
 To create a new app execute the following commands in your shell:
 
 ```
-$ npm install kabisa/maji
+$ npm install maji
 $ ./node_modules/.bin/maji new org.example.my-app /desired/path/to/your/project/
 $ cd /desired/path/to/your/project/
 $ bin/setup
@@ -51,9 +40,11 @@ Your new Maji app will now be generated at the supplied path.
 
   Commands:
 
-    run [options] <platform>    build and run a native app for the specified platform
-    build [options] <platform>  build a native app for the specified platform
-    new <package_name> <path>   create a new Maji app
+    new <package_name> <path>   Create a new Maji app
+    run [options] <platform>    Build and run a native app for the specified platform
+    build [options] [platform]  Build a native app for the specified platform
+    test [options]              Run your project tests
+    start [options]             Run the maji dev server and compile changes on the fly
 
   Options:
 
@@ -64,15 +55,15 @@ Your new Maji app will now be generated at the supplied path.
 
 ### Starting in the browser
 
-To start your app, `cd` into its directory, execute `make watch` and navigate to http://localhost:9090/ with your browser.
+To start your app, `cd` into its directory, execute `bin/maji start` and navigate to http://localhost:9090/ with your browser.
 
 ### Running tests
 
 To run test, you have several options:
-* To run JavaScript tests run `bin/karma start`. This will start a Karma server with Phantomjs and will continuously watch your Javascript files and run tests on changes.
-* To run JavaScript tests once, run `bin/karma start --single-run`.
-* To run features specs once, run `bundle exec rspec`.
-* To run all tests once, run `bin/ci`.
+* To run JavaScript tests run `bin/maji test --watch`. This will start a Karma server with Phantomjs headless browser and will continuously watch your Javascript files and run tests on changes.
+* To run JavaScript tests once, run `bin/maji test --unit`.
+* To run features specs once, run `bin/maji test --integration`.
+* To run all tests once, run `bin/maji test`.
 
 ### Creating builds
 
@@ -96,7 +87,7 @@ A Maji Mobile App comes with several frameworks built-in and configured to work 
  * [MarionetteJS](http://marionettejs.com) Marionette simplifies Backbone Views
  * [FastClick](http://ftlabs.github.io/fastclick/) disable the delay between click and the action on iOS
  * [jQuery](http://jquery.com) JavaScript library for working with the DOM
- * [Browserify](http://browserify.org) is a JavaScript module system that supports CommonJS syntax
+ * [Webpack](https://webpack.js.org/) is a JavaScript module bundler
  * [BugSnagJS](https://github.com/bugsnag/bugsnag-js) JavaScript client for [BugSnag](http://bugsnag.com/) exception tracker
  * [Karma](http://karma-runner.github.io/) is a JavaScript test runner
  * [MochaJS](http://mochajs.org) a JavaScript testing framework that supports a BDD style of writing tests

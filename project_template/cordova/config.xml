@@ -5,6 +5,11 @@
     <content src="index.html" />
     <access origin="*" />
 
+    <hook type="before_platform_add" src="../node_modules/maji/cordova/hooks/before_platform_add.js" />
+
+    <engine name="android" spec="~6.1.1" />
+    <engine name="ios" spec="~4.3.1" />
+
     <preference name="DisallowOverscroll" value="true"/>
     <preference name="Orientation" value="portrait" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
@@ -12,9 +17,8 @@
     <!-- allows programmatic focus() calls to trigger the keyboard on iOS -->
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
 
-    <!-- only for android -->
     <preference name="SplashScreen" value="splash" />
-    <preference name="SplashScreenDelay" value="1500" />
+    <preference name="SplashScreenDelay" value="0" />
 
     <!-- target Android SDK versions //-->
     <preference name="android-minSdkVersion" value="14" />
@@ -22,4 +26,8 @@
 
     <!-- disable icloud storage sync -->
     <preference name="BackupWebStorage" value="local"/>
+
+    <plugin name="cordova-plugin-splashscreen" spec="~4.0.0"/>
+    <plugin name="com.mallzee.plugin.networkactivity" spec="https://github.com/mallzee/network-activity.git#0904b83c3109560bad8e7dd9be1320bb9303899d"/>
+    <plugin name="cordova-plugin-whitelist" spec="~1.3.0"/>
 </widget>

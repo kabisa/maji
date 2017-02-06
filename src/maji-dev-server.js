@@ -17,10 +17,12 @@ program
   .usage('[options] <path>')
   .option('-p, --port [port]', 'Port to listen on [9090]', parsePort, 9090)
   .option('-l, --livereload [flag]', 'Enable livereload [true]', parseBoolean, true)
+  .option('-c, --cors', 'Enable cors')
   .parse(process.argv);
 
 var port = program.port;
 var livereload = program.livereload;
+var cors = program.cors;
 var assetPath = program.args[0];
 
 if (! assetPath) {
@@ -51,6 +53,14 @@ if(livereload) {
         fn: function(w, s) { return s + w; }
       }]
     }));
+}
+
+if(cors) {
+  server.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', req.get('Access-Control-Request-Headers') || '*');
+    next();
+  });
 }
 
 server

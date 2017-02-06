@@ -1,5 +1,5 @@
 Maji = require('maji')
-bus  = require('../app').bus
+Radio = require('backbone.radio')
 
 class ApplicationPage extends Maji.Page
   events:
@@ -8,7 +8,7 @@ class ApplicationPage extends Maji.Page
 
   constructor: ->
     super
-    @listenTo bus.vent, 'app:backbutton', @onBackButton
+    @listenTo Radio.channel('app'), 'backbutton', @onBackButton
 
   goHome: (e) ->
     e && e.preventDefault()
@@ -27,6 +27,6 @@ class ApplicationPage extends Maji.Page
     false
 
   navigate: (href, options = {}) ->
-    bus.commands.execute 'navigate', href, options
+    Radio.channel('app').request('navigate', href, options)
 
 module.exports = ApplicationPage

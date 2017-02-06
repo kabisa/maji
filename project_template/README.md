@@ -8,13 +8,13 @@
 
 ## Development workflow
 
-* While developing you can run a local serve using `make watch`. This will start a server on http://localhost:9090.
-* To create a static HTML5 app build run `make dist`. The app will be build into the `dist/` directory.
+* While developing you can run a local serve using `bin/maji start`. This will start a server on http://localhost:9090.
+* To create a static HTML5 app build run `bin/maji build`. The app will be build into the `dist/` directory.
 * To run the app on a connected mobile device run `bin/maji run <platform>`.
 * To build a Cordova app run `bin/maji build <platform>`.
-* To run Javascript tests run `bin/karma start`. This will start a Karma server with Phantomjs and will continuously watch your Javascript files and run tests on changes.
-* To run features specs run `bundle exec rspec`.
-* To run all tests run `bin/ci`.
+* To run Javascript tests run `bin/maji test --watch`. This will start a Karma server with Phantomjs and will continuously watch your Javascript files and run tests on changes.
+* To run integration specs run `bin/maji test --integration`.
+* To run all tests run `bin/maji test`.
 
 
 ## Packaging native apps / running on your device
@@ -27,9 +27,8 @@
 
 ### General
 
-* Ruby, for the Capybara integration specs
-* NodeJS, for the build system (`bin/setup` will install this if you've got Homebrew)
-* Homebrew (`bin/setup` will use this to hook you up with all of the dependencies, except Ruby)
+* Ruby + Bundler, for the integration specs
+* Node.js >=6 + NPM, for the build system
 
 ### iOS
 
@@ -41,5 +40,4 @@
 * Android SDK
 * Android platform tools installed
 * Android platform 10+.
-* Ant (`brew install ant`)
 * `android` and `adb` in your $PATH (add `path/to/android-sdk-macosx/tools` and `path/to/android-sdk-macosx/platform-tools` to your $PATH).

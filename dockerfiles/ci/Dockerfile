@@ -13,15 +13,8 @@ RUN apt-get update \
           locales \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install NodeJS 5
-RUN curl -sL https://deb.nodesource.com/setup_5.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt-get install --yes nodejs
-
-# Install PhantomJS 2.1.1
-RUN cd /tmp && curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 -o phantomjs-2.1.1-linux-x86_64.tar.bz2 \
-    && tar xjf phantomjs-2.1.1-linux-x86_64.tar.bz2 \
-    && mv /tmp/phantomjs-*/bin/phantomjs /usr/bin/ \
-    && rm -r /tmp/phantomjs*
 
 ENV CONTAINER_INIT /usr/local/bin/init-container
 RUN echo '#!/usr/bin/env bash' > $CONTAINER_INIT ; chmod +x $CONTAINER_INIT
@@ -37,5 +30,4 @@ RUN echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
-ENV PHANTOMJS_BIN /usr/bin/phantomjs
 ENV BUNDLE_PATH /cache/bundle

@@ -2,9 +2,11 @@
 set -e
 
 TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji-tests)
+npm link
 lib/cli.js new nl.kabisa.test-app $TMP_DIR
 
 pushd $TMP_DIR
   bin/setup
+  npm link maji
   bin/ci
 popd

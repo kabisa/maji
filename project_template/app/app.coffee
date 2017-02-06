@@ -5,30 +5,32 @@ require('./config/template_helpers')
 
 Backbone                      = require('backbone')
 Marionette                    = require('backbone.marionette')
+Radio                         = require('backbone.radio')
 PageTransitionSupportDetector = require('./support/page_transition_support_detector')
 Maji                          = require('maji')
 
 app = new Maji.Application
   showTransitions: PageTransitionSupportDetector.supportsTransitions()
 
-app.addInitializer ->
-  require('./modules/home/home_app').start()
+app.on 'before:start', ->
+  # include modules
+  require('./modules/home/home_app')
 
-app.on 'start', (options) ->
-  Backbone.history.start()
-  Backbone.history.navigate(Backbone.history.fragment)
+app.on 'before:start', ->
+  # Bind the start event in after the inclusion of
+  # the modules, so that the routers are initialized
+  # before the kick-off of the backbone history
+  app.on 'start', (options) ->
+    Backbone.history.start()
 
-app.bus.reqres.setHandler 'view:current', ->
-  app.mainRegion.currentView
-
-app.bus.reqres.setHandler 'uri:current', ->
-  Backbone.history.fragment
-
-app.bus.commands.setHandler 'navigate', (location, options = {}) ->
-  app.mainRegion.navigate(location, options, Backbone.history)
-
-app.bus.commands.setHandler 'go-back', (where, opts) ->
-  where = undefined if where == '#'
-  app.mainRegion.goBack(where, opts)
+Radio.channel('app').reply(
+  'view:current': -> app.getView()
+  'uri:current': -> Backbone.history.fragment
+  'navigate': (location, options = {}) ->
+    app.getRegion().navigate(location, options, Backbone.history)
+  'go-back': (where, opts) ->
+    where = undefined if where == '#'
+    app.getRegion().goBack(where, opts)
+)
 
 module.exports = app

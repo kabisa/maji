@@ -5,7 +5,7 @@ Maji     = require('maji')
 # These helpers will be exposed in templates under the 'h' namespace.
 #
 # E.g a 'pluralize' helper could be called from a template as
-# h.pluaralize 'something'
+# h.pluralize 'something'
 class AppTemplateHelpers
 
 Maji.TemplateHelpers.register(new AppTemplateHelpers())
