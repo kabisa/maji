@@ -11,6 +11,8 @@ var targetPath = path.relative(
   __dirname + '/../app/styles/fonts/'
 );
 
+console.log('Updating icon font style file in: ' + targetPath + ' and icon font at: ' + outputPath);
+
 fs.src('app/styles/icons/*.svg', { base: 'app/styles' })
   .pipe(iconfontCss({
     fontName: 'icons',
@@ -20,6 +22,8 @@ fs.src('app/styles/icons/*.svg', { base: 'app/styles' })
   }))
   .pipe(iconfont({
     fontName: 'icons',
-    log: function() {}
+    log: function(msg) {
+      console.log(msg)
+    }
    }))
   .pipe(fs.dest(outputPath));
