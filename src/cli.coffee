@@ -57,7 +57,7 @@ program
   .option('-e, --emulator', 'run on emulator instead of an actual device')
   .option('--env --environment [environment]', 'APP_ENV to run with [development]')
   .action (platform, options) ->
-    app_env = options.environment || 'development'
+    app_env = options.environment || process.env.APP_ENV || 'development'
     env = {
       'APP_ENV': app_env
     }
@@ -71,7 +71,7 @@ program
   .option('--release', 'create a release build')
   .option('--env --environment [environment]', 'APP_ENV to build with [production]')
   .action (platform, options) ->
-    app_env = options.environment || 'production'
+    app_env = options.environment || process.env.APP_ENV || 'production'
     env = {
       'APP_ENV': app_env
     }
