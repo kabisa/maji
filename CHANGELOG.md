@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 2.0.2
+### Fixed
+- Fixed issue where default --env value overrides APP_ENV env var [#148](https://github.com/kabisa/maji/pull/148)
+
 ## 2.0.0
 ### Added
 - memo-is for using memoization in specs
