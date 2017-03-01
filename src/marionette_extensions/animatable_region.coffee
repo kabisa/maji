@@ -116,20 +116,25 @@ class AnimatableRegion extends Marionette.Region
         newPage.$el.removeClass('page-pre-in')
         newPage.$el.addClass("animated #{@transition} in#{if @back then ' reverse' else ''}")
 
+        cleanupNextPage = =>
+          newPage.$el.removeClass("animated #{@transition} in reverse")
+          newPage.$el.css('z-index', '')
+
+        cleanupPrevPage = ((prevPage) -> () ->
+          if prevPage
+            if prevPage.destroy then prevPage.destroy()
+            else prevPage.remove()
+        )(@currentPage)
+
         # newPage.$el.one 'webkitAnimationEnd mozAnimationEnd msAnimationEnd oAnimationEnd animationend', =>
         # FIXME: this is a temporary workaround for animationend events often times not
         # firing on WP8. Transitions in the app all use the same duration so a setTimeout is good
         # enough as a workaround.
         setTimeout((=>
-          newPage.$el.removeClass("animated #{@transition} in reverse")
-          newPage.$el.css('z-index', '')
+          cleanupNextPage()
+          cleanupPrevPage()
 
-          # remove the current page, if any
-          if @currentPage
-            if @currentPage.destroy then @currentPage.destroy()
-            else @currentPage.remove()
-            @currentPage = null
-
+          @currentPage = null
           @back = undefined
           @transitioning = false
 
