@@ -102,7 +102,7 @@ For our Frequently Asked Questions, see [here](docs/faq.md).
 Here are some links to documentation you might need:
 
  * [Backbone](http://backbonejs.org)
- * [Marionette](http://marionettejs.com/docs/v1.8.7/)
+ * [Marionette](http://marionettejs.com/docs/v3.1.0/)
  * [Mocha](http://mochajs.org/#assertions)
  * [Chai Expect/Should](http://chaijs.com/api/bdd/)
  * [Apache Cordova](http://cordova.apache.org/docs/en/4.0.0/)
