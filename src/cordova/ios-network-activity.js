@@ -1,5 +1,5 @@
 export default function() {
-  if(!window.NetworkActivity) return;
+  if (!window.NetworkActivity) return;
 
   const origOpen = XMLHttpRequest.prototype.open;
 

@@ -4,12 +4,12 @@ module.exports = function(karma) {
 
     files: [
       { pattern: "src/**/!(cli).js", included: false },
-			"spec/**/*.spec.js",
+      "spec/**/*.spec.js"
     ],
 
     preprocessors: {
       "src/**/!(cli).js": ["rollup"],
-			"spec/**/*.spec.js": ["rollup"],
+      "spec/**/*.spec.js": ["rollup"]
     },
 
     client: {

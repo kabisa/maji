@@ -6,5 +6,5 @@ module.exports = {
   entry: "src/main.js",
   format: "es",
   dest: "lib/bundle.js",
-  plugins: [ buble(), resolve(), commonjs() ]
-}
+  plugins: [buble(), resolve(), commonjs()]
+};

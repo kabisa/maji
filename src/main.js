@@ -3,4 +3,4 @@ import registerCordovaSupport from "./cordova-support";
 
 registerCordovaSupport();
 
-export { I18n }
+export { I18n };
