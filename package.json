@@ -4,7 +4,7 @@
   "license": "MIT",
   "module": "lib/bundle.js",
   "bin": {
-    "maji": "./lib/cli.js"
+    "maji": "./src/cli.js"
   },
   "repository": {
     "type": "git",
