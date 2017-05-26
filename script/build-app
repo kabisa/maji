@@ -4,9 +4,4 @@ export APP_ENV=$APP_ENV
 export PATH=$PATH:$(npm bin)
 export APP_PATH=$(pwd)
 
-if [[ $* == *--release* ]]; then
-  # force reinstall all cordova plugins, in case those are updated
-  cd cordova && cordova plugins ls | cut -d ' ' -f 1 | xargs cordova plugin rm
-fi
-
 cd $APP_PATH && $(dirname ${BASH_SOURCE[0]})/cordova-exec build "$@"
