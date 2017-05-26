@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "build": "NODE_ENV=production webpack",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --port 9090",
     "test": "karma start --single-run",
     "watch": "karma start --watch",
     "prettier": "prettier '{,!(node_modules)/**/}*.js'"
