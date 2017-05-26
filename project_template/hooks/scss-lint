@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-git diff --cached --name-status --diff-filter=ACM \
-  | awk '/\.scss$/ { print $2 }' \
-  | xargs bundle exec scss-lint

@@ -1,14 +1,5 @@
-#!/bin/bash
-source "$(dirname ${BASH_SOURCE[0]})/_functions"
-PROJECT=$(basename $(pwd))
-echo "Setting up $PROJECT"
+#!/bin/sh
+echo "Setting up git hooks..."
+for h in hooks/*; do ln -sf ../../$h .git/hooks/$(basename $h); done
 
-npm install
-bundle install
-
-if [ -d .git ]; then
-  echo 'Setting up git hooks...'
-  for h in hooks/*; do ln -sf ../../$h .git/hooks/$(basename $h); done
-fi
-
-echo -n 'Setup finished. '
+command -v yarn && yarn || npm install

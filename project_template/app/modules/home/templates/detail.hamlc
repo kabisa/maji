@@ -1,8 +1,0 @@
-%header.app-header
-    %a.app-header-back{href:'#/', 'data-rel': 'back'}
-    %h1= 'Detail'
-
-
-%main.app-content
-    %p
-        This is the detail page

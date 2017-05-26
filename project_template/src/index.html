@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>##APP_NAME##</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="application-name" content="##APP_NAME##">
+    <meta name="apple-mobile-web-app-capable" content="false">
+    <meta name="apple-mobile-web-app-title" content="##APP_NAME##">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <script src="cordova.js"></script>
+    <script type="text/javascript">
+      if(window.navigator.standalone) {
+        document.querySelector('html').className = 'ios-standalone';
+      }
+    </script>
+
+<% for (var css of htmlWebpackPlugin.files.css.filter((file) => file.indexOf("shell") != -1)) { %>
+    <style>
+        <%= compilation.assets[css.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
+    </style>
+<% } %>
+  </head>
+  <body>
+    <div id="app"></div>
+<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+<% } %>
+<% for (var css of htmlWebpackPlugin.files.css.filter((file) => file.indexOf("styles") != -1)) { %>
+    <link href="<%= css %>" rel="stylesheet">
+  <% } %>
+  </body>
+</html>

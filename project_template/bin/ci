@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 set -e
 
-export APP_ENV=test
-
-npm run test:unit
-npm run test:integration
-
-find app/ \
-  -type f -name '*.coffee' \
-  | xargs $(npm bin)/coffeelint
-
-find app/styles -type f -name '*.scss' | xargs bundle exec scss-lint
+yarn run prettier -- --list-different
+yarn test
