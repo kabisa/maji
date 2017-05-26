@@ -16,6 +16,18 @@ RUN apt-get update \
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt-get install --yes nodejs
 
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
+ENV PATH /root/.yarn/bin:${PATH}
+
+# install latest chrome
+RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+  && echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
+  && apt-get update \
+  && apt-get -y install google-chrome-unstable \
+  && rm /etc/apt/sources.list.d/google-chrome.list \
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+ENV CHROME_BIN /usr/bin/google-chrome-unstable
+
 ENV CONTAINER_INIT /usr/local/bin/init-container
 RUN echo '#!/usr/bin/env bash' > $CONTAINER_INIT ; chmod +x $CONTAINER_INIT
 

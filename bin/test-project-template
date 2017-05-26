@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 set -e
 
+yarn run build
+
 TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji-tests)
-npm link
-lib/cli.js new nl.kabisa.test-app $TMP_DIR
+src/cli.js new nl.kabisa.test-app $TMP_DIR
 
 pushd $TMP_DIR
   bin/setup
-  npm link maji
+
+  # babel-loader doesn't like linked modules, so copy maji HEAD in place
+  # https://github.com/babel/babel-loader/issues/149
+  rm -rf node_modules/maji && mkdir node_modules/maji
+  cp -r /workspace/package.json /workspace/lib node_modules/maji/
+
   bin/ci
 popd

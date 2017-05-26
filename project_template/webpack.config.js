@@ -80,7 +80,7 @@ module.exports = {
         loader: "babel-loader",
         options: babel
       },
-      { test: /\.yml$/, loader: 'json-loader!yaml-loader' },
+      { test: /\.yml$/, loader: "json-loader!yaml-loader" },
       {
         test: /\.scss$/,
         loader: isProd

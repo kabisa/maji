@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "preact": "^8.1.0",
-    "preact-router": "^2.5.2"
+    "preact-router": "^2.5.2",
+    "maji": "^2.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -37,7 +38,6 @@
     "karma-mocha-reporter": "^2.2.3",
     "karma-sinon": "^1.0.5",
     "karma-webpack": "^2.0.3",
-    "maji": "^2.0.2",
     "mocha": "^3.4.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.5",

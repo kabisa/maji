@@ -20,7 +20,7 @@ module.exports = function(karma) {
     },
 
     reporters: ["mocha"],
-    browsers: ["PhantomJS"],
+    browsers: ["ChromeHeadless"],
 
     rollupPreprocessor: require("./rollup.config")
   });
