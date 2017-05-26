@@ -52,8 +52,6 @@ if (isProd) {
     new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
     new webpack.optimize.UglifyJsPlugin(uglify)
   );
-
-  babel.presets.push("babili");
 } else {
   plugins.push(
     // enable HMR globally
