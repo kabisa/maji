@@ -6,6 +6,9 @@ APP_PACKAGE=$1
 APP_NAME=$(echo $1 | perl -pe 's/.*\.//')
 APP_PATH="$2"
 
+CURRENT_MAJI_VERSION=$(node -p "require('./package.json').version")
+MAJI_VERSION=${MAJI_VERSION:-$CURRENT_MAJI_VERSION}
+
 TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji)
 
 pushd $(dirname "${BASH_SOURCE[0]}")/../ >/dev/null 2>&1
@@ -19,6 +22,7 @@ pushd $(dirname "${BASH_SOURCE[0]}")/../ >/dev/null 2>&1
     perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/config.xml
     perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/package.json
     perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" package.json
+    perl -pi -e "s|##MAJI_VERSION##|$MAJI_VERSION|" package.json
 
     # create needed symlinks, NPM removes them
     (cd cordova/ && ln -s ../dist www)

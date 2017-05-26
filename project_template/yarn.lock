@@ -3842,17 +3842,6 @@ macaddress@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
 
-maji@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/maji/-/maji-2.0.2.tgz#613c6be7b6fde428927c3b6a86493db4fb0383ee"
-  dependencies:
-    chokidar "1.6.1"
-    commander "~2.9.0"
-    connect-livereload "0.6.0"
-    express "4.14.0"
-    i18n-js "http://github.com/fnando/i18n-js/archive/v3.0.0.rc8.tar.gz"
-    tiny-lr "1.0.3"
-
 map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
