@@ -1,7 +1,3 @@
-import foo from "./foo";
+import I18n from "./i18n";
 
-export default function() {
-  alert(foo())
-}
-
-export { foo };
+export { I18n }
