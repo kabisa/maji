@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const babel = require("./config/babel");
 const uglify = require("./config/uglify");
 
-const env = process.env.NODE_ENV || "development";
+const env = process.env.NODE_ENV || process.env.APP_ENV || "development";
 const isProd = env === "production";
 const out = path.resolve(__dirname, "dist");
 const exclusions = /node_modules/;
@@ -11,6 +11,8 @@ const exclusions = /node_modules/;
 const ExtractText = require("extract-text-webpack-plugin");
 const extractShellCss = new ExtractText("shell.[hash].css");
 const extractOtherCss = new ExtractText("styles.[hash].css");
+
+console.log(`Building with env = ${env}`);
 
 // plugin management
 const HTML = require("html-webpack-plugin");
