@@ -1,8 +1,8 @@
-import buble from "rollup-plugin-buble";
-import resolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
+const buble = require("rollup-plugin-buble");
+const resolve = require("rollup-plugin-node-resolve");
+const commonjs = require("rollup-plugin-commonjs");
 
-export default {
+module.exports = {
   entry: "src/main.js",
   format: "es",
   dest: "lib/bundle.js",

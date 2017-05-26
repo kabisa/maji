@@ -1,34 +1,27 @@
-'use strict';
-
 module.exports = function(karma) {
   karma.set({
-
-    frameworks: [ 'mocha', 'sinon-chai', 'browserify', 'chai-jquery' ],
+    frameworks: ["mocha", "chai", "chai-dom"],
 
     files: [
-      { pattern: 'spec/spec_helper.coffee', watched: false, included: true, served: true },
-      { pattern: 'spec/**/*spec.coffee', watched: false, included: true, served: true }
+      { pattern: "src/**/!(cli).js", included: false },
+			"spec/**/*.spec.js",
     ],
 
     preprocessors: {
-      'spec/spec_helper.coffee': [ 'browserify' ],
-      'spec/**/*spec.coffee': [ 'browserify' ]
+      "src/**/!(cli).js": ["rollup"],
+			"spec/**/*.spec.js": ["rollup"],
     },
 
     client: {
       captureConsole: true,
       mocha: {
-        reporter: 'html' // view on http://localhost:9876/debug.html
+        reporter: "html" // view on http://localhost:9876/debug.html
       }
     },
 
-    reporters: ['mocha'],
-    browsers: [ 'PhantomJS' ],
+    reporters: ["mocha"],
+    browsers: ["PhantomJS"],
 
-    browserify: {
-      debug: true,
-      extensions: [ '.coffee' ],
-      transform: [ 'coffeeify' ]
-    }
+    rollupPreprocessor: require("./rollup.config")
   });
 };
