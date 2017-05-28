@@ -2,4 +2,5 @@
 set -e
 
 yarn run prettier -- --list-different
+yarn run stylelint
 yarn test
