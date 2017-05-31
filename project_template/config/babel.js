@@ -1,4 +1,18 @@
+const supportedBrowsers = require("./supported-browsers");
+
 module.exports = {
-  presets: [["es2015", { loose: true, modules: false }], ["stage-3"]],
+  presets: [
+    ["stage-3"],
+    [
+      "env",
+      {
+        targets: {
+          browsers: supportedBrowsers
+        },
+        modules: false,
+        loose: true
+      }
+    ]
+  ],
   plugins: [["transform-react-jsx", { pragma: "h" }]]
 };

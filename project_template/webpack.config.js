@@ -33,13 +33,7 @@ const plugins = [
   new webpack.LoaderOptionsPlugin({
     options: {
       postcss: [
-        require("autoprefixer")({
-          browsers: [
-            "last 3 Chrome versions",
-            "last 3 iOS versions",
-            "last 3 Edge versions"
-          ]
-        })
+        require("autoprefixer")(require('./config/supported-browsers'))
       ]
     }
   }),
