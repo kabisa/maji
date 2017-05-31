@@ -12,7 +12,7 @@ const ExtractText = require("extract-text-webpack-plugin");
 const extractShellCss = new ExtractText("shell.[hash].css");
 const extractOtherCss = new ExtractText("styles.[hash].css");
 
-console.log(`Building with env = ${env}`);
+process.stderr.write(`Building with env = ${env}\n`);
 
 // plugin management
 const HTML = require("html-webpack-plugin");
@@ -32,9 +32,7 @@ const plugins = [
   }),
   new webpack.LoaderOptionsPlugin({
     options: {
-      postcss: [
-        require("autoprefixer")(require('./config/supported-browsers'))
-      ]
+      postcss: [require("autoprefixer")(require("./config/supported-browsers"))]
     }
   }),
   extractShellCss,
