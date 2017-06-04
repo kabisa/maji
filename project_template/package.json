@@ -16,6 +16,7 @@
     "maji": "##MAJI_VERSION##"
   },
   "devDependencies": {
+    "autoprefixer": "^7.1.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
