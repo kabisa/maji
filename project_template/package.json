@@ -3,7 +3,7 @@
   "name": "##APP_PACKAGE##",
   "version": "0.0.1",
   "scripts": {
-    "build": "webpack",
+    "build": "NODE_ENV=${NODE_ENV:-production} webpack",
     "start": "webpack-dev-server --port 9090",
     "test": "karma start --single-run",
     "watch": "karma start --watch",
