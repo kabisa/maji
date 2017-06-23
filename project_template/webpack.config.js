@@ -102,7 +102,8 @@ module.exports = {
     alias: {
       src: path.resolve(__dirname, "./src"),
       config: path.resolve(__dirname, "./config")
-    }
+    },
+    symlinks: false
   },
   devtool: isProd ? "source-map" : "eval",
   plugins: plugins,
