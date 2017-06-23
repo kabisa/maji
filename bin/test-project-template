@@ -4,7 +4,7 @@ set -e
 yarn run build
 
 TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji-tests)
-src/cli.js new nl.kabisa.test-app $TMP_DIR
+MAJI_VERSION=file:/workspace src/cli.js new nl.kabisa.test-app $TMP_DIR
 
 pushd $TMP_DIR
   bin/setup
