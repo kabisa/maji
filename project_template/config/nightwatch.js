@@ -23,6 +23,9 @@ module.exports = {
         browserName: "chrome",
         javascriptEnabled: true,
         acceptSslCerts: true
+      },
+      globals: {
+        waitForConditionTimeout: 5000
       }
     }
   },
