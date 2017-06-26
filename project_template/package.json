@@ -12,6 +12,7 @@
     "stylelint": "stylelint 'src/styles/**/*.scss'"
   },
   "dependencies": {
+    "history": "^4.6.3",
     "preact": "^8.1.0",
     "preact-router": "^2.5.2",
     "maji": "##MAJI_VERSION##"
@@ -27,7 +28,6 @@
     "chai-dom": "^1.4.3",
     "chromedriver": "^2.30.1",
     "clean-webpack-plugin": "^0.1.16",
-    "connect-history-api-fallback": "^1.3.0",
     "cordova": "^7.0.1",
     "css-loader": "^0.28.1",
     "extract-text-webpack-plugin": "^2.1.0",

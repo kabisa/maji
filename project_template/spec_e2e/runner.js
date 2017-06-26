@@ -1,20 +1,16 @@
 const spawn = require("cross-spawn");
 const express = require("express");
 const webpack = require("webpack");
-const historyMiddleware = require("connect-history-api-fallback");
 const devMiddleware = require("webpack-dev-middleware");
 
 const config = require("../webpack.config.js");
 const compiler = webpack(config);
 const app = express();
 
-// fallback to index.html and route to history
-app.use(historyMiddleware());
-
 // serve output from webpack
 app.use(
   devMiddleware(compiler, {
-    publicPath: config.output.publicPath,
+    publicPath: "/",
     stats: {
       colors: true,
       chunks: false

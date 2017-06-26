@@ -1,12 +1,13 @@
 import { h } from "preact";
 import Router from "preact-router";
+import createHistory from "history/createHashHistory";
 import I18n from "src/config/i18n";
 
 import Icon from "src/utils/Icon";
 const Greeter = ({ name }) => <p>Hello {name}!</p>;
 
 export default () => (
-  <Router>
+  <Router history={createHistory()}>
     <Greeter path="/hello/:name" />
     <div default>
       <p>{I18n.t("hello")}</p>

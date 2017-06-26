@@ -57,7 +57,7 @@ module.exports = {
   output: {
     path: out,
     filename: "[name].[hash].js",
-    publicPath: "/"
+    publicPath: "./"
   },
   module: {
     rules: [
@@ -111,7 +111,6 @@ module.exports = {
     publicPath: "/",
     contentBase: out,
     port: process.env.PORT || 3000,
-    historyApiFallback: true,
     compress: isProd,
     inline: !isProd,
     hot: !isProd
