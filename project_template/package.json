@@ -4,10 +4,10 @@
   "version": "0.0.1",
   "scripts": {
     "build": "NODE_ENV=${NODE_ENV:-production} webpack",
-    "start": "webpack-dev-server --port 9090",
+    "start": "PORT=9090 script/dev-server.js",
     "test": "karma start --single-run",
     "watch": "karma start --watch",
-    "test:e2e": "NODE_ENV=${NODE_ENV:-test} node spec_e2e/runner.js --PORT 9091",
+    "test:e2e": "NODE_ENV=${NODE_ENV:-test} PORT=9091 script/test-e2e.js",
     "prettier": "prettier '{,!(node_modules)/**/}*.js'",
     "stylelint": "stylelint 'src/styles/**/*.scss'"
   },
@@ -57,7 +57,9 @@
     "stylelint-config-standard": "^16.0.0",
     "svg-sprite-loader": "^3.0.3",
     "webpack": "^2.5.1",
+    "webpack-dev-middleware": "^1.11.0",
     "webpack-dev-server": "^2.4.5",
+    "webpack-hot-middleware": "^2.18.0",
     "yaml-loader": "^0.4.0"
   }
 }

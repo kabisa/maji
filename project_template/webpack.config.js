@@ -44,14 +44,23 @@ if (isProd) {
     // enable HMR globally
     new webpack.HotModuleReplacementPlugin(),
     // prints more readable module names in the browser console on HMR updates
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    // prevent emitting assets with errors
+    new webpack.NoEmitOnErrorsPlugin()
   );
 }
 // end of plugin management
 
+// optionally live-reloadable entry points
+const entryPoints = function() {
+  const items = isProd ? [] : ['webpack-hot-middleware/client?noInfo=true&reload=true'];
+  items.push(...arguments);
+  return items;
+};
+
 module.exports = {
   entry: {
-    app: "./src/index.js",
+    app: entryPoints("./src/index.js"),
     vendor: ["preact", "preact-router"]
   },
   output: {
@@ -106,13 +115,5 @@ module.exports = {
     symlinks: false
   },
   devtool: isProd ? "source-map" : "eval",
-  plugins: plugins,
-  devServer: {
-    publicPath: "/",
-    contentBase: out,
-    port: process.env.PORT || 3000,
-    compress: isProd,
-    inline: !isProd,
-    hot: !isProd
-  }
+  plugins
 };
