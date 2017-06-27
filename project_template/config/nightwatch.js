@@ -4,7 +4,7 @@ const selenium = require("selenium-server-standalone-jar");
 const chromedriver = require("chromedriver");
 
 module.exports = {
-  src_folders: ["./spec_e2e/spec"],
+  src_folders: ["./test/e2e"],
   output_folder: "reports",
   selenium: {
     start_process: true,

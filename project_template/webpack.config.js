@@ -53,7 +53,9 @@ if (isProd) {
 
 // optionally live-reloadable entry points
 const entryPoints = function() {
-  const items = isProd ? [] : ['webpack-hot-middleware/client?noInfo=true&reload=true'];
+  const items = isProd
+    ? []
+    : ["webpack-hot-middleware/client?noInfo=true&reload=true"];
   items.push(...arguments);
   return items;
 };

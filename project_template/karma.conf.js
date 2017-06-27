@@ -8,10 +8,10 @@ module.exports = function(config) {
   config.set({
     basePath: "",
     frameworks: ["mocha", "chai-dom", "chai", "sinon"],
-    files: ["spec/**/*.spec.js"],
+    files: ["test/spec/**/*.spec.js"],
     exclude: [],
     preprocessors: {
-      "spec/**/*.*": ["webpack"]
+      "test/spec/**/*.*": ["webpack"]
     },
     // webpack configuration
     webpack: webpackConfig,
