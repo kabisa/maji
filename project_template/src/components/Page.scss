@@ -1,0 +1,22 @@
+@import 'src/styles/settings/general';
+@import 'src/styles/settings/colors';
+
+.main {
+  background: $page-background;
+  color: $text-color;
+  overflow-y: auto;
+  flex: 1;
+  padding: $page-padding;
+
+  p {
+    margin-bottom: 1em;
+  }
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

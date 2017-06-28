@@ -17,6 +17,7 @@ process.stderr.write(`Building with env = ${env}\n`);
 // plugin management
 const HTML = require("html-webpack-plugin");
 const Clean = require("clean-webpack-plugin");
+const SpriteLoaderPlugin = require("svg-sprite-loader/plugin");
 const plugins = [
   new HTML({
     template: "src/index.html",
@@ -31,7 +32,8 @@ const plugins = [
     "process.env.NODE_ENV": JSON.stringify(env)
   }),
   extractShellCss,
-  extractOtherCss
+  extractOtherCss,
+  new SpriteLoaderPlugin()
 ];
 
 if (isProd) {
@@ -106,6 +108,13 @@ module.exports = {
               use: "css-loader!postcss-loader!sass-loader"
             })
           : "style-loader!css-loader!postcss-loader!sass-loader"
+      },
+      {
+        test: /\.svg$/,
+        loader: "svg-sprite-loader",
+        options: {
+          extract: true
+        }
       }
     ]
   },

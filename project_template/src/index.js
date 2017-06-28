@@ -4,7 +4,7 @@ import "maji";
 
 const renderApp = function() {
   const App = require("./containers/App").default;
-  const root = document.querySelector("#app");
+  const root = document.querySelector("#maji-app");
 
   root.innerHTML = "";
   render(<App />, root);
