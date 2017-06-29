@@ -1,17 +1,25 @@
 import { h } from "preact";
 import Icon from "./Icon";
 import styles from "./Header.scss";
+import { goBack } from "src/support/history";
 
-export const BackButton = ({ href }) => (
-  <a href={href}>
-    <Icon id="back" class={styles.icon} />
-  </a>
-);
+export const BackButton = ({ href }) => {
+  const onClick = function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
 
-export const Header = ({ children }) => {
+    goBack(href);
+  };
+
   return (
-    <header class={styles.header}>
-      {children}
-    </header>
+    <a onClick={onClick}>
+      <Icon id="back" class={styles.icon} />
+    </a>
   );
 };
+
+export const Header = ({ children }) => (
+  <header class={styles.header}>
+    {children}
+  </header>
+);
