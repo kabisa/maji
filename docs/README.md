@@ -7,23 +7,19 @@
 ## <a name="inthebox"></a>What's in the box?
 
 * Project setup
-  * Intuitive directory structure, ready to go for Backbone + Marionette development
+  * Intuitive directory structure, ready to go for Preact + Cordova development
   * Mobile page transitions integrated: 'slide', 'slideup' and 'flip'
   * I18n with autodetection of user locale, includes interpolation and pluralization. Uses YML files to define translations.
-  * Haml Coffee templates with I18n and other template helpers integrated
   * Cordova support
-    * Publishes Cordova events on the application event bus
     * Network activity indication on iOS
     * Automatic iOS 7 + extended header
-  * Bugsnag Javascript error tracking integrated
   * Per environment configurable settings (development, test, staging, production etc)
   * Fastclick.js integrated, removes default 300ms touch event delay
   * Setup script to bootstrap local development environments
 
-* Fast Node based build system
-  * Compilation of Coffeescript and Sass
+* Fast Node.js based build system
+  * Compilation of ES2015 and Sass
   * Javascript bundling and minification including source maps
-  * CommonJS module system using Webpack
   * CSS autoprefixer (no more vendor prefixes!)
   * Livereload integration. Make changes and your browser will automatically reload, works on mobile too.
 
@@ -33,9 +29,9 @@
   * Run Cordova apps on connected mobile devices
 
 * Testing support
-  * Rspec + Capybara for feature specs
+  * Nightwatch.js for E2E integeration tests
   * Karma + Mocha + Chai for Javascript tests
   * SASS linting
-  * Coffeescript linting
-  * Commit hooks for linting
-  * CI script + CI Dockerfile
+  * Javascript formatting by Prettier
+  * Commit hooks with style checks
+  * CI script

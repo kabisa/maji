@@ -15,14 +15,14 @@ What do we have with Swahili? Maji Mobile originated from a [Kabisa](http://www.
 ## What knowledge do I need to build apps with Maji?
 
 When you are developing apps with Maji you will be making Web Apps that are packaged into a Cordova wrapper, so you will need to know how to build web apps.
-To be specific, aside from HTML 5 / CSS3 / JavasScript, you need to know how to build apps with [BackboneJS](http://backbonejs.org) (and [MarionetteJS](http://marionettejs.com)). To use mobile specific features, you need to know how to use [Apache Cordova](http://cordova.apache.org) Plugins.
+To be specific, aside from HTML 5 / CSS3 / JavasScript, you need to know how to build apps with [Preact](https://preactjs.com) (or [React](https://facebook.github.io/react/)). To use mobile specific features, you need to know how to use [Apache Cordova](http://cordova.apache.org) and it's plugins.
 
 That's it! Maji will take care of the rest.
 
 ## What platforms does Maji support?
 
 Maji Mobile uses Apache Cordova to build native app binaries and thus supports any OS supported by Cordova like iOS, Android, Windows Phone and others.
-Please see the [Apache Cordova Platform Guide](http://cordova.apache.org/docs/en/4.0.0/guide_support_index.md.html#Platform%20Support) for exact details.
+Please see the [Apache Cordova Platform Guide](https://cordova.apache.org/docs/en/latest/guide/support/index.html) for exact details.
 
 ## Why \<insert component here\>?
 We have tried countless of other frameworks and tools, but found the tools in Maji Mobile are those we liked the most. It fits our style of Test Driven Development, while allowing the flexibility to make any mobile application our customers need.
@@ -32,7 +32,7 @@ It's not that we don't like other frameworks or tools, but these work for us. Th
 ## Can I use AngularJS / Ember.js with Maji?
 
 Sure, but you'll have to do some plumbing yourself to integrate with the components available in Maji.
-When you replace Backbone with another JavaScript front-end framework, you will miss the 'glue' that Maji Mobile provides, like a caching and animated page transitions.
+When you replace Preact with another JavaScript front-end framework, you will miss the 'glue' that Maji Mobile provides, like animated page transitions.
 
 ## Can I use native mobile device features like the camera, GPS etc?
 
@@ -41,8 +41,4 @@ Absolutely!
 Apache Cordova is easily configurable to create a Mobile Application that uses exactly what you need, by utilising plug-ins.
 You can access any mobile device features by adding the corresponding plug-in, either one created by Apache or one of the many plug-ins made by the active community.
 
-See the [Cordova Plugin API](http://docs.phonegap.com/en/4.0.0/cordova_plugins_pluginapis.md.html) for more details.
-
-## Can I use the [marionette.inspector](https://github.com/marionettejs/marionette.inspector) to inspect my Maji App?
-
-Yes you can, but note that Maji apps use Broweserify, so please note the [Marionette Inspector caveats](https://github.com/marionettejs/marionette.inspector#caveats) section.
+See the [Cordova Plugin registry](https://cordova.apache.org/plugins/) for more details.
