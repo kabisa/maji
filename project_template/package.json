@@ -9,7 +9,7 @@
     "watch": "karma start --watch",
     "test:e2e": "NODE_ENV=${NODE_ENV:-test} PORT=9091 script/test-e2e.js",
     "prettier": "prettier '{,!(node_modules)/**/}*.js'",
-    "stylelint": "stylelint 'src/styles/**/*.scss'"
+    "stylelint": "stylelint 'src/**/*.scss'"
   },
   "dependencies": {
     "history": "^4.6.3",
