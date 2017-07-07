@@ -12,6 +12,7 @@
     "stylelint": "stylelint 'src/**/*.scss'"
   },
   "dependencies": {
+    "fastclick": "^1.0.6",
     "history": "^4.6.3",
     "preact": "^8.1.0",
     "preact-router": "^2.5.2",

@@ -1,5 +1,6 @@
 import "./styles/shell.scss";
 import { h, render } from "preact";
+import FastClick from "fastclick";
 import "maji";
 
 const renderApp = function() {
@@ -10,6 +11,7 @@ const renderApp = function() {
   render(<App />, root);
 };
 
+FastClick.attach(document.body);
 renderApp();
 
 if (process.env.NODE_ENV !== "production") {
