@@ -9,30 +9,30 @@ $chevron-height: 20px;
 $chevron-width: 16px;
 
 .list {
-  li {
-    margin-left: -$page-padding;
-    margin-right: -$page-padding;
-    border-bottom: 1px solid $navigation-list-border;
+    li {
+        margin-left: -$page-padding;
+        margin-right: -$page-padding;
+        border-bottom: 1px solid $navigation-list-border;
 
-    &:first-child {
-      border-top: 1px solid $navigation-list-border;
+        &:first-child {
+            border-top: 1px solid $navigation-list-border;
+        }
     }
-  }
 
-  a {
-    height: $navigation-list-height;
-    padding: 0 $page-padding;
-    display: flex;
-    align-items: center;
-  }
+    a {
+        height: $navigation-list-height;
+        padding: 0 $page-padding;
+        display: flex;
+        align-items: center;
+    }
 
-  span {
-    flex: 1;
-  }
+    span {
+        flex: 1;
+    }
 }
 
 .chevron {
-  fill: $chevron-fill;
-  height: $chevron-height;
-  width: $chevron-width;
+    fill: $chevron-fill;
+    height: $chevron-height;
+    width: $chevron-width;
 }
