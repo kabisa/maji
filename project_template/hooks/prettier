@@ -2,8 +2,10 @@
 jsfiles=$(git diff --cached --name-only --diff-filter=ACM | grep '\.jsx\?$' | tr '\n' ' ')
 [ -z "$jsfiles" ] && exit 0
 
-diffs=$(node_modules/.bin/prettier -l $jsfiles)
-[ -z "$diffs" ] && exit 0
+# Prettify all staged .js files
+echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write
 
-node_modules/.bin/prettier --write "$diffs"
-git add $diffs
+# Add back the modified/prettified files to staging
+echo "$jsfiles" | xargs git add
+
+exit 0
