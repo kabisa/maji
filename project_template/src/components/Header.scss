@@ -21,9 +21,9 @@ $btn-width: 16px;
   align-items: center;
 
   // Make room for iOS bar
-  .platform-ios & {
-    height: calc(#{$header-height} + #{$header-ios-offset});
-    padding-top: $header-ios-offset;
+  :global(.platform-ios) & {
+      height: calc(#{$header-height} + #{$header-ios-offset});
+      padding-top: $header-ios-offset;
   }
 
   a,
