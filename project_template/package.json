@@ -3,11 +3,11 @@
   "name": "##APP_PACKAGE##",
   "version": "0.0.1",
   "scripts": {
-    "build": "NODE_ENV=${NODE_ENV:-production} webpack",
-    "start": "PORT=9090 script/dev-server.js",
-    "test": "karma start --single-run",
-    "watch": "karma start --watch",
-    "test:e2e": "NODE_ENV=${NODE_ENV:-test} PORT=9091 script/test-e2e.js",
+    "build": "APP_ENV=${APP_ENV:-production} webpack",
+    "start": "LIVERELOAD=${LIVERELOAD:-true} script/dev-server.js",
+    "test": "APP_ENV=${APP_ENV:-test} karma start --single-run",
+    "test:watch": "APP_ENV=${APP_ENV:-test} karma start --watch",
+    "test:e2e": "APP_ENV=${APP_ENV:-test} PORT=9091 script/test-e2e.js",
     "prettier": "prettier '{,!(node_modules)/**/}*.js'",
     "stylelint": "stylelint 'src/**/*.scss'"
   },

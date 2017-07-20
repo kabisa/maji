@@ -129,7 +129,7 @@ program
     }
 
     if (options.integration) {
-      return runNpm(["run", "test:integration"]);
+      return runNpm(["run", "test:e2e"]);
     }
 
     return runNpm(["test"]);
