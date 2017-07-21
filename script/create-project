@@ -19,6 +19,7 @@ pushd $(dirname "${BASH_SOURCE[0]}")/../ >/dev/null 2>&1
     perl -pi -e "s/##APP_NAME##/$APP_NAME/" package.json
     perl -pi -e "s/##APP_NAME##/$APP_NAME/" cordova/config.xml
     perl -pi -e "s/##APP_NAME##/$APP_NAME/" src/index.html
+    perl -pi -e "s/##APP_NAME##/$APP_NAME/" test/e2e/index/welcome.js
     perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/config.xml
     perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/package.json
     perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" package.json
