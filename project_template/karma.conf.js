@@ -8,7 +8,7 @@ module.exports = function(config) {
   config.set({
     basePath: "",
     frameworks: ["mocha", "chai-dom", "chai", "sinon"],
-    files: ["test/spec/**/*.spec.js"],
+    files: ["test/spec/spec_helper.js", "test/spec/**/*.spec.js"],
     exclude: [],
     preprocessors: {
       "test/spec/**/*.*": ["webpack"]
