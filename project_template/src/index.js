@@ -1,7 +1,7 @@
 import "./styles/shell.scss";
 import { h, render } from "preact";
+import "src/config/sentry";
 import FastClick from "fastclick";
-import "maji";
 
 const renderApp = function() {
   const App = require("./containers/App").default;

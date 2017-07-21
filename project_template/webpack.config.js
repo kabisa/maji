@@ -14,6 +14,17 @@ const extractOtherCss = new ExtractText("styles.[hash].css");
 
 process.stderr.write(`Building with env = ${env}\n`);
 
+const getGitRevision = function() {
+  const GitRevPlugin = require("git-revision-webpack-plugin");
+  return new GitRevPlugin({
+    commithashCommand: "rev-parse --short HEAD"
+  }).commithash();
+};
+
+const getNpmVersion = function() {
+  return require("./package.json").version;
+};
+
 // plugin management
 const HTML = require("html-webpack-plugin");
 const Clean = require("clean-webpack-plugin");
@@ -29,7 +40,9 @@ const plugins = [
     name: "vendor"
   }),
   new webpack.DefinePlugin({
-    "process.env.NODE_ENV": JSON.stringify(env)
+    "process.env.NODE_ENV": JSON.stringify(env),
+    __BUILD_IDENTIFIER__: JSON.stringify(getGitRevision()),
+    __VERSION_NUMBER__: JSON.stringify(getNpmVersion())
   }),
   extractShellCss,
   extractOtherCss,

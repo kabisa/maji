@@ -85,6 +85,7 @@ A Maji Mobile App comes with several frameworks built-in and configured to work 
  * [Apache Cordova](https://cordova.apache.org) facilitates the translation from web technologies to mobile platforms.
  * [Preact.js](https://preactjs.com) our JavaScript View framework
  * [FastClick](http://ftlabs.github.io/fastclick/) disable the delay between click and the action on iOS
+ * [Sentry](https://sentry.io) for exception tracking
  * [Webpack](https://webpack.js.org/) is a JavaScript module bundler
  * [Karma](http://karma-runner.github.io/) is a JavaScript test runner
  * [MochaJS](http://mochajs.org) a JavaScript testing framework that supports a BDD style of writing tests

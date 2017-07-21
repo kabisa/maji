@@ -15,6 +15,7 @@
     * Automatic iOS 7 + extended header
   * Per environment configurable settings (development, test, staging, production etc)
   * Fastclick.js integrated, removes default 300ms touch event delay
+  * Raven-js is available to report exception to sentry.io, passing along build and contextual info
   * Setup script to bootstrap local development environments
 
 * Fast Node.js based build system
