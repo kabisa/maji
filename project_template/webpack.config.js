@@ -17,7 +17,7 @@ process.stderr.write(`Building with env = ${env}\n`);
 const getGitRevision = function() {
   const GitRevPlugin = require("git-revision-webpack-plugin");
   return new GitRevPlugin({
-    commithashCommand: "rev-parse --short HEAD"
+    commithashCommand: "rev-parse --short HEAD 2> /dev/null || echo untracked"
   }).commithash();
 };
 
