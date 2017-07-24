@@ -20,18 +20,19 @@ module.exports = {
       selenium_port: 4444,
       selenium_host: "localhost",
       desiredCapabilities: {
-        browserName: "chrome",
-        javascriptEnabled: true,
-        acceptSslCerts: true
+        browserName: "chrome"
       },
       globals: {
         waitForConditionTimeout: 5000
       }
-    }
-  },
-  chrome: {
-    desiredCapabilities: {
-      browserName: "chrome"
+    },
+    ci: {
+      desiredCapabilities: {
+        browserName: "chrome",
+        chromeOptions: {
+          args: ["--no-sandbox"]
+        }
+      }
     }
   }
 };

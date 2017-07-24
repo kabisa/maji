@@ -20,7 +20,12 @@ const server = require("./dev-server.js");
 
 const testRunner = child_process.spawn(
   "./node_modules/.bin/nightwatch",
-  ["-c", "config/nightwatch.js"],
+  [
+    "-c",
+    "config/nightwatch.js",
+    "--env",
+    process.env.CI == "true" ? "ci" : "default"
+  ],
   { stdio: "inherit", env: process.env }
 );
 
