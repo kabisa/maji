@@ -2,8 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    commonjs: true,
-    mocha: true
+    commonjs: true
   },
   globals: {
     process: true,

@@ -1,4 +1,4 @@
-const webpackConfig = require("./webpack.config.js");
+const webpackConfig = require("../webpack.config.js");
 const commonsChunkPluginIndex = webpackConfig.plugins.findIndex(
   plugin => plugin.chunkNames
 );
@@ -6,7 +6,7 @@ webpackConfig.plugins.splice(commonsChunkPluginIndex, 1);
 
 module.exports = function(config) {
   config.set({
-    basePath: "",
+    basePath: "../",
     frameworks: ["mocha", "chai-dom", "chai", "sinon"],
     files: ["test/spec/spec_helper.js", "test/spec/**/*.spec.js"],
     exclude: [],

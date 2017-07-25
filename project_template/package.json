@@ -5,11 +5,13 @@
   "scripts": {
     "build": "APP_ENV=${APP_ENV:-production} webpack",
     "start": "LIVERELOAD=${LIVERELOAD:-true} script/dev-server.js",
-    "test": "APP_ENV=${APP_ENV:-test} karma start --single-run",
-    "test:watch": "APP_ENV=${APP_ENV:-test} karma start --watch",
+    "test": "APP_ENV=${APP_ENV:-test} karma start config/karma.js --single-run",
+    "test:watch": "APP_ENV=${APP_ENV:-test} karma start config/karma.js --watch",
     "test:e2e": "APP_ENV=${APP_ENV:-test} SERVER_PORT=9091 script/test-e2e.js",
     "prettier": "prettier '{,!(node_modules)/**/}*.js'",
-    "lint": "eslint src/ test/ && stylelint 'src/**/*.scss'"
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "eslint src/ test/",
+    "stylelint": "stylelint 'src/**/*.scss'"
   },
   "dependencies": {
     "fastclick": "^1.0.6",

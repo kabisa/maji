@@ -75,6 +75,13 @@ const entryPoints = function() {
   return items;
 };
 
+const postcssLoader = {
+  loader: "postcss-loader",
+  options: {
+    plugins: () => [require("autoprefixer")]
+  }
+};
+
 module.exports = {
   entry: {
     app: entryPoints("./src/index.js"),
@@ -98,10 +105,10 @@ module.exports = {
         test: /\.scss$/,
         loader: isProd
           ? extractOtherCss.extract({
-              use: "css-loader?modules!postcss-loader!sass-loader"
+              use: ["css-loader?modules", postcssLoader, "sass-loader"]
             })
           : [
-              { loader: "style-loader" },
+              "style-loader",
               {
                 loader: "css-loader",
                 options: {
@@ -109,8 +116,8 @@ module.exports = {
                   localIdentName: "[path][name]__[local]--[hash:base64:5]"
                 }
               },
-              { loader: "postcss-loader" },
-              { loader: "sass-loader" }
+              postcssLoader,
+              "sass-loader"
             ],
         exclude: /shell.scss$/
       },
@@ -118,9 +125,9 @@ module.exports = {
         test: /shell.scss$/,
         loader: isProd
           ? extractShellCss.extract({
-              use: "css-loader!postcss-loader!sass-loader"
+              use: ["css-loader", postcssLoader, "sass-loader"]
             })
-          : "style-loader!css-loader!postcss-loader!sass-loader"
+          : ["style-loader", "css-loader", postcssLoader, "sass-loader"]
       },
       {
         test: /\.svg$/,
