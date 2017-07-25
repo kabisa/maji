@@ -1,5 +1,6 @@
 import { h, render } from "preact";
 import App from "src/containers/App";
+import { expect } from "chai";
 
 describe("App container", function() {
   beforeEach(function() {

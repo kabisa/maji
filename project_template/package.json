@@ -9,19 +9,20 @@
     "test:watch": "APP_ENV=${APP_ENV:-test} karma start --watch",
     "test:e2e": "APP_ENV=${APP_ENV:-test} SERVER_PORT=9091 script/test-e2e.js",
     "prettier": "prettier '{,!(node_modules)/**/}*.js'",
-    "stylelint": "stylelint 'src/**/*.scss'"
+    "lint": "eslint src/ test/ && stylelint 'src/**/*.scss'"
   },
   "dependencies": {
     "fastclick": "^1.0.6",
     "history": "^4.6.3",
+    "maji": "##MAJI_VERSION##",
     "preact": "^8.1.0",
     "preact-router": "^2.5.2",
-    "maji": "##MAJI_VERSION##",
     "raven-js": "^3.17.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-polyfill": "^6.23.0",
@@ -33,6 +34,10 @@
     "clean-webpack-plugin": "^0.1.16",
     "cordova": "^7.0.1",
     "css-loader": "^0.28.1",
+    "eslint": "^4.3.0",
+    "eslint-plugin-compat": "^1.0.4",
+    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-react": "^7.1.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "git-revision-webpack-plugin": "^2.5.1",
     "html-webpack-plugin": "^2.28.0",

@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-yarn run prettier -- --list-different
-yarn run stylelint
+yarn lint
 yarn test
 yarn test:e2e
 
