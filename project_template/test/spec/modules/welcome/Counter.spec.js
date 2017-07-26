@@ -5,7 +5,7 @@ import { shallow } from "preact-render-spy";
 describe("Counter", function() {
   it("displays a counter", function() {
     const context = shallow(<Counter value={123} />);
-    expect(context.contains(<p>Counter value: 123</p>)).to.be.true;
+    expect(context.contains(<p>Counter is at 123</p>)).to.be.true;
   });
 
   context("pressing buttons", function() {

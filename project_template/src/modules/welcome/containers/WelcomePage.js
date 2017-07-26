@@ -32,8 +32,8 @@ export class WelcomePage extends Component {
           </List>
           <p>
             <strong>{I18n.t("welcome.counter")}</strong>
-            <Counter value={counter} {...otherProps} />
           </p>
+          <Counter value={counter} {...otherProps} />
         </Main>
       </Page>
     );

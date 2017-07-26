@@ -1,8 +1,9 @@
 import { h } from "preact";
+import styles from "./Counter.scss";
 
 export default ({ value, onIncrement, onDecrement }) => (
-  <counter>
-    <p>Counter value: {value}</p>
+  <counter class={styles.counter}>
+    <p>Counter is at {value}</p>
     <button onClick={onIncrement}>+</button>
     <button onClick={onDecrement}>-</button>
   </counter>

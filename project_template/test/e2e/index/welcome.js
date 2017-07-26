@@ -8,7 +8,7 @@ module.exports = {
       .end();
   },
   "Shows interactive counter": function(browser) {
-    const counterAt = value => ["counter p", `Counter value: ${value}`];
+    const counterAt = value => ["counter p", `Counter is at ${value}`];
 
     browser
       .url(browser.launch_url)
