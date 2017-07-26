@@ -16,7 +16,7 @@ module.exports = function(config) {
     // webpack configuration
     webpack: webpackConfig,
     webpackMiddleware: {
-      stats: "errors-only"
+      noInfo: true
     },
     reporters: ["mocha", "junit"],
     junitReporter: {
