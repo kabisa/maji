@@ -18,7 +18,7 @@ describe("pageTransitionSupport", function() {
   beforeEach(function() {
     scratch = document.createElement("div");
     mount = (jsx, prevNode = null) => {
-      return render(jsx, this.scratch, prevNode);
+      return render(jsx, scratch, prevNode);
     };
 
     history.action = "PUSH";

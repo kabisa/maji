@@ -5,6 +5,7 @@ module.exports = {
   globals: {
     expect: true,
     should: true,
-    assert: true
+    assert: true,
+    sinon: true
   }
 };
