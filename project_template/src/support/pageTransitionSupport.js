@@ -1,6 +1,15 @@
 import { h, Component } from "preact";
 import { history } from "./history";
 
+const DEFAULT_TRANSITION_ANIMATION = "slide";
+
+function transitionAnimationForPage(page) {
+  if (page && page.attributes && page.attributes.transition) {
+    return page.attributes.transition;
+  }
+  return DEFAULT_TRANSITION_ANIMATION;
+}
+
 class PageContainer extends Component {
   constructor(props) {
     super(props);
@@ -20,13 +29,16 @@ class PageContainer extends Component {
 
   render() {
     const isBack = history.action !== "PUSH";
+    const animation = isBack && this.state.previousPage != null
+      ? transitionAnimationForPage(this.state.previousPage)
+      : transitionAnimationForPage(this.state.currentPage);
 
     const currentClassName = this.state.previousPage == null
       ? ""
-      : `animated slide in ${isBack ? "reverse" : ""}`;
+      : `animated ${animation} in${isBack ? " reverse" : ""}`;
     const previousClassName = this.state.previousPage == null
       ? ""
-      : `animated slide out ${isBack ? "reverse" : ""}`;
+      : `animated ${animation} out${isBack ? " reverse" : ""}`;
 
     return (
       <div>

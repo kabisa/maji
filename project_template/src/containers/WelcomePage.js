@@ -16,8 +16,10 @@ export default () => (
       </p>
       <List>
         <ListItem href="/detail" icon="forward">Slide</ListItem>
-        <ListItem href="/detail" icon="forward">Slide up</ListItem>
-        <ListItem href="/detail" icon="forward">Flip</ListItem>
+        <ListItem href="/detail?transition=slideup" icon="forward">
+          Slide up
+        </ListItem>
+        <ListItem href="/detail?transition=flip" icon="forward">Flip</ListItem>
       </List>
     </Main>
   </Page>

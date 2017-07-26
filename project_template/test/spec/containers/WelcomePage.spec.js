@@ -13,7 +13,7 @@ describe("App container", function() {
     this.scratch.innerHtml = "";
   });
 
-  it("says hello to stranger", function() {
+  it("displays welcome message", function() {
     this.mount(<App />);
     expect(this.scratch.querySelector("p")).to.have.text(
       "Welcome to your Maji app!"
