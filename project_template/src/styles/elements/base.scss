@@ -19,7 +19,10 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    line-height: 1.25;
+}
+
+body {
+    font-size: $font-size-regular;
 }
 
 button,
@@ -36,7 +39,19 @@ a:visited {
 }
 
 strong {
-    font-weight: $font-weight-bold;
+    font-weight: bold;
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+input,
+textarea,
+table {
+    font-size: inherit;
+    resize: none;
 }
 
 h1,
@@ -46,19 +61,12 @@ h4,
 h5,
 h6 {
     font-family: $display-font-stack;
-    font-weight: $font-weight-normal;
+    font-weight: bold;
     line-height: normal;
 }
 
 h1 {
     font-size: $font-size-huge;
-    text-align: center;
-    margin: ($whitespace * 2) $whitespace;
-
-    .back-button + & {
-        // Make room for back button
-        margin: ($whitespace * 2) ($whitespace * 3);
-    }
 }
 
 h2 {
