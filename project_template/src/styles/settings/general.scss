@@ -1,3 +1,20 @@
+@import './theme';
+@import './typography';
+
+///////////////////////////////////////////////////////////
+//
+// General colors
+//
+///////////////////////////////////////////////////////////
+$text-color: $brand-black;
+$text-color-medium: $brand-grey-medium;
+$text-color-light: $brand-white;
+$text-color-highlight: $brand-blue;
+$text-color-link: $brand-blue;
+$page-background: $brand-grey-lightest;
+$page-background-light: $brand-white;
+$general-border-color: $brand-grey-light;
+
 ///////////////////////////////////////////////////////////
 //
 // Generic values
