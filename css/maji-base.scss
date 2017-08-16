@@ -1,0 +1,208 @@
+$animation-duration: 225ms;
+$animation-easing: ease-in-out;
+
+body {
+    // Prevent page from being scrollable during page transitions
+    overflow: hidden;
+}
+
+// Containers for old and new page
+.maji-page-container > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation-fill-mode: both;
+    animation-duration: $animation-duration;
+    animation-timing-function: $animation-easing;
+
+    &:last-child {
+        // Hide second page until it's needed
+        display: none;
+    }
+
+    &.maji-page-animating {
+        display: block;
+    }
+}
+
+.maji-page-animation-slide {
+    &.maji-page-incoming {
+        animation-name: slideInRight;
+    }
+
+    &.maji-page-outgoing {
+        animation-name: slideOutLeft;
+    }
+
+    &.maji-page-reverse {
+        &.maji-page-incoming {
+            animation-name: slideInLeft;
+        }
+        &.maji-page-outgoing {
+            animation-name: slideOutRight;
+        }
+    }
+}
+
+.maji-page-animation-slideup {
+    &.maji-page-incoming {
+        animation-name: slideInUp;
+    }
+    &.maji-page-outgoing {
+        animation-name: fadeOut;
+    }
+
+    &.maji-page-reverse {
+        &.maji-page-incoming {
+            animation-name: fadeIn;
+        }
+
+        &.maji-page-outgoing {
+            animation-name: slideOutDown;
+        }
+    }
+}
+
+.maji-page-animation-flip {
+    backface-visibility: hidden;
+    animation-duration: 750ms;
+
+    &.maji-page-incoming {
+        animation-name: flipInLeft;
+        z-index: 2;
+    }
+    &.maji-page-outgoing {
+        animation-name: flipOutRight;
+    }
+
+    &.maji-page-reverse {
+        &.maji-page-incoming {
+            animation-name: flipInRight;
+        }
+        &.maji-page-outgoing {
+            animation-name: flipOutLeft;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOutDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideOutRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes flipOutRight {
+    0% {
+        transform: perspective(400px) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(400px) rotateY(180deg);
+    }
+}
+
+@keyframes flipInLeft {
+    0% {
+        transform: perspective(400px) rotateY(-180deg);
+    }
+
+    100% {
+        transform: perspective(400px) rotateY(0deg);
+    }
+}
+
+@keyframes flipInRight {
+    0% {
+        transform: perspective(400px) rotateY(180deg);
+    }
+
+    100% {
+        transform: perspective(400px) rotateY(0deg);
+    }
+}
+
+@keyframes flipOutLeft {
+    0% {
+        transform: perspective(400px) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(400px) rotateY(-180deg);
+    }
+}
