@@ -4,16 +4,14 @@ $header-background: $brand-blue;
 $header-text: $text-color-light;
 $header-height: 3rem;
 $header-ios-offset: 16px;
-$header-button-width: $header-height;
-
-$btn-fill: $brand-white;
-$btn-height: 20px;
-$btn-width: 16px;
+$header-button-size: $header-height;
+$header-icon-size: ($header-height * 0.5);
 
 .header {
     background: $header-background;
     color: $header-text;
     height: $header-height;
+    flex: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,27 +32,25 @@ $btn-width: 16px;
     }
 
     a {
-        width: $header-button-width;
+        width: $header-button-size;
+
+        svg {
+            fill: currentColor;
+            height: $header-icon-size;
+        }
     }
 
     h1 {
         flex: 1;
 
         &:first-child {
-            // Compensate for no button on the left side
-            margin-left: $header-button-width;
+            // Compensate if no button on the left side
+            margin-left: $header-button-size;
         }
 
         &:last-child {
-            // Compensate for no button on the right side
-            margin-right: $header-button-width;
+            // Compensate if no button on the right side
+            margin-right: $header-button-size;
         }
     }
-}
-
-.icon {
-    opacity: "0.5";
-    fill: $btn-fill;
-    height: $btn-height;
-    width: $btn-width;
 }
