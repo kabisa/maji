@@ -1,11 +1,10 @@
 @import 'src/styles/settings/general';
-@import 'src/styles/settings/colors';
 
 .main {
     background: $page-background;
     color: $text-color;
     overflow-y: auto;
-    flex: 1;
+    flex: auto;
     padding: $page-padding;
 
     p {
@@ -19,4 +18,6 @@
     left: 0;
     right: 0;
     bottom: 0;
+    display: flex;
+    flex-direction: column;
 }

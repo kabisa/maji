@@ -35,13 +35,13 @@ class PageContainer extends Component {
 
     const currentClassName = this.state.previousPage == null
       ? ""
-      : `animated ${animation} in${isBack ? " reverse" : ""}`;
+      : `maji-page-animating maji-page-animation-${animation} maji-page-incoming${isBack ? " maji-page-reverse" : ""}`;
     const previousClassName = this.state.previousPage == null
       ? ""
-      : `animated ${animation} out${isBack ? " reverse" : ""}`;
+      : `maji-page-animating maji-page-animation-${animation} maji-page-outgoing${isBack ? " maji-page-reverse" : ""}`;
 
     return (
-      <div>
+      <div class="maji-page-container">
         <div class={currentClassName}>
           {this.state.currentPage}
         </div>

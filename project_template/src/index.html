@@ -23,8 +23,7 @@
     </style>
 <% } %>
   </head>
-  <body>
-    <div id="maji-app"></div>
+  <body id="maji-app">
 <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
     <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
 <% } %>
