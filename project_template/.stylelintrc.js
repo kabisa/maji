@@ -15,7 +15,8 @@ module.exports = {
       true,
       {
         browsers: supportedBrowsers,
-        severity: "warning"
+        severity: "warning",
+        ignore: ["font-unicode-range", "css-resize"]
       }
     ]
   }

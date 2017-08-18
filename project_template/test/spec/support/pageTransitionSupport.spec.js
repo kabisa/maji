@@ -35,9 +35,13 @@ describe("pageTransitionSupport", function() {
 
       expect(nextPage.outerHTML).to.contain(
         mount(
-          <div>
-            <div class="maji-page-animation-slide maji-page-incoming"><h1>PageB</h1></div>
-            <div class="maji-page-animation-slide maji-page-outgoing"><h1>PageA</h1></div>
+          <div class="maji-page-container">
+            <div class="maji-page-animating maji-page-animation-slide maji-page-incoming">
+              <h1>PageB</h1>
+            </div>
+            <div class="maji-page-animating maji-page-animation-slide maji-page-outgoing">
+              <h1>PageA</h1>
+            </div>
           </div>
         ).outerHTML
       );
@@ -52,9 +56,13 @@ describe("pageTransitionSupport", function() {
 
         expect(nextPage.outerHTML).to.contain(
           mount(
-            <div>
-              <div class="maji-page-animation-foobar maji-page-incoming"><h1>PageB</h1></div>
-              <div class="maji-page-animation-foobar maji-page-outgoing"><h1>PageA</h1></div>
+            <div class="maji-page-container">
+              <div class="maji-page-animating maji-page-animation-foobar maji-page-incoming">
+                <h1>PageB</h1>
+              </div>
+              <div class="maji-page-animating maji-page-animation-foobar maji-page-outgoing">
+                <h1>PageA</h1>
+              </div>
             </div>
           ).outerHTML
         );
@@ -73,9 +81,13 @@ describe("pageTransitionSupport", function() {
 
       expect(nextPage.outerHTML).to.contain(
         mount(
-          <div>
-            <div class="maji-page-animation-slide maji-page-incoming maji-page-reverse"><h1>PageA</h1></div>
-            <div class="maji-page-animation-slide maji-page-outgoing maji-page-reverse"><h1>PageB</h1></div>
+          <div class="maji-page-container">
+            <div class="maji-page-animating maji-page-animation-slide maji-page-incoming maji-page-reverse">
+              <h1>PageA</h1>
+            </div>
+            <div class="maji-page-animating maji-page-animation-slide maji-page-outgoing maji-page-reverse">
+              <h1>PageB</h1>
+            </div>
           </div>
         ).outerHTML
       );
