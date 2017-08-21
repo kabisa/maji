@@ -1,0 +1,3 @@
+# this file prevents .gitignore from being used to filter packaged files
+# see https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package
+
