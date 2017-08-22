@@ -71,12 +71,12 @@ program
   .option("-e, --emulator", "run on emulator instead of an actual device")
   .option(
     "--env --environment [environment]",
-    "APP_ENV to run with [development]"
+    "NODE_ENV to run with [development]"
   )
   .action(function(platform, options) {
-    const app_env = options.environment || process.env.APP_ENV || "development";
+    const node_env = options.environment || process.env.NODE_ENV || "development";
     const env = {
-      APP_ENV: app_env
+      NODE_ENV: node_env
     };
 
     const deviceTypeArg = options.emulator ? "--emulator" : "--device";
@@ -93,12 +93,12 @@ program
   .option("--release", "create a release build")
   .option(
     "--env --environment [environment]",
-    "APP_ENV to build with [production]"
+    "NODE_ENV to build with [production]"
   )
   .action(function(platform, options) {
-    const app_env = options.environment || process.env.APP_ENV || "production";
+    const node_env = options.environment || "production";
     const env = {
-      APP_ENV: app_env
+      NODE_ENV: node_env
     };
 
     if (platform) {

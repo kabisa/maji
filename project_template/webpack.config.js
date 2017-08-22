@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const babel = require("./config/babel");
 const uglify = require("./config/uglify");
 
-const env = process.env.NODE_ENV || process.env.APP_ENV || "development";
+const env = process.env.NODE_ENV || "development";
 const isProd = env === "production";
 const out = path.resolve(__dirname, "dist");
 const exclusions = /node_modules/;
