@@ -50,7 +50,9 @@ i {
 input,
 textarea,
 table {
+    font-family: inherit;
     font-size: inherit;
+    font-weight: inherit;
     resize: none;
 }
 
