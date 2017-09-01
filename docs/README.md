@@ -1,8 +1,8 @@
 # Maji Mobile
 
 * [What's in the box?](#inthebox)
+* [Browser support](#browser-support)
 * [FAQ](faq.md)
-
 
 ## <a name="inthebox"></a>What's in the box?
 
@@ -36,3 +36,31 @@
   * Javascript formatting by Prettier
   * Commit hooks with style checks
   * CI script
+
+## <a name="browser-support"></a>Browser support
+
+Maji will work in evergreen browsers, IE10+, Android 4.4+ and iOS 8+. Minimal horizontal resolution is 320px.
+
+Minimal support can be determined by which technologies Maji uses, and which front-end technologies you decide to use:
+
+Preact:
+
+* IE9+
+
+Flexbox:
+
+* IE10+
+* Android 4.4+ (2.1 - 4.3 if you don't use `flex-wrap`)
+* iOS 7.1+ (3.2 - 6.1 if you don't use `flex-wrap`)
+
+CSS calc:
+
+* IE9+
+* iOS 6.1+
+* Android 4.4+
+
+SVG:
+
+* IE9+
+* Android 4.4+ (3+ if you don't use masking)
+* iOS 3.2+
