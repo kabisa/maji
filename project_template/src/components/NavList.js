@@ -12,7 +12,7 @@ export const ListItem = ({ href, icon, children }) => (
   <li>
     <a href={href}>
       <span>{children}</span>
-      {icon && <Icon id={icon} class={styles.chevron} />}
+      {icon && <Icon icon={icon} class={styles.chevron} />}
     </a>
   </li>
 );

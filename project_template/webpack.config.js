@@ -95,6 +95,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /.*/,
+        include: path.resolve(__dirname, "src/assets"),
+        exclude: path.resolve(__dirname, "src/assets/icons"),
+        options: {
+          name: "[name]-[hash].[ext]"
+        },
+        loader: "file-loader"
+      },
+      {
         test: /\.jsx?$/,
         exclude: exclusions,
         loader: "babel-loader",
@@ -131,6 +140,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
+        include: path.resolve(__dirname, "src/assets/icons"),
         loader: "svg-sprite-loader",
         options: {
           extract: true
