@@ -7,7 +7,7 @@ webpackConfig.plugins.splice(commonsChunkPluginIndex, 1);
 module.exports = function(config) {
   config.set({
     basePath: "../",
-    frameworks: ["mocha", "chai-dom", "chai", "sinon"],
+    frameworks: ["mocha", "chai-dom", "chai-as-promised", "sinon-chai", "chai"],
     files: ["test/spec/spec_helper.js", "test/spec/**/*.spec.js"],
     exclude: [],
     preprocessors: {
