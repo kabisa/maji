@@ -74,7 +74,8 @@ program
     "NODE_ENV to run with [development]"
   )
   .action(function(platform, options) {
-    const node_env = options.environment || process.env.NODE_ENV || "development";
+    const node_env =
+      options.environment || process.env.NODE_ENV || "development";
     const env = {
       NODE_ENV: node_env
     };
