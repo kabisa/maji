@@ -13,7 +13,7 @@ export const BackButton = ({ href }) => {
 
   return (
     <a href={href} onClick={onClick}>
-      <Icon id="back" class={styles.icon} />
+      <Icon icon="back" class={styles.icon} />
     </a>
   );
 };
