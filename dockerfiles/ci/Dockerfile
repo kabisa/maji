@@ -33,7 +33,6 @@ ENV CHROME_BIN /usr/bin/google-chrome-stable
 ENV CONTAINER_INIT /usr/local/bin/init-container
 RUN echo '#!/usr/bin/env bash' > $CONTAINER_INIT ; chmod +x $CONTAINER_INIT
 
-RUN echo 'bundle config --global jobs $(cat /proc/cpuinfo | grep -c processor)' >> $CONTAINER_INIT
 RUN echo 'Xvfb :0 -ac -screen 0 1024x768x24 >/dev/null 2>&1 &' >> $CONTAINER_INIT
 
 RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales && \
