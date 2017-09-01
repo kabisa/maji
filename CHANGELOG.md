@@ -4,11 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 2.0.2
+## [Unreleased 3.0.0] - TBD
+### Changed
+- The default Javascript stack is now Preact and Redux
+
+### Removed
+- Support for Backbone, Marionette, jQuery
+- Support for `APP_ENV`, in favor of `NODE_ENV`
+- `Makefile` for build and deploy, in favor of `package.json` tasks
+
+## [2.0.2] - 2017-02-21
 ### Fixed
 - Fixed issue where default --env value overrides APP_ENV env var [#148](https://github.com/kabisa/maji/pull/148)
 
-## 2.0.0
+## [2.0.0] - 2017-02-06
 ### Added
 - memo-is for using memoization in specs
 - Improved Maji CLI. Adds `maji test` and `maji start` commands. [#138](https://github.com/kabisa/maji/pull/138/)
