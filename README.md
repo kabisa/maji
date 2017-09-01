@@ -91,7 +91,7 @@ A Maji Mobile App comes with several frameworks built-in and configured to work 
  * [MochaJS](http://mochajs.org) a JavaScript testing framework that supports a BDD style of writing tests
  * [Chai](http://chaijs.com) is an assertion library that enables a BDD style of developing
 
-### Support
+### Browser support
 
 Maji will work in evergreen browsers, IE10+, Android 4.4+ and iOS 8+. More details [here](docs/README.md#support).
 

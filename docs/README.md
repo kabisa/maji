@@ -1,7 +1,7 @@
 # Maji Mobile
 
 * [What's in the box?](#inthebox)
-* [Support](#support)
+* [Browser support](#browser-support)
 * [FAQ](faq.md)
 
 ## <a name="inthebox"></a>What's in the box?
@@ -37,7 +37,7 @@
   * Commit hooks with style checks
   * CI script
 
-## <a name="support"></a>Support
+## <a name="browser-support"></a>Browser support
 
 Maji will work in evergreen browsers, IE10+, Android 4.4+ and iOS 8+. Minimal horizontal resolution is 320px.
 
