@@ -22,7 +22,11 @@ describe("pageTransitionSupport", function() {
     };
 
     history.action = "PUSH";
-    this.startingPage = mount(<Router><PageA /></Router>);
+    this.startingPage = mount(
+      <Router>
+        <PageA />
+      </Router>
+    );
   });
 
   afterEach(function() {
@@ -31,7 +35,12 @@ describe("pageTransitionSupport", function() {
 
   describe("moving to a new page", function() {
     it("wraps incoming and outgoing pages in transition containers", function() {
-      const nextPage = mount(<Router><PageB /></Router>, this.startingPage);
+      const nextPage = mount(
+        <Router>
+          <PageB />
+        </Router>,
+        this.startingPage
+      );
 
       expect(nextPage.outerHTML).to.contain(
         mount(
@@ -50,7 +59,9 @@ describe("pageTransitionSupport", function() {
     context("given a 'transition' route prop", function() {
       it("uses that as transition animation instead of default 'slide'", function() {
         const nextPage = mount(
-          <Router><PageB transition="foobar" /></Router>,
+          <Router>
+            <PageB transition="foobar" />
+          </Router>,
           this.startingPage
         );
 
@@ -72,12 +83,22 @@ describe("pageTransitionSupport", function() {
 
   context("moving back to a previous page", function() {
     beforeEach(function() {
-      this.currentPage = mount(<Router><PageB /></Router>, this.startingPage);
+      this.currentPage = mount(
+        <Router>
+          <PageB />
+        </Router>,
+        this.startingPage
+      );
       history.action = "POP";
     });
 
     it("plays animation of previous page in reverse", function() {
-      const nextPage = mount(<Router><PageA /></Router>, this.currentPage);
+      const nextPage = mount(
+        <Router>
+          <PageA />
+        </Router>,
+        this.currentPage
+      );
 
       expect(nextPage.outerHTML).to.contain(
         mount(

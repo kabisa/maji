@@ -15,14 +15,20 @@ describe("Counter", function() {
 
     it("calls prop onIncrement when first button is pressed", function() {
       const context = renderContext({ onIncrement: action });
-      context.find("button").at(0).simulate("click");
+      context
+        .find("button")
+        .at(0)
+        .simulate("click");
 
       expect(action).to.have.been.called;
     });
 
     it("calls prop onDecrement when second button is pressed", function() {
       const context = renderContext({ onDecrement: action });
-      context.find("button").at(1).simulate("click");
+      context
+        .find("button")
+        .at(1)
+        .simulate("click");
 
       expect(action).to.have.been.called;
     });
