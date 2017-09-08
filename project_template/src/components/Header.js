@@ -19,7 +19,5 @@ export const BackButton = ({ href }) => {
 };
 
 export const Header = ({ children }) => (
-  <header class={styles.header}>
-    {children}
-  </header>
+  <header class={styles.header}>{children}</header>
 );
