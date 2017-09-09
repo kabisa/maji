@@ -15,15 +15,9 @@ pushd $(dirname "${BASH_SOURCE[0]}")/../ >/dev/null 2>&1
   cp -R project_template/* "$TMP_DIR"
 
   pushd "$TMP_DIR" >/dev/null 2>&1
-    perl -pi -e "s/##APP_NAME##/$APP_NAME/" README.md
-    perl -pi -e "s/##APP_NAME##/$APP_NAME/" package.json
-    perl -pi -e "s/##APP_NAME##/$APP_NAME/" cordova/config.xml
-    perl -pi -e "s/##APP_NAME##/$APP_NAME/" src/index.html
-    perl -pi -e "s/##APP_NAME##/$APP_NAME/" test/e2e/index/welcome.js
-    perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/config.xml
-    perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/package.json
-    perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" package.json
-    perl -pi -e "s|##MAJI_VERSION##|$MAJI_VERSION|" package.json
+    grep -rwl . -e '##APP_NAME##' | xargs perl -pi -e "s|##APP_NAME##|$APP_NAME|"
+    grep -rwl . -e '##APP_PACKAGE##' | xargs perl -pi -e "s|##APP_PACKAGE##|$APP_PACKAGE|"
+    grep -rwl . -e '##MAJI_VERSION##' | xargs perl -pi -e "s|##MAJI_VERSION##|$MAJI_VERSION|"
 
     # create needed symlinks, NPM removes them
     (cd cordova/ && ln -s ../dist www)
