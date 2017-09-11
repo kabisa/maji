@@ -29,22 +29,27 @@ class PageContainer extends Component {
 
   render() {
     const isBack = history.action !== "PUSH";
-    const animation = isBack && this.state.previousPage != null
-      ? transitionAnimationForPage(this.state.previousPage)
-      : transitionAnimationForPage(this.state.currentPage);
+    const animation =
+      isBack && this.state.previousPage != null
+        ? transitionAnimationForPage(this.state.previousPage)
+        : transitionAnimationForPage(this.state.currentPage);
 
-    const currentClassName = this.state.previousPage == null
-      ? ""
-      : `maji-page-animating maji-page-animation-${animation} maji-page-incoming${isBack ? " maji-page-reverse" : ""}`;
-    const previousClassName = this.state.previousPage == null
-      ? ""
-      : `maji-page-animating maji-page-animation-${animation} maji-page-outgoing${isBack ? " maji-page-reverse" : ""}`;
+    const currentClassName =
+      this.state.previousPage == null
+        ? ""
+        : `maji-page-animating maji-page-animation-${animation} maji-page-incoming${isBack
+            ? " maji-page-reverse"
+            : ""}`;
+    const previousClassName =
+      this.state.previousPage == null
+        ? ""
+        : `maji-page-animating maji-page-animation-${animation} maji-page-outgoing${isBack
+            ? " maji-page-reverse"
+            : ""}`;
 
     return (
       <div class="maji-page-container">
-        <div class={currentClassName}>
-          {this.state.currentPage}
-        </div>
+        <div class={currentClassName}>{this.state.currentPage}</div>
         <div
           class={previousClassName}
           onAnimationEnd={() => this.setState({ previousPage: null })}

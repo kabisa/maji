@@ -2,11 +2,7 @@ import { h } from "preact";
 import Icon from "./Icon";
 import styles from "./NavList.scss";
 
-export const List = ({ children }) => (
-  <ul class={styles.list}>
-    {children}
-  </ul>
-);
+export const List = ({ children }) => <ul class={styles.list}>{children}</ul>;
 
 export const ListItem = ({ href, icon, children }) => (
   <li>

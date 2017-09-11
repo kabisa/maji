@@ -8,9 +8,11 @@ import DetailPage from "src/modules/welcome/containers/DetailPage";
 
 const Router = augmentRouter(PreactRouter);
 
-export default () => (
+const App = () => (
   <Router history={history}>
     <DetailPage path="/detail" />
     <WelcomePage default />
   </Router>
 );
+
+export default App;

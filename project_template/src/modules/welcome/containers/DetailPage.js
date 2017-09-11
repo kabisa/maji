@@ -3,7 +3,7 @@ import I18n from "src/config/i18n";
 import { Page, Main } from "src/components/Page";
 import { Header, BackButton } from "src/components/Header";
 
-export default () => (
+const DetailPage = () => (
   <Page>
     <Header>
       <BackButton href="/" />
@@ -14,3 +14,5 @@ export default () => (
     </Main>
   </Page>
 );
+
+export default DetailPage;
