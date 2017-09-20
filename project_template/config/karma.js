@@ -22,7 +22,15 @@ module.exports = function(config) {
     junitReporter: {
       outputDir: "reports"
     },
+    client: {
+      captureConsole: true,
+      mocha: {
+        reporter: "html"
+      }
+    },
     port: 9876,
+    listenAddress: "localhost",
+    hostname: "localhost",
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
