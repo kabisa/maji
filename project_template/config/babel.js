@@ -10,7 +10,8 @@ module.exports = {
           browsers: supportedBrowsers
         },
         modules: false,
-        loose: true
+        loose: true,
+        useBuiltIns: true
       }
     ]
   ],
