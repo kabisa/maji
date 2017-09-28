@@ -9,8 +9,8 @@ const parsePort = value => parseInt(value) || null;
 const program = require("commander");
 program.version(maji_package.version);
 
-const runNpm = function(args, env_args = {}) {
-  return runCmd("npm", [...Array.from(args), "--silent"], env_args);
+const runYarn = function(args, env_args = {}) {
+  return runCmd("yarn", [...Array.from(args), "--silent"], env_args);
 };
 
 const runCmd = function(cmd, args, env_args = {}) {
@@ -110,7 +110,7 @@ program
         env
       );
     } else {
-      return runNpm(["run", "build"], env);
+      return runYarn(["run", "build"], env);
     }
   });
 
@@ -122,18 +122,18 @@ program
   .description("Run your project tests")
   .action(function(options) {
     if (options.watch) {
-      return runNpm(["run", "test:watch"]);
+      return runYarn(["run", "test:watch"]);
     }
 
     if (options.unit) {
-      return runNpm(["run", "test:unit"]);
+      return runYarn(["run", "test:unit"]);
     }
 
     if (options.integration) {
-      return runNpm(["run", "test:e2e"]);
+      return runYarn(["run", "test:e2e"]);
     }
 
-    return runNpm(["test"]);
+    return runYarn(["test"]);
   });
 
 program
@@ -152,7 +152,7 @@ program
       LIVERELOAD: options.livereload
     };
 
-    return runNpm(["start"], env);
+    return runYarn(["start"], env);
   });
 
 program.on("--help", () => process.exit(1));

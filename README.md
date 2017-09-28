@@ -17,15 +17,14 @@ Before you can use Maji, make sure you have the following:
 
 ### General
 
-* Ruby + Bundler, for the integration specs
-* Node.js >= 6 + NPM, for the build system
+* Node.js >= 6, NPM and Yarn for the build system
 
 ## Getting started
 
 To create a new app execute the following commands in your shell:
 
 ```
-$ npm install maji
+$ yarn add maji
 $ ./node_modules/.bin/maji new org.example.my-app /desired/path/to/your/project/
 $ cd /desired/path/to/your/project/
 $ bin/setup
