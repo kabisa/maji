@@ -2,4 +2,5 @@
 echo "Setting up git hooks..."
 for h in hooks/*; do ln -sf ../../$h .git/hooks/$(basename $h); done
 
-command -v yarn && yarn || npm install
+echo "Installing dependencies..."
+yarn install

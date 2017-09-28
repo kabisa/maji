@@ -14,7 +14,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "prettier": "prettier '{,!(node_modules|lib)/**/}*.js'",
-    "prepublish": "npm run build"
+    "prepublish": "yarn run build"
   },
   "devDependencies": {
     "chai-dom": "^1.4.3",

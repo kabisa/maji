@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 [ -z "$NODE_ENV" ] && NODE_ENV='development'
 export NODE_ENV=$NODE_ENV
-export PATH=$PATH:$(npm bin)
+export PATH=$PATH:$(yarn bin)
 
 $(dirname ${BASH_SOURCE[0]})/cordova-exec run "$@" $DEVICE_OPTS

@@ -10,7 +10,7 @@
     "test:watch": "NODE_ENV=${NODE_ENV:-test} karma start config/karma.js --watch",
     "test:e2e": "NODE_ENV=${NODE_ENV:-development} SERVER_PORT=9091 script/test-e2e.js",
     "prettier": "prettier '{,!(node_modules|cordova)/**/}*.js'",
-    "lint": "npm run eslint && npm run stylelint",
+    "lint": "yarn run eslint && yarn run stylelint",
     "eslint": "eslint src/ test/",
     "stylelint": "stylelint 'src/**/*.scss'"
   },
