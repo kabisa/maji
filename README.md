@@ -70,13 +70,6 @@ To build a static HTML5 app, run `make dist`.
 
 To build a native app, run `bin/maji build <platform>`.
 
-For CI docker files are included, which can be used incombination with the [kabisa jenkins-docker tooling](https://github.com/kabisa/jenkins-docker). `dockerfiles` includes files for tests only or build android packages.
-
-## Build-up
-
-You can find the sources in the `src/` folder.
-Compiled javascript is stored in `lib/`.  It is included in this repository so this module can be used straight from Github. Now an application using Maji doesn't have to compile its sources to javascript first.
-
 ### Frameworks
 
 A Maji Mobile App comes with several frameworks built-in and configured to work together. It's these combinations of frameworks that makes a Maji Mobile App so easy to develop!
