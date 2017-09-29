@@ -10,6 +10,6 @@ PLATFORM=$2
 # build all assets
 bin/maji build
 
-export PATH=$(npm bin):$PATH
+export PATH=$(yarn bin):$PATH
 $(dirname ${BASH_SOURCE[0]})/prepare-cordova-platform "${@:2}"
 cd cordova; cordova "$@"

@@ -1,0 +1,39 @@
+@import 'src/styles/settings/general';
+
+$navigation-list-border: $brand-grey-medium;
+$navigation-list-height: 3rem;
+
+$chevron-fill: $brand-blue;
+$chevron-height: 20px;
+$chevron-width: 16px;
+
+.list {
+    margin-bottom: 1em;
+
+    li {
+        margin-left: -$page-padding;
+        margin-right: -$page-padding;
+        border-bottom: 1px solid $navigation-list-border;
+
+        &:first-child {
+            border-top: 1px solid $navigation-list-border;
+        }
+    }
+
+    a {
+        height: $navigation-list-height;
+        padding: 0 $page-padding;
+        display: flex;
+        align-items: center;
+    }
+
+    span {
+        flex: 1;
+    }
+}
+
+.chevron {
+    fill: $chevron-fill;
+    height: $chevron-height;
+    width: $chevron-width;
+}

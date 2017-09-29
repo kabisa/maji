@@ -1,16 +1,22 @@
-function ensureDependencyInstalled(Q, mod) {
+const path = require("path");
+
+function ensureDependencyInstalled(Q, projectRoot, mod) {
   try {
-    require(`${mod}/package.json`);
+    const modulePath = path.join(
+      projectRoot,
+      "node_modules",
+      mod,
+      "package.json"
+    );
+    require(modulePath);
     return Q();
-  } catch(e) {
+  } catch (e) {
     console.log(`Installing ${mod}`);
     const deferred = Q.defer();
 
     exec(`npm install ${mod}`, function(exitCode, stdout, stderr) {
-      if(exitCode == 0)
-        deferred.resolve();
-      else
-        deferred.reject();
+      if (exitCode == 0) deferred.resolve();
+      else deferred.reject();
     });
 
     return deferred.promise;
@@ -18,13 +24,14 @@ function ensureDependencyInstalled(Q, mod) {
 }
 
 module.exports = function(context) {
-  if(context.opts.cordova.platforms.includes('ios')) {
-    context.requireCordovaModule('shelljs/global');
+  if (context.opts.cordova.platforms.includes("ios")) {
+    context.requireCordovaModule("shelljs/global");
 
-    var Q = context.requireCordovaModule('q');
+    const projectRoot = context.opts.projectRoot;
+    const Q = context.requireCordovaModule("q");
     return Q.all([
-      ensureDependencyInstalled(Q, 'ios-sim'),
-      ensureDependencyInstalled(Q, 'ios-deploy')
+      ensureDependencyInstalled(Q, projectRoot, "ios-sim"),
+      ensureDependencyInstalled(Q, projectRoot, "ios-deploy")
     ]);
   }
-}
+};

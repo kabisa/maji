@@ -1,0 +1,5 @@
+#!/bin/sh
+scssfiles=$(git diff --cached --name-only --diff-filter=ACM | grep "\.scss\?$" | tr "\n" " ")
+[ -z "$scssfiles" ] && exit 0
+
+echo "$scssfiles" | xargs ./node_modules/.bin/stylelint

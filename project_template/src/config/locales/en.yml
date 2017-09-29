@@ -1,0 +1,8 @@
+en:
+  welcome:
+    hello: 'Welcome to your Maji app!'
+    transitions: 'Some example transitions:'
+    counter: 'Redux-backed counter:'
+  detail:
+    title: 'Detail'
+    description: 'This is the detail page'

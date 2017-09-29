@@ -1,0 +1,56 @@
+@import 'src/styles/settings/general';
+
+$header-background: $brand-blue;
+$header-text: $text-color-light;
+$header-height: 3rem;
+$header-ios-offset: 16px;
+$header-button-size: $header-height;
+$header-icon-size: ($header-height * 0.5);
+
+.header {
+    background: $header-background;
+    color: $header-text;
+    height: $header-height;
+    flex: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // Make room for iOS bar
+    :global(.platform-ios) & {
+        height: calc(#{$header-height} + #{$header-ios-offset});
+        padding-top: $header-ios-offset;
+    }
+
+    a,
+    h1 {
+        font-size: $font-size-regular;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a {
+        width: $header-button-size;
+
+        svg {
+            fill: currentColor;
+            height: $header-icon-size;
+        }
+    }
+
+    h1 {
+        flex: 1;
+
+        &:first-child {
+            // Compensate if no button on the left side
+            margin-left: $header-button-size;
+        }
+
+        &:last-child {
+            // Compensate if no button on the right side
+            margin-right: $header-button-size;
+        }
+    }
+}

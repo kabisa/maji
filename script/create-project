@@ -6,27 +6,26 @@ APP_PACKAGE=$1
 APP_NAME=$(echo $1 | perl -pe 's/.*\.//')
 APP_PATH="$2"
 
+CURRENT_MAJI_VERSION=$(node -p "require('./package.json').version")
+MAJI_VERSION=${MAJI_VERSION:-$CURRENT_MAJI_VERSION}
+
 TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji)
 
 pushd $(dirname "${BASH_SOURCE[0]}")/../ >/dev/null 2>&1
   cp -R project_template/* "$TMP_DIR"
 
   pushd "$TMP_DIR" >/dev/null 2>&1
-    perl -pi -e "s/##APP_NAME##/$APP_NAME/" README.md
-    perl -pi -e "s/##APP_NAME##/$APP_NAME/" package.json
-    perl -pi -e "s/##APP_NAME##/$APP_NAME/" cordova/config.xml
-    perl -pi -e "s/##APP_NAME##/$APP_NAME/" public/index.html
-    perl -pi -e "s/##APP_NAME##/$APP_NAME/" app/modules/home/templates/index.hamlc
-    perl -pi -e "s/##APP_PACKAGE##/$APP_PACKAGE/" cordova/config.xml
+    grep -rwl . -e '##APP_NAME##' | xargs perl -pi -e "s|##APP_NAME##|$APP_NAME|"
+    grep -rwl . -e '##APP_PACKAGE##' | xargs perl -pi -e "s|##APP_PACKAGE##|$APP_PACKAGE|"
+    grep -rwl . -e '##MAJI_VERSION##' | xargs perl -pi -e "s|##MAJI_VERSION##|$MAJI_VERSION|"
 
     # create needed symlinks, NPM removes them
-    (mkdir -p vendor/styles/maji && cd vendor/styles/maji && \
-      ln -s ../../../node_modules/maji/css/maji_screen_transitions.scss screen_transitions.scss)
     (cd cordova/ && ln -s ../dist www)
     (cd bin/ && ln -s ../node_modules/.bin/maji .)
 
     # npm renames .gitignore to .npmignore
     [ -f .npmignore ] && (mv .npmignore .gitignore || exit 0)
+    command -v git >/dev/null && git init || true
   popd >/dev/null 2>&1
 popd >/dev/null 2>&1
 

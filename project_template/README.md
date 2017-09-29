@@ -1,6 +1,5 @@
 # ##APP_NAME##
 
-
 ## Getting started
 
 * Make sure you have fulfilled the [prerequisites](#prerequisites)
@@ -16,19 +15,25 @@
 * To run integration specs run `bin/maji test --integration`.
 * To run all tests run `bin/maji test`.
 
+## Code formatting
+
+Code is formatted by [Prettier](https://github.com/prettier/prettier).
+The provided [Setup](#setup) script will install a git commit hook that will format your code.
+Prettier can also be run manually using `yarn run prettier` or `yarn run prettier -- --write`.
+
 
 ## Packaging native apps / running on your device
 
 * Make sure you have fulfilled the platform specific [prerequisites](#prerequisites) for the platform you're targeting.
 * Running `bin/maji run` with the target platform as parameter, e.g. `bin/maji run ios` will launch the app on your connected iPhone, while `bin/maji run android` will launch the app on your connected Android device. Specifying `-e` on the `maji run` command will launch the app on the iOS Simulator or Android Emulator.
 
-
 ## Prerequisites
 
 ### General
 
-* Ruby + Bundler, for the integration specs
 * Node.js >=6 + NPM, for the build system
+* Chrome v59.x or higher to run the tests headless. You might need install it from the [beta channel](https://www.google.com/chrome/browser/beta.html).
+* Java 8 (or higher) to run the end-to-end tests (it powers the selenium server)
 
 ### iOS
 

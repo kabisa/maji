@@ -1,0 +1,27 @@
+@import './theme';
+@import './typography';
+
+///////////////////////////////////////////////////////////
+//
+// General colors
+//
+///////////////////////////////////////////////////////////
+$text-color: $brand-black;
+$text-color-medium: $brand-grey-medium;
+$text-color-light: $brand-white;
+$text-color-highlight: $brand-blue;
+$text-color-link: $brand-blue;
+$page-background: $brand-grey-lightest;
+$page-background-light: $brand-white;
+$general-border-color: $brand-grey-light;
+
+///////////////////////////////////////////////////////////
+//
+// Generic values
+//
+///////////////////////////////////////////////////////////
+$whitespace: 1rem;
+$border-radius: 0.5rem;
+$border-radius-small: 0.125rem;
+$easing: cubic-bezier(0.4, 0, 0.2, 1); // Uniform animation easing
+$page-padding: 1rem; // Distance from edge of screen

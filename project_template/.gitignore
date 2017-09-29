@@ -1,9 +1,12 @@
+.vscode
+.idea
+*.iml
 node_modules
-tmp/*
-!tmp/.keep
+.DS_Store
+*.log
 dist
-.sass-cache/
-app/styles/fonts/_icons.scss
+.env
+reports/
 
 # cordova stuff
 cordova/platforms/*

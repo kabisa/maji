@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -e
-
-hooks/coffeelint
-hooks/scss-lint
+hooks/prettier
+hooks/eslint
+hooks/stylelint

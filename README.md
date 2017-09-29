@@ -17,15 +17,14 @@ Before you can use Maji, make sure you have the following:
 
 ### General
 
-* Ruby + Bundler, for the integration specs
-* Node.js >= 6 + NPM, for the build system
+* Node.js >= 6, NPM and Yarn for the build system
 
 ## Getting started
 
 To create a new app execute the following commands in your shell:
 
 ```
-$ npm install maji
+$ yarn add maji
 $ ./node_modules/.bin/maji new org.example.my-app /desired/path/to/your/project/
 $ cd /desired/path/to/your/project/
 $ bin/setup
@@ -83,15 +82,17 @@ Compiled javascript is stored in `lib/`.  It is included in this repository so t
 A Maji Mobile App comes with several frameworks built-in and configured to work together. It's these combinations of frameworks that makes a Maji Mobile App so easy to develop!
 
  * [Apache Cordova](https://cordova.apache.org) facilitates the translation from web technologies to mobile platforms.
- * [BackboneJS](http://backbonejs.org) our JavaScript MV* framework
- * [MarionetteJS](http://marionettejs.com) Marionette simplifies Backbone Views
+ * [Preact.js](https://preactjs.com) our JavaScript View framework
  * [FastClick](http://ftlabs.github.io/fastclick/) disable the delay between click and the action on iOS
- * [jQuery](http://jquery.com) JavaScript library for working with the DOM
+ * [Sentry](https://sentry.io) for exception tracking
  * [Webpack](https://webpack.js.org/) is a JavaScript module bundler
- * [BugSnagJS](https://github.com/bugsnag/bugsnag-js) JavaScript client for [BugSnag](http://bugsnag.com/) exception tracker
  * [Karma](http://karma-runner.github.io/) is a JavaScript test runner
  * [MochaJS](http://mochajs.org) a JavaScript testing framework that supports a BDD style of writing tests
  * [Chai](http://chaijs.com) is an assertion library that enables a BDD style of developing
+
+### Browser support
+
+Maji will work in evergreen browsers, IE10+, Android 4.4+ and iOS 8+. More details [here](docs/README.md#support).
 
 ### FAQ
 
@@ -101,8 +102,8 @@ For our Frequently Asked Questions, see [here](docs/faq.md).
 
 Here are some links to documentation you might need:
 
- * [Backbone](http://backbonejs.org)
- * [Marionette](http://marionettejs.com/docs/v3.1.0/)
+ * [Preact.js](https://preactjs.com)
+ * [Webpack](https://webpack.js.org/)
  * [Mocha](http://mochajs.org/#assertions)
  * [Chai Expect/Should](http://chaijs.com/api/bdd/)
  * [Apache Cordova](http://cordova.apache.org/docs/en/4.0.0/)

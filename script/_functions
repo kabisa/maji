@@ -8,8 +8,3 @@ function warning() {
   [[ $# -eq 0 ]] && local message=$(cat -) || local message="$@"
   echo "$(tput setaf 3)$message$(tput sgr0)"
 }
-
-function npm_package_available() {
-  local package=$(npm list --depth=0 2>/dev/null | grep "$@" | cut -d ' ' -f2)
-  [[ $package == "$@" ]]
-}

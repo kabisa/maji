@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
+yarn run prettier -- --list-different
 ./node_modules/karma/bin/karma start --singleRun
 bin/test-project-template
