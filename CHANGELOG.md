@@ -4,14 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased 3.0.0] - TBD
+## 3.0.0
 ### Changed
-- The default Javascript stack is now Preact and Redux
+- The default Javascript stack is now ES2015+, Preact and Redux
 
 ### Removed
 - Support for Backbone, Marionette, jQuery
 - Support for `APP_ENV`, in favor of `NODE_ENV`
 - `Makefile` for build and deploy, in favor of `package.json` tasks
+- Rspec/capybara for integration tests, in favor of Nightwatch.js
 
 ## [2.0.2] - 2017-02-21
 ### Fixed
