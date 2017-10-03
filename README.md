@@ -63,7 +63,7 @@ To run test, you have several options:
 
 ### Creating builds
 
-To build a static HTML5 app, run `make dist`.
+To build a static HTML5 app, run `bin/maji build`.
 
 To build a native app, run `bin/maji build <platform>`.
 
