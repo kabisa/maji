@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+
+## 3.0.2
+### Fixed
+- Maji CLI comptability with Yarn 1.x. [#174](https://github.com/kabisa/maji/pull/174)
+
 ## 3.0.0
 ### Changed
 - The default Javascript stack is now ES2015+, Preact and Redux
