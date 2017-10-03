@@ -10,7 +10,7 @@ const program = require("commander");
 program.version(maji_package.version);
 
 const runYarn = function(args, env_args = {}) {
-  return runCmd("yarn", [...Array.from(args), "--silent"], env_args);
+  return runCmd("yarn", ["--silent", ...Array.from(args)], env_args);
 };
 
 const runCmd = function(cmd, args, env_args = {}) {
