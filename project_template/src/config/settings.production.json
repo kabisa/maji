@@ -1,4 +1,3 @@
 {
-  "environment": "production",
-  "defaultLocale": "en-US"
+  "environment": "production"
 }

@@ -1,4 +1,3 @@
 {
-  "environment": "development",
-  "defaultLocale": "en-US"
+  "environment": "development"
 }
