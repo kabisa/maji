@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Settings can be extended with default, env agnostic, settings. [#176](https://github.com/kabisa/maji/pull/176)
 
+### Changed
+- Made cosmetic changes to the documentation.
+
 ## 3.0.2
 ### Fixed
 - Maji CLI comptability with Yarn 1.x. [#174](https://github.com/kabisa/maji/pull/174)
