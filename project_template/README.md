@@ -32,7 +32,7 @@ Prettier can also be run manually using `yarn run prettier` or `yarn run prettie
 ### General
 
 * Node.js >=6 + NPM, for the build system
-* Chrome v59.x or higher to run the tests headless. You might need install it from the [beta channel](https://www.google.com/chrome/browser/beta.html).
+* Chrome v59.x or higher to run the tests headless
 * Java 8 (or higher) to run the end-to-end tests (it powers the selenium server)
 
 ### iOS
