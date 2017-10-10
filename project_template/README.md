@@ -7,13 +7,13 @@
 
 ## Development workflow
 
-* While developing you can run a local serve using `bin/maji start`. This will start a server on http://localhost:9090.
-* To create a static HTML5 app build run `bin/maji build`. The app will be build into the `dist/` directory.
-* To run the app on a connected mobile device run `bin/maji run <platform>`.
-* To build a Cordova app run `bin/maji build <platform>`.
-* To run Javascript tests run `bin/maji test --watch`. This will start a Karma server with Phantomjs and will continuously watch your Javascript files and run tests on changes.
-* To run integration specs run `bin/maji test --integration`.
-* To run all tests run `bin/maji test`.
+* While developing you can run a local server using `bin/maji start`. This will start a server on http://localhost:9090.
+* To create a static HTML5 app build, run `bin/maji build`. The app will be built into the `dist/` directory.
+* To run the app on a connected mobile device, run `bin/maji run <platform>`.
+* To build a Cordova app, run `bin/maji build <platform>`.
+* To run Javascript tests, run `bin/maji test --watch`. This will start a Karma server with Phantomjs and will continuously watch your Javascript files and run tests on changes.
+* To run integration specs, run `bin/maji test --integration`.
+* To run all tests, run `bin/maji test`.
 
 ## Code formatting
 
@@ -32,7 +32,7 @@ Prettier can also be run manually using `yarn run prettier` or `yarn run prettie
 ### General
 
 * Node.js >=6 + NPM, for the build system
-* Chrome v59.x or higher to run the tests headless. You might need install it from the [beta channel](https://www.google.com/chrome/browser/beta.html).
+* Chrome v59.x or higher to run the tests headless
 * Java 8 (or higher) to run the end-to-end tests (it powers the selenium server)
 
 ### iOS
