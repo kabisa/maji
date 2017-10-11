@@ -79,6 +79,7 @@ A Maji Mobile app comes with several frameworks and libraries built-in and confi
  * [Karma](http://karma-runner.github.io/) is a JavaScript test runner
  * [MochaJS](http://mochajs.org) is a JavaScript testing framework that supports a BDD style of writing tests
  * [Chai](http://chaijs.com) is an assertion library that enables a BDD style of developing
+ * [I18n-js](https://github.com/fnando/i18n-js) is a library for internationalisation
 
 ### Browser support
 
