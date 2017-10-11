@@ -3,6 +3,7 @@
 * [Maji CLI](#maji-cli)
 * [What's in the box?](#whats-in-the-box)
 * [Browser support](#browser-support)
+* [Components you might not need](#components-you-might-not-need)
 * [FAQ](faq.md)
 
 ## Maji CLI
@@ -82,3 +83,7 @@ SVG:
 * IE9+
 * Android 4.4+ (3+ if you don't use masking)
 * iOS 3.2+
+
+## Components you might not need
+
+* [FastClick](https://github.com/ftlabs/fastclick) is only useful for older mobile devices, as described on GitHub.
