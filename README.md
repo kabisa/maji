@@ -83,17 +83,17 @@ A Maji Mobile app comes with several frameworks and libraries built-in and confi
 
 ### Browser support
 
-Maji will work in evergreen browsers, IE10+, Android 4.4+ and iOS 8+. More details [here](docs/README.md#browser-support).
+Maji will work in evergreen browsers, IE10+, Android 4.4+ and iOS 8+. Maji's additional documentation offers [more details about browser support](docs/README.md#browser-support).
 
 ### FAQ
 
-For our Frequently Asked Questions, see [here](docs/faq.md).
+Maji's [frequently asked questions](docs/faq.md) are answered in the additional documentation.
 
 ### Documentation
 
 Links to the documentation of Maji's components are available in the section about [frameworks and libraries](#frameworks-and-libraries) above.
 
-For additional documentation, see [here](docs/README.md).
+More details are available in [Maji's additional documentation](docs/README.md).
 
 ## License
 
