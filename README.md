@@ -49,7 +49,7 @@ To build a static HTML5 app, run `bin/maji build`.
 
 To build a native app, run `bin/maji build <platform>`.
 
-### Frameworks and libraries
+## Frameworks and libraries
 
 A Maji Mobile app comes with several frameworks and libraries built-in and configured to work together. It's this combination of frameworks that makes a Maji Mobile app so easy to develop.
 
@@ -63,15 +63,15 @@ A Maji Mobile app comes with several frameworks and libraries built-in and confi
  * [Chai](http://chaijs.com) is an assertion library that enables a BDD style of developing
  * [I18n-js](https://github.com/fnando/i18n-js) is a library for internationalisation
 
-### Browser support
+## Browser support
 
 Maji will work in evergreen browsers, IE10+, Android 4.4+ and iOS 8+. Maji's additional documentation offers [more details about browser support](docs/README.md#browser-support).
 
-### FAQ
+## FAQ
 
 Maji's [frequently asked questions](docs/faq.md) are answered in the additional documentation.
 
-### Documentation
+## Documentation
 
 Links to the documentation of Maji's components are available in the section about [frameworks and libraries](#frameworks-and-libraries) above.
 
