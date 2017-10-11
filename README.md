@@ -56,7 +56,7 @@ To start your app, `cd` into its directory, execute `bin/maji start` and navigat
 ### Running tests
 
 To run test, you have several options:
-* To run JavaScript tests run `bin/maji test --watch`. This will start a Karma server with Phantomjs headless browser and will continuously watch your Javascript files and run tests on changes.
+* To run JavaScript tests, run `bin/maji test --watch`. This will start a Karma server with headless Chrome and will continuously watch your Javascript files and run tests on changes.
 * To run JavaScript tests once, run `bin/maji test --unit`.
 * To run features specs once, run `bin/maji test --integration`.
 * To run all tests once, run `bin/maji test`.
