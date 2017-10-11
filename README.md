@@ -67,17 +67,17 @@ To build a static HTML5 app, run `bin/maji build`.
 
 To build a native app, run `bin/maji build <platform>`.
 
-### Frameworks
+### Frameworks and libraries
 
-A Maji Mobile app comes with several frameworks built-in and configured to work together. It's this combination of frameworks that makes a Maji Mobile app so easy to develop.
+A Maji Mobile app comes with several frameworks and libraries built-in and configured to work together. It's this combination of frameworks that makes a Maji Mobile app so easy to develop.
 
  * [Apache Cordova](https://cordova.apache.org) facilitates the translation from web technologies to mobile platforms.
- * [Preact.js](https://preactjs.com) our JavaScript View framework
- * [FastClick](http://ftlabs.github.io/fastclick/) disable the delay between click and the action on iOS
- * [Sentry](https://sentry.io) for exception tracking
+ * [Preact.js](https://preactjs.com) is our JavaScript view framework
+ * [FastClick](http://ftlabs.github.io/fastclick/) disables the delay between a click and the corresponding action on older mobile devices
+ * [Sentry](https://sentry.io) is used for exception tracking
  * [Webpack](https://webpack.js.org/) is a JavaScript module bundler
  * [Karma](http://karma-runner.github.io/) is a JavaScript test runner
- * [MochaJS](http://mochajs.org) a JavaScript testing framework that supports a BDD style of writing tests
+ * [MochaJS](http://mochajs.org) is a JavaScript testing framework that supports a BDD style of writing tests
  * [Chai](http://chaijs.com) is an assertion library that enables a BDD style of developing
 
 ### Browser support
