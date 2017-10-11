@@ -9,14 +9,13 @@
 
   Usage: `bin/maji [options] [command]`
 
-
   Commands:
 
-    new <package_name> <path>   Create a new Maji app
-    run [options] <platform>    Build and run a native app for the specified platform
-    build [options] [platform]  Build a native app for the specified platform
-    test [options]              Run your project tests
-    start [options]             Run the maji dev server and compile changes on the fly
+    new <package_name> <path>     Create a new Maji app
+    run [options] <platform>      Build and run a native app for the specified platform
+    build [options] [<platform>]  Build a native app for the specified platform
+    test [options]                Run your project's tests
+    start [options]               Run the Maji dev server and compile changes on the fly
 
   Options:
 
