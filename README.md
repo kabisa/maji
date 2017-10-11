@@ -91,14 +91,7 @@ For our Frequently Asked Questions, see [here](docs/faq.md).
 
 ### Documentation
 
-Here are some links to documentation you might need:
-
- * [Preact.js](https://preactjs.com)
- * [Webpack](https://webpack.js.org/)
- * [Mocha](http://mochajs.org/#assertions)
- * [Chai Expect/Should](http://chaijs.com/api/bdd/)
- * [Apache Cordova](http://cordova.apache.org/docs/en/4.0.0/)
-
+Links to the documentation of Maji's components are available in the section about [frameworks and libraries](#frameworks-and-libraries) above.
 
 ## License
 
