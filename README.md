@@ -29,24 +29,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/kabisa/maji/master/script/in
 
 Your new Maji app will now be generated at the supplied path.
 
-### bin/maji
-
-  Usage: `bin/maji [options] [command]`
-
-
-  Commands:
-
-    new <package_name> <path>   Create a new Maji app
-    run [options] <platform>    Build and run a native app for the specified platform
-    build [options] [platform]  Build a native app for the specified platform
-    test [options]              Run your project tests
-    start [options]             Run the maji dev server and compile changes on the fly
-
-  Options:
-
-    -h, --help     output usage information
-    -V, --version  output the version number
-
 ## Using Maji apps
 
 ### Starting in the browser
