@@ -15,9 +15,9 @@ Your Idea. Our Technology. For Everyone.
 
 Before you can use Maji, make sure you have the following:
 
-### General
-
-* Node.js >= 6, NPM and Yarn for the build system
+* Node.js >= 6
+* NPM
+* Yarn
 
 ## Getting started
 
