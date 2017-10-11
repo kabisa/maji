@@ -86,4 +86,4 @@ SVG:
 
 ## Components you might not need
 
-* [FastClick](https://github.com/ftlabs/fastclick) is only useful for older mobile devices, as described on GitHub.
+* [FastClick](https://github.com/ftlabs/fastclick) is only useful for older mobile devices, as described in the project's documentation on GitHub. You don't need it if you only support modern mobile devices or desktop browsers.
