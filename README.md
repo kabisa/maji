@@ -5,7 +5,7 @@
 Maji Mobile is a mobile platform development solution, that allows you to quickly create mobile applications for any platform, using web technologies.
 It allows any (Web-)developer to quickly start developing mobile applications for any mobile platform.
 
-Maji Mobile is not a framework on itself; it generates a ready-to-go project that integrates several frameworks and custom scripts to allow building and running on mobile platforms. You can build Maji Mobile Apps for all mobile platforms and you can submit the apps to their respective Stores.
+Maji Mobile is not a framework on itself; it generates a ready-to-go project that integrates several frameworks and custom scripts to allow building and running on mobile platforms. You can build Maji Mobile apps for all mobile platforms and you can submit the apps to their respective Stores.
 
 Whether you want to develop for iOS or Android, mobile or tablet, or any of the other mobile platforms, you can use Maji Mobile to develop applications for it.
 
@@ -47,7 +47,7 @@ Your new Maji app will now be generated at the supplied path.
     -h, --help     output usage information
     -V, --version  output the version number
 
-## Using Maji Apps
+## Using Maji apps
 
 ### Starting in the browser
 
@@ -69,7 +69,7 @@ To build a native app, run `bin/maji build <platform>`.
 
 ### Frameworks
 
-A Maji Mobile App comes with several frameworks built-in and configured to work together. It's these combinations of frameworks that makes a Maji Mobile App so easy to develop!
+A Maji Mobile app comes with several frameworks built-in and configured to work together. It's this combination of frameworks that makes a Maji Mobile app so easy to develop.
 
  * [Apache Cordova](https://cordova.apache.org) facilitates the translation from web technologies to mobile platforms.
  * [Preact.js](https://preactjs.com) our JavaScript View framework
