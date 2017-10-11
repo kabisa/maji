@@ -41,7 +41,7 @@
   * Compilation of ES2015 and Sass
   * Javascript bundling and minification including source maps
   * CSS autoprefixer (no more vendor prefixes!)
-  * Livereload integration. Make changes and your browser will automatically reload, works on mobile too.
+  * Live-reload integration. Make changes and your browser will automatically reload, works on mobile too.
 
 * CLI tooling
   * Create new projects
@@ -49,7 +49,7 @@
   * Run Cordova apps on connected mobile devices
 
 * Testing support
-  * Nightwatch.js for E2E integeration tests
+  * Nightwatch.js for E2E integration tests
   * Karma + Mocha + Chai for Javascript tests
   * SASS linting
   * Javascript formatting by Prettier
