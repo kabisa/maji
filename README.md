@@ -93,6 +93,8 @@ For our Frequently Asked Questions, see [here](docs/faq.md).
 
 Links to the documentation of Maji's components are available in the section about [frameworks and libraries](#frameworks-and-libraries) above.
 
+For additional documentation, see [here](docs/README.md).
+
 ## License
 
 Maji Mobile is released under the [MIT License](LICENSE).
