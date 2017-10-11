@@ -21,7 +21,7 @@ Before you can use Maji, make sure you have the following:
 
 ## Getting started
 
-To create a new app execute the following command in your shell:
+To create a new app, execute the following command in your shell:
 
 ```sh
 bash <(curl -fsSL https://raw.githubusercontent.com/kabisa/maji/master/script/init.sh)
