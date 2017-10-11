@@ -12,7 +12,7 @@
   * I18n with autodetection of user locale, includes interpolation and pluralization. Uses YML files to define translations.
   * Cordova support
     * Network activity indication on iOS
-    * Automatic iOS 7 + extended header
+    * Automatic iOS 7+ extended header
   * Per environment configurable settings (development, test, staging, production etc)
   * Fastclick.js integrated, removes default 300ms touch event delay
   * Raven-js is available to report exception to sentry.io, passing along build and contextual info
