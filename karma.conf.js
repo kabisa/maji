@@ -20,7 +20,13 @@ module.exports = function(karma) {
     },
 
     reporters: ["mocha"],
-    browsers: ["ChromeHeadless"],
+    browsers: ["ChromeHeadlessNoSandbox"],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: "ChromeHeadless",
+        flags: ["--no-sandbox"]
+      }
+    },
 
     rollupPreprocessor: require("./rollup.config")
   });
