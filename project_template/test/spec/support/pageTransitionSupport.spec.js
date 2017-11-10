@@ -79,6 +79,32 @@ describe("pageTransitionSupport", function() {
         );
       });
     });
+
+    context("given the same URL as previous page", function() {
+      it("prevents the transition", function() {
+        const nextPage = mount(
+          <Router>
+            <PageA url="/a" />
+          </Router>,
+          this.startingPage
+        );
+
+        expect(nextPage.querySelector(".maji-page-animating")).to.be.null;
+      });
+    });
+
+    context("given the same component kind as previous page", function() {
+      it("still performs the transition", function() {
+        const nextPage = mount(
+          <Router>
+            <PageA url="/someOtherUrl" />
+          </Router>,
+          this.startingPage
+        );
+
+        expect(nextPage.querySelector(".maji-page-animating")).not.to.be.null;
+      });
+    });
   });
 
   context("moving back to a previous page", function() {
