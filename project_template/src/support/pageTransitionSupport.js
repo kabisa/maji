@@ -22,26 +22,27 @@ class PageContainer extends Component {
     const nextPage = props.children[0];
     const previousPage = this.state.currentPage;
 
-    if (nextPage.nodeName !== previousPage.nodeName) {
+    if (nextPage.attributes.url !== previousPage.attributes.url) {
       this.setState({ previousPage, currentPage: nextPage });
     }
   }
 
   render() {
+    const { previousPage, currentPage } = this.state;
     const isBack = history.action !== "PUSH";
     const animation =
-      isBack && this.state.previousPage != null
-        ? transitionAnimationForPage(this.state.previousPage)
-        : transitionAnimationForPage(this.state.currentPage);
+      isBack && previousPage != null
+        ? transitionAnimationForPage(previousPage)
+        : transitionAnimationForPage(currentPage);
 
     const currentClassName =
-      this.state.previousPage == null
+      previousPage == null
         ? ""
         : `maji-page-animating maji-page-animation-${animation} maji-page-incoming${isBack
             ? " maji-page-reverse"
             : ""}`;
     const previousClassName =
-      this.state.previousPage == null
+      previousPage == null
         ? ""
         : `maji-page-animating maji-page-animation-${animation} maji-page-outgoing${isBack
             ? " maji-page-reverse"
@@ -49,12 +50,12 @@ class PageContainer extends Component {
 
     return (
       <div class="maji-page-container">
-        <div class={currentClassName}>{this.state.currentPage}</div>
+        <div class={currentClassName}>{currentPage}</div>
         <div
           class={previousClassName}
           onAnimationEnd={() => this.setState({ previousPage: null })}
         >
-          {this.state.previousPage}
+          {previousPage}
         </div>
       </div>
     );
@@ -63,8 +64,8 @@ class PageContainer extends Component {
 
 export const augmentRouter = function(RouterClass) {
   return class TransitionAwareRouter extends RouterClass {
-    render() {
-      return <PageContainer>{super.render(...arguments)}</PageContainer>;
+    render(...args) {
+      return <PageContainer>{super.render(...args)}</PageContainer>;
     }
   };
 };

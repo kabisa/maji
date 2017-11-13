@@ -24,7 +24,7 @@ describe("pageTransitionSupport", function() {
     history.action = "PUSH";
     this.startingPage = mount(
       <Router>
-        <PageA />
+        <PageA url="/a" />
       </Router>
     );
   });
@@ -37,7 +37,7 @@ describe("pageTransitionSupport", function() {
     it("wraps incoming and outgoing pages in transition containers", function() {
       const nextPage = mount(
         <Router>
-          <PageB />
+          <PageB url="/b" />
         </Router>,
         this.startingPage
       );
@@ -60,7 +60,7 @@ describe("pageTransitionSupport", function() {
       it("uses that as transition animation instead of default 'slide'", function() {
         const nextPage = mount(
           <Router>
-            <PageB transition="foobar" />
+            <PageB url="/b" transition="foobar" />
           </Router>,
           this.startingPage
         );
@@ -79,39 +79,58 @@ describe("pageTransitionSupport", function() {
         );
       });
     });
+
+    context("given the same URL as previous page", function() {
+      it("prevents the transition", function() {
+        const nextPage = mount(
+          <Router>
+            <PageA url="/a" />
+          </Router>,
+          this.startingPage
+        );
+
+        expect(nextPage.querySelector(".maji-page-animating")).to.be.null;
+      });
+    });
+
+    context("given the same component kind as previous page", function() {
+      it("still performs the transition", function() {
+        const nextPage = mount(
+          <Router>
+            <PageA url="/someOtherUrl" />
+          </Router>,
+          this.startingPage
+        );
+
+        expect(nextPage.querySelector(".maji-page-animating")).not.to.be.null;
+      });
+    });
   });
 
   context("moving back to a previous page", function() {
     beforeEach(function() {
       this.currentPage = mount(
         <Router>
-          <PageB />
+          <PageB url="/b" />
         </Router>,
         this.startingPage
       );
       history.action = "POP";
     });
 
-    it("plays animation of previous page in reverse", function() {
+    it("plays animations in reverse", function() {
       const nextPage = mount(
         <Router>
-          <PageA />
+          <PageA url="/a" />
         </Router>,
         this.currentPage
       );
 
-      expect(nextPage.outerHTML).to.contain(
-        mount(
-          <div class="maji-page-container">
-            <div class="maji-page-animating maji-page-animation-slide maji-page-incoming maji-page-reverse">
-              <h1>PageA</h1>
-            </div>
-            <div class="maji-page-animating maji-page-animation-slide maji-page-outgoing maji-page-reverse">
-              <h1>PageB</h1>
-            </div>
-          </div>
-        ).outerHTML
+      const pages = nextPage.querySelectorAll(
+        ".maji-page-animating.maji-page-reverse"
       );
+
+      expect(pages.length).to.eql(2);
     });
   });
 });
