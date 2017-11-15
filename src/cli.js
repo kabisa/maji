@@ -97,7 +97,8 @@ program
     "NODE_ENV to build with [production]"
   )
   .action(function(platform, options) {
-    const node_env = options.environment || "production";
+    const node_env =
+      options.environment || process.env.NODE_ENV || "production";
     const env = {
       NODE_ENV: node_env
     };
