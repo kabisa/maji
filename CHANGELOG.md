@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## 3.1.0
 ### Added
 - Settings can be extended with default, env agnostic, settings. [#176](https://github.com/kabisa/maji/pull/176)
+- Environment variables starting with `MAJI_APP_` are injected by default. They can be referenced by `process.env.MAJI_APP_*` in your code. [#190](https://github.com/kabisa/maji/pull/190)
 
 ### Changed
 - Made cosmetic changes to the documentation.
