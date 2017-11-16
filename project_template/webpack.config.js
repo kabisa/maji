@@ -14,6 +14,17 @@ const extractOtherCss = new ExtractText("styles.[hash].css");
 
 process.stderr.write(`Building with env = ${env}\n`);
 
+const MAJI_APP = /^MAJI_APP_/i;
+
+const getEnvironmentVariables = function() {
+  return Object.keys(process.env)
+    .filter(key => MAJI_APP.test(key))
+    .reduce((env, key) => {
+      env[`process.env.${key}`] = JSON.stringify(process.env[key]);
+      return env;
+    }, {});
+};
+
 const getGitRevision = function() {
   const GitRevPlugin = require("git-revision-webpack-plugin");
   return new GitRevPlugin({
@@ -39,11 +50,13 @@ const plugins = [
   new webpack.optimize.CommonsChunkPlugin({
     name: "vendor"
   }),
-  new webpack.DefinePlugin({
-    "process.env.NODE_ENV": JSON.stringify(env),
-    __BUILD_IDENTIFIER__: JSON.stringify(getGitRevision()),
-    __VERSION_NUMBER__: JSON.stringify(getNpmVersion())
-  }),
+  new webpack.DefinePlugin(
+    Object.assign({}, getEnvironmentVariables(), {
+      "process.env.NODE_ENV": JSON.stringify(env),
+      __BUILD_IDENTIFIER__: JSON.stringify(getGitRevision()),
+      __VERSION_NUMBER__: JSON.stringify(getNpmVersion())
+    })
+  ),
   extractShellCss,
   extractOtherCss,
   new SpriteLoaderPlugin()
