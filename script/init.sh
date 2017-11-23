@@ -17,10 +17,11 @@ done
 TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji)
 
 pushd "$TMP_DIR" >/dev/null 2>&1
-  yarn add --silent maji --no-lockfile --prod
-  ./node_modules/.bin/maji new "$APP_PACKAGE" "$APP_PATH"
-  RESULT=$?
+  yarn add --silent ${MAJI_MODULE:-maji} --no-lockfile --prod
 popd >/dev/null 2>&1
+
+"$TMP_DIR"/node_modules/.bin/maji new "$APP_PACKAGE" "$APP_PATH"
+RESULT=$?
 
 rm -r $TMP_DIR
 exit $RESULT

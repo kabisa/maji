@@ -54,7 +54,7 @@ program
   .on("--help", () =>
     console.log("  Example:\n  maji new org.example.my-app ~/Code/my-app")
   )
-  .action(function(packageName, path) {
+  .action(function(packageName, projectPath) {
     if (!packageName.match(/.*\..*\..*/)) {
       console.log(
         "Please specify a valid package name, for example org.example.my-app"
@@ -62,7 +62,8 @@ program
       process.exit(1);
     }
 
-    return runScript("create-project", [packageName, path]);
+    projectPath = path.resolve(projectPath);
+    return runScript("create-project", [packageName, projectPath]);
   });
 
 program
