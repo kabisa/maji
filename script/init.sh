@@ -6,12 +6,12 @@ echo -e "Welcome to the Maji installer. This script will help you setup your new
 
 while [[ -z "$APP_PACKAGE" ]]
 do
-  read -p "Enter a package name: " APP_PACKAGE
+  read -p "Enter a package name (e.g. org.example.myproject): " APP_PACKAGE
 done
 
 while [[ -z "$APP_PATH" ]]
 do
-  read -p "Enter a directory: " APP_PATH
+  read -p "Enter a directory (e.g. ./Code/myproject): " APP_PATH
 done
 
 TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji)
