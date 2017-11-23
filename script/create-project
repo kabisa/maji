@@ -24,8 +24,8 @@ pushd "$MAJI_ROOT" >/dev/null 2>&1
     (cd cordova/ && ln -s ../dist www)
     (cd bin/ && ln -s ../node_modules/.bin/maji .)
 
-    # npm renames .gitignore to .npmignore
-    [ -f .npmignore ] && (mv .npmignore .gitignore || exit 0)
+    # npm strips .gitignore files during pack
+    [ -f gitignore ] && (mv gitignore .gitignore || exit 0)
     command -v git >/dev/null && git init || true
   popd >/dev/null 2>&1
 popd >/dev/null 2>&1
