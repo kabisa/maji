@@ -35,7 +35,7 @@ const plugins = [
     inject: false,
     minify: false
   }),
-  new Clean(["dist"]),
+  new Clean(["dist"], { verbose: false, exclude: [".gitkeep"] }),
   new webpack.optimize.CommonsChunkPlugin({
     name: "vendor"
   }),
