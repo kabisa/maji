@@ -12,6 +12,8 @@ MAJI_VERSION=${MAJI_VERSION:-$CURRENT_MAJI_VERSION}
 
 TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji)
 
+echo "Creating project in $APP_PATH ..."
+
 pushd "$MAJI_ROOT" >/dev/null 2>&1
   cp -R project_template/* "$TMP_DIR"
 
@@ -26,7 +28,7 @@ pushd "$MAJI_ROOT" >/dev/null 2>&1
 
     # npm strips .gitignore files during pack
     [ -f gitignore ] && (mv gitignore .gitignore || exit 0)
-    command -v git >/dev/null && git init || true
+    command -v git >/dev/null && git init >/dev/null || true
   popd >/dev/null 2>&1
 popd >/dev/null 2>&1
 
