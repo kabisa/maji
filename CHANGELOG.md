@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Made cosmetic changes to the documentation.
 
+### Fixed
+- Project creation with relative paths [#193](https://github.com/kabisa/maji/pull/193)
+- New projects missing gitignore [#194](https://github.com/kabisa/maji/pull/194)
+- Dist directory itself to be removed by webpack [#195](https://github.com/kabisa/maji/pull/195)
+
 ## 3.0.2
 ### Fixed
 - Maji CLI comptability with Yarn 1.x. [#174](https://github.com/kabisa/maji/pull/174)
