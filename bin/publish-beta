@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Note that this script assumes that `npm add-user` has been run prior to running this script.
+set -e
+ORIGINAL_VERSION=$(node -e 'console.log(require("./package.json").version)')
+
+restore_original_version() {
+  npm_config_git_tag_version=false npm version "$ORIGINAL_VERSION"
+}
+trap restore_original_version EXIT
+
+VERSION="$ORIGINAL_VERSION-$(git rev-parse --short HEAD)"
+npm_config_git_tag_version=false npm version "$VERSION"
+npm publish --tag beta
