@@ -1,5 +1,4 @@
 import { h, Component } from "preact";
-import { history } from "./history";
 
 const DEFAULT_TRANSITION_ANIMATION = "slide";
 
@@ -29,7 +28,7 @@ class PageContainer extends Component {
 
   render() {
     const { previousPage, currentPage } = this.state;
-    const isBack = history.action !== "PUSH";
+    const isBack = this.props.history.action !== "PUSH";
     const animation =
       isBack && previousPage != null
         ? transitionAnimationForPage(previousPage)
@@ -62,10 +61,12 @@ class PageContainer extends Component {
   }
 }
 
-export const augmentRouter = function(RouterClass) {
+export const augmentRouter = (RouterClass, history) => {
   return class TransitionAwareRouter extends RouterClass {
     render(...args) {
-      return <PageContainer>{super.render(...args)}</PageContainer>;
+      return (
+        <PageContainer history={history}>{super.render(...args)}</PageContainer>
+      );
     }
   };
 };

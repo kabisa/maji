@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Made cosmetic changes to the documentation.
+- Move pageTransitionSupport into Maji library. [#197](https://github.com/kabisa/maji/pull/197)
 
 ### Fixed
 - Project creation with relative paths [#193](https://github.com/kabisa/maji/pull/193)

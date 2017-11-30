@@ -1,5 +1,5 @@
 window.cordova = { platformId: "web" };
-import registerCordovaSupport from "../src/cordova-support";
+import registerCordovaSupport from "../src/cordovaSupport";
 
 registerCordovaSupport();
 
