@@ -1,4 +1,4 @@
-import registerIosNetworkActivity from "./cordova/ios-network-activity";
+import registerIosNetworkActivity from "./cordova/iOSNetworkActivity";
 
 export default function() {
   if (!window.cordova) return;

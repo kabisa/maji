@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "chai-dom": "^1.4.3",
+    "history": "^4.6.3",
     "karma": "^0.13.22",
     "karma-chai-plugins": "^0.7.0",
     "karma-chrome-launcher": "^2.1.1",
@@ -30,11 +31,14 @@
     "karma-rollup-plugin": "^0.2.4",
     "karma-rollup-preprocessor": "^4.0.0",
     "mocha": "^2.3.4",
+    "preact": "^8.1.0",
+    "preact-router": "^2.5.2",
     "prettier": "^1.6.1",
     "rollup": "^0.41.6",
     "rollup-plugin-buble": "^0.15.0",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^2.0.0",
     "rollup-watch": "^3.2.2"
   },
   "dependencies": {
