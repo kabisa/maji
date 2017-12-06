@@ -11,10 +11,14 @@
     "url": "https://github.com/kabisa/maji"
   },
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "build": "NODE_ENV=${NODE_ENV:-production} rollup -c",
+    "dev": "NODE_ENV=${NODE_ENV:-development} rollup -c -w",
     "prettier": "prettier '{,!(node_modules|lib)/**/}*.js'",
-    "prepublish": "yarn run build"
+    "prepublish": "yarn run --silent build",
+    "test": "NODE_ENV=${NODE_ENV:-test} bin/ci",
+    "test:unit": "NODE_ENV=${NODE_ENV:-test} karma start --singleRun",
+    "test:watch": "NODE_ENV=${NODE_ENV:-test} karma start --watch",
+    "test:integration": "NODE_ENV=${NODE_ENV:-test} bin/test-project-template"
   },
   "devDependencies": {
     "chai-dom": "^1.4.3",
