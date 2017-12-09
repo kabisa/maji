@@ -48,10 +48,16 @@ class PageContainer extends Component {
             ? " maji-page-reverse"
             : ""}`;
 
+    const currentPageUrl = currentPage.attributes.url;
+    const previousPageUrl = previousPage && previousPage.attributes.url;
+
     return (
       <div class="maji-page-container">
-        <div class={currentClassName}>{currentPage}</div>
+        <div key={currentPageUrl} class={currentClassName}>
+          {currentPage}
+        </div>
         <div
+          key={previousPageUrl}
           class={previousClassName}
           onAnimationEnd={() => this.setState({ previousPage: null })}
         >
