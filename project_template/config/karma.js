@@ -28,6 +28,9 @@ module.exports = function(config) {
         reporter: "html"
       }
     },
+    mochaReporter: {
+      showDiff: true
+    },
     port: 9876,
     listenAddress: "localhost",
     hostname: "localhost",
