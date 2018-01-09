@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const spawn = require("child_process").spawn;
+const spawn = require("cross-spawn");
 const path = require("path");
 const maji_package = require("../package.json");
 
