@@ -1,6 +1,6 @@
 {
   "name": "maji",
-  "version": "3.1.0-beta",
+  "version": "3.1.0",
   "license": "MIT",
   "module": "lib/bundle.js",
   "bin": {

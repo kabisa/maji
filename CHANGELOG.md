@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## 3.1.0
 ### Added
 - Settings can be extended with default, env agnostic, settings. [#176](https://github.com/kabisa/maji/pull/176)
 
