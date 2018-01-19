@@ -16,8 +16,10 @@ echo "Creating project in $APP_PATH ..."
 
 pushd "$MAJI_ROOT" >/dev/null 2>&1
   cp -R project_template/* "$TMP_DIR"
+  script/create-package-json.js "$TMP_DIR" "$APP_PACKAGE"
 
   pushd "$TMP_DIR" >/dev/null 2>&1
+    rm -rf node_modules
     grep -rwl . -e '##APP_NAME##' | xargs perl -pi -e "s|##APP_NAME##|$APP_NAME|"
     grep -rwl . -e '##APP_PACKAGE##' | xargs perl -pi -e "s|##APP_PACKAGE##|$APP_PACKAGE|"
     grep -rwl . -e '##MAJI_VERSION##' | xargs perl -pi -e "s|##MAJI_VERSION##|$MAJI_VERSION|"
