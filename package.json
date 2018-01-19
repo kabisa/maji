@@ -13,6 +13,8 @@
   "scripts": {
     "build": "NODE_ENV=${NODE_ENV:-production} rollup -c",
     "dev": "NODE_ENV=${NODE_ENV:-development} rollup -c -w",
+    "start": "cd project_template; yarn start",
+    "setup:dev": "bin/setup-dev",
     "prettier": "prettier '{,!(node_modules|lib)/**/}*.js'",
     "prepublish": "yarn run --silent build",
     "test": "NODE_ENV=${NODE_ENV:-test} bin/ci",

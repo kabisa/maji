@@ -3518,10 +3518,6 @@ https-proxy-agent@1:
     debug "2"
     extend "3"
 
-"i18n-js@http://github.com/fnando/i18n-js/archive/v3.0.0.rc8.tar.gz":
-  version "0.0.0"
-  resolved "http://github.com/fnando/i18n-js/archive/v3.0.0.rc8.tar.gz#ec616dd56fe3bfc35c6e6030d1502210cd7c29b3"
-
 iconv-lite@0.4.15:
   version "0.4.15"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
@@ -4530,13 +4526,6 @@ lru-cache@~2.6.5:
 macaddress@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
-
-maji@3.0.0-beta3:
-  version "3.0.0-beta3"
-  resolved "https://registry.yarnpkg.com/maji/-/maji-3.0.0-beta3.tgz#fefbc1df39878e2feab64260aaea8dd107ef43e6"
-  dependencies:
-    commander "~2.9.0"
-    i18n-js "http://github.com/fnando/i18n-js/archive/v3.0.0.rc8.tar.gz"
 
 map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"

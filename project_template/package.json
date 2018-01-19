@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "##APP_PACKAGE##",
+  "name": "maji-project-template",
   "version": "0.0.1",
   "scripts": {
     "build": "NODE_ENV=${NODE_ENV:-production} webpack",
@@ -17,7 +17,6 @@
   "dependencies": {
     "fastclick": "^1.0.6",
     "history": "^4.6.3",
-    "maji": "##MAJI_VERSION##",
     "preact": "^8.1.0",
     "preact-redux": "^2.0.2",
     "preact-router": "^2.5.2",
