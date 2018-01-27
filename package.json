@@ -48,6 +48,10 @@
     "cross-spawn": "^5.1.0",
     "i18n-js": "http://github.com/fnando/i18n-js/archive/v3.0.0.rc8.tar.gz"
   },
+  "peerDependencies": {
+    "preact": "^8.1.0",
+    "preact-router": "^2.5.2"
+  },
   "engines": {
     "node": ">=6"
   }
