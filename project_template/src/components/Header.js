@@ -1,14 +1,14 @@
 import { h } from "preact";
 import Icon from "./Icon";
 import styles from "./Header.scss";
-import { goBack } from "src/support/history";
+import { history } from "src/support/history";
 
 export const BackButton = ({ href }) => {
   const onClick = function(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
 
-    goBack(href);
+    history.goBack();
   };
 
   return (

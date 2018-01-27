@@ -5,16 +5,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## 3.1.0
 ### Added
 - Settings can be extended with default, env agnostic, settings. [#176](https://github.com/kabisa/maji/pull/176)
 
 ### Changed
 - Made cosmetic changes to the documentation.
+- Move pageTransitionSupport into Maji library. [#197](https://github.com/kabisa/maji/pull/197)
 
 ### Fixed
 - Project creation with relative paths [#193](https://github.com/kabisa/maji/pull/193)
 - New projects missing gitignore [#194](https://github.com/kabisa/maji/pull/194)
 - Dist directory itself to be removed by webpack [#195](https://github.com/kabisa/maji/pull/195)
+- Windows compatibility [#209](https://github.com/kabisa/maji/pull/209)
 
 ## 3.0.2
 ### Fixed

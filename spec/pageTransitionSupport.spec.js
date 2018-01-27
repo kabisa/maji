@@ -1,6 +1,8 @@
 import { h, render, Component } from "preact";
-import { augmentRouter } from "src/support/pageTransitionSupport";
-import { history } from "src/support/history";
+import { augmentRouter } from "../src/pageTransitionSupport";
+import createHistory from "history/createHashHistory";
+
+const history = createHistory();
 
 class FakeRouter extends Component {
   render({ children }) {
@@ -8,7 +10,7 @@ class FakeRouter extends Component {
   }
 }
 
-const Router = augmentRouter(FakeRouter);
+const Router = augmentRouter(FakeRouter, history);
 
 const pageSpy = sinon.spy();
 const withSpy = (componentName, TargetComponent) =>

@@ -1,0 +1,7 @@
+#!/bin/sh
+echo "Setting up project template for development"
+yarn link
+cd project_template
+yarn install
+yarn link maji
+

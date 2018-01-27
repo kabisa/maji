@@ -18,6 +18,9 @@ Before you can use Maji, make sure you have the following:
 * Node.js >= 6
 * NPM
 * Yarn
+* Bash
+
+Note that MacOS and Linux are best supported as development platform. Windows is supported in principle, but currently Maji has a hard dependency on Bash which is not ideal for Windows.
 
 ## Getting started
 

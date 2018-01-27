@@ -28,6 +28,8 @@ module.exports = function(karma) {
       }
     },
 
-    rollupPreprocessor: require("./rollup.config")
+    rollupPreprocessor: Object.assign({}, require("./rollup.config"), {
+      external: undefined
+    })
   });
 };
