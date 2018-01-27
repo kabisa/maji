@@ -90,7 +90,7 @@ const postcssLoader = {
  * See: https://medium.com/@penx/managing-dependencies-in-a-node-package-so-that-they-are-compatible-with-npm-link-61befa5aaca7
  */
 const majiAliases = (function() {
-  const dependencies = require("maji/package.json").peerDependencies;
+  const dependencies = require("maji/package.json").peerDependencies || {};
   return Object.keys(dependencies).reduce((aliases, packageName) => {
     aliases[packageName] = path.resolve(
       __dirname,
