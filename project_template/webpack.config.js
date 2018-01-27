@@ -82,6 +82,24 @@ const postcssLoader = {
   }
 };
 
+/**
+ * All of Maji's peerDependencies will be aliased to the versions
+ * in this app's node_modules folder. This prevents building with
+ * multiple versions of the same dependency.
+ *
+ * See: https://medium.com/@penx/managing-dependencies-in-a-node-package-so-that-they-are-compatible-with-npm-link-61befa5aaca7
+ */
+const majiAliases = (function() {
+  const dependencies = require("maji/package.json").peerDependencies || {};
+  return Object.keys(dependencies).reduce((aliases, packageName) => {
+    aliases[packageName] = path.resolve(
+      __dirname,
+      `./node_modules/${packageName}`
+    );
+    return aliases;
+  }, {});
+})();
+
 module.exports = {
   entry: {
     app: entryPoints("./src/index.js"),
@@ -149,10 +167,13 @@ module.exports = {
     ]
   },
   resolve: {
-    alias: {
-      src: path.resolve(__dirname, "./src"),
-      config: path.resolve(__dirname, "./config")
-    },
+    alias: Object.assign(
+      {
+        src: path.resolve(__dirname, "./src"),
+        config: path.resolve(__dirname, "./config")
+      },
+      majiAliases
+    ),
     symlinks: false
   },
   devtool: isProd ? "source-map" : "eval",

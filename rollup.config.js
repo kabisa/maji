@@ -12,6 +12,6 @@ module.exports = {
   entry: "src/main.js",
   format: "es",
   dest: "lib/bundle.js",
-  external: ["preact"],
+  external: ["preact", "preact-router"],
   plugins: [buble({ jsx: "h" }), resolve(), commonjs(), replaceNodeEnv()]
 };

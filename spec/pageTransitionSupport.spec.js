@@ -11,13 +11,28 @@ class FakeRouter extends Component {
 }
 
 const Router = augmentRouter(FakeRouter, history);
-const PageA = () => <h1>PageA</h1>;
-const PageB = () => <h1>PageB</h1>;
+
+const pageSpy = sinon.spy();
+const withSpy = (componentName, TargetComponent) => {
+  return class extends Component {
+    componentWillMount() {
+      pageSpy("mount", componentName);
+    }
+
+    render(props) {
+      return <TargetComponent {...props} />;
+    }
+  };
+};
+
+const PageA = withSpy("PageA", () => <h1>PageA</h1>);
+const PageB = withSpy("PageB", () => <h1>PageB</h1>);
 
 describe("pageTransitionSupport", function() {
   let scratch, mount;
 
   beforeEach(function() {
+    pageSpy.reset();
     scratch = document.createElement("div");
     mount = (jsx, prevNode = null) => {
       return render(jsx, scratch, prevNode);
@@ -56,6 +71,18 @@ describe("pageTransitionSupport", function() {
           </div>
         ).outerHTML
       );
+    });
+
+    it("prevents re-mounting the outgoing page as it's moved in the DOM", function() {
+      mount(
+        <Router>
+          <PageB url="/b" />
+        </Router>,
+        this.startingPage
+      );
+
+      expect(pageSpy.withArgs("mount", "PageA")).to.have.been.calledOnce;
+      expect(pageSpy.withArgs("mount", "PageB")).to.have.been.calledOnce;
     });
 
     context("given a 'transition' route prop", function() {
