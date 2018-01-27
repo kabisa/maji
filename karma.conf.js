@@ -1,6 +1,6 @@
 module.exports = function(karma) {
   karma.set({
-    frameworks: ["mocha", "chai", "chai-dom"],
+    frameworks: ["mocha", "chai", "chai-dom", "sinon-chai"],
 
     files: [
       { pattern: "src/**/!(cli).js", included: false },

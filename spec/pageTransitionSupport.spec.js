@@ -13,8 +13,8 @@ class FakeRouter extends Component {
 const Router = augmentRouter(FakeRouter, history);
 
 const pageSpy = sinon.spy();
-const withSpy = (componentName, TargetComponent) =>
-  class extends Component {
+const withSpy = (componentName, TargetComponent) => {
+  return class extends Component {
     componentWillMount() {
       pageSpy("mount", componentName);
     }
@@ -23,6 +23,7 @@ const withSpy = (componentName, TargetComponent) =>
       return <TargetComponent {...props} />;
     }
   };
+};
 
 const PageA = withSpy("PageA", () => <h1>PageA</h1>);
 const PageB = withSpy("PageB", () => <h1>PageB</h1>);
