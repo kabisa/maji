@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 3.1.1
+
 ### Fixed
 - Prevent remounting previousPage when doing page transition [#205](https://github.com/kabisa/maji/pull/205)
 
