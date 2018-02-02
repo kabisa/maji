@@ -27,6 +27,9 @@
     <!-- disable icloud storage sync -->
     <preference name="BackupWebStorage" value="local"/>
 
+    <!-- allow all external communication by default -->
+    <allow-navigation href="*" />
+
     <plugin name="cordova-plugin-networkactivityindicator" spec="~0.1.1" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.0"/>
     <plugin name="cordova-plugin-whitelist" spec="~1.3.0"/>
