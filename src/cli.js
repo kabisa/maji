@@ -1,8 +1,7 @@
 #!/usr/bin/env node
-const spawn = require("cross-spawn");
-const path = require("path");
 const maji_package = require("../package.json");
 const tasks = require("./tasks");
+const { runYarn, runCordova } = require("./utils");
 
 const parseBoolean = value => value === "true";
 const parsePort = value => parseInt(value) || null;
@@ -11,35 +10,6 @@ const program = require("commander");
 program.version(maji_package.version);
 
 const exit = code => process.exit(parseInt(code) || 1);
-
-const runYarn = (args, env_args = {}) => {
-  return runCmd("yarn", ["--silent", ...Array.from(args)], env_args);
-};
-
-const runCmd = (cmd, args, env_args = {}) => {
-  let env = Object.create(process.env);
-  Object.assign(env, env_args);
-
-  let child = spawn(cmd, args, { env, stdio: "inherit" });
-
-  if (child.stdout != null) {
-    child.stdout.on("data", data => process.stdout.write(data));
-  }
-
-  if (child.stderr != null) {
-    child.stderr.on("data", data => process.stderr.write(data.toString()));
-  }
-
-  return child.on("exit", exitCode => process.exit(exitCode));
-};
-
-const runScript = (scriptName, args, env_args = {}) => {
-  return runCmd(
-    path.resolve(__dirname + `/../script/${scriptName}`),
-    args,
-    env_args
-  );
-};
 
 const literalArgs = () => {
   // commander.js program.args is broken for this purpose

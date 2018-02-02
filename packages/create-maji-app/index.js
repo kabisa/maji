@@ -80,7 +80,7 @@ module.exports = class extends Generator {
     symlinkSync(
       relative(
         this.destinationPath("bin"),
-        this.destinationPath("node_modules", "bin", "maji")
+        this.destinationPath("node_modules", ".bin", "maji")
       ),
       this.destinationPath("bin", "maji"),
       "file"

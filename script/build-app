@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-[ -z "$NODE_ENV" ] && NODE_ENV='production'
-export NODE_ENV=$NODE_ENV
-export PATH=$PATH:$(yarn bin)
-export APP_PATH=$(pwd)
-
-cd $APP_PATH && $(dirname ${BASH_SOURCE[0]})/cordova-exec build "$@"
