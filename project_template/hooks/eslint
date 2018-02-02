@@ -1,8 +1,0 @@
-#!/bin/sh
-jsfiles=$(git diff --cached --name-only --diff-filter=ACM | grep '\.jsx\?$' | tr '\n' ' ')
-[ -z "$jsfiles" ] && exit 0
-
-# Lint all staged .js files
-echo "$jsfiles" | xargs ./node_modules/.bin/eslint
-
-exit 0
