@@ -8,10 +8,23 @@ const replaceNodeEnv = () =>
     "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || "test")
   });
 
-module.exports = {
-  entry: "src/main.js",
-  format: "es",
-  dest: "lib/bundle.js",
-  external: ["preact", "preact-router"],
-  plugins: [buble({ jsx: "h" }), resolve(), commonjs(), replaceNodeEnv()]
-};
+module.exports = [
+  {
+    input: "src/main.js",
+    output: {
+      file: "lib/bundle.js",
+      format: "es"
+    },
+    external: ["preact", "preact-router"],
+    plugins: [buble({ jsx: "h" }), resolve(), commonjs(), replaceNodeEnv()]
+  },
+  {
+    input: "src/support/webpack.js",
+    output: {
+      file: "lib/webpack.js",
+      format: "cjs"
+    },
+    external: ["webpack"],
+    plugins: [resolve()]
+  }
+];

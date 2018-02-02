@@ -1,9 +1,11 @@
 module.exports = function(karma) {
+  const rollupConfig = require("./rollup.config")[0];
+
   karma.set({
     frameworks: ["mocha", "chai", "chai-dom", "sinon-chai"],
 
     files: [
-      { pattern: "src/**/!(cli).js", included: false },
+      { pattern: "src/**/!(cli|webpack).js", included: false },
       "spec/**/*.spec.js"
     ],
 
@@ -28,8 +30,10 @@ module.exports = function(karma) {
       }
     },
 
-    rollupPreprocessor: Object.assign({}, require("./rollup.config"), {
+    rollupPreprocessor: {
+      output: rollupConfig.output,
+      plugins: rollupConfig.plugins,
       external: undefined
-    })
+    }
   });
 };

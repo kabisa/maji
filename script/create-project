@@ -16,7 +16,7 @@ echo "Creating project in $APP_PATH ..."
 
 pushd "$MAJI_ROOT" >/dev/null 2>&1
   cp -R project_template/* "$TMP_DIR"
-  script/create-package-json.js "$TMP_DIR" "$APP_PACKAGE"
+  script/create-package-json.js "$TMP_DIR" "$APP_PACKAGE" "$MAJI_VERSION"
 
   pushd "$TMP_DIR" >/dev/null 2>&1
     rm -rf node_modules
