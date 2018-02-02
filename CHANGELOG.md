@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Nightwatch tests now run headless by default. [#200](https://github.com/kabisa/maji/pull/200)
+- Upgraded Cordova platforms. [#217](https://github.com/kabisa/maji/pull/217)
 
 ## 3.1.1
 
