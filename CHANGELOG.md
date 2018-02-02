@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Environment variables starting with `MAJI_APP_` are injected by default. They can be referenced by `process.env.MAJI_APP_*` in your code. [#190](https://github.com/kabisa/maji/pull/190)
 
+### Changed
+- Nightwatch tests now run headless by default. [#200](https://github.com/kabisa/maji/pull/200)
+
 ## 3.1.1
 
 ### Fixed

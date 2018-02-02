@@ -20,17 +20,28 @@ module.exports = {
       selenium_port: 4444,
       selenium_host: "localhost",
       desiredCapabilities: {
-        browserName: "chrome"
+        browserName: "chrome",
+        chromeOptions: {
+          args: ["--headless"]
+        }
       },
       globals: {
         waitForConditionTimeout: 5000
+      }
+    },
+    nonHeadless: {
+      desiredCapabilities: {
+        browserName: "chrome",
+        chromeOptions: {
+          args: null
+        }
       }
     },
     ci: {
       desiredCapabilities: {
         browserName: "chrome",
         chromeOptions: {
-          args: ["--no-sandbox"]
+          args: ["--no-sandbox", "--headless"]
         }
       }
     }

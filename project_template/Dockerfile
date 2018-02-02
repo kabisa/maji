@@ -9,7 +9,6 @@ RUN apt-get update \
           zlib1g zlib1g-dev \
           libcurl4-openssl-dev \
           libxslt-dev libxml2-dev \
-          xvfb \
           locales \
           apt-transport-https \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/*
@@ -39,9 +38,6 @@ ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
-# for running e2e tests
-ENV CI true
-ENV DISPLAY :0
 # https://github.com/SeleniumHQ/docker-selenium/issues/87
 ENV DBUS_SESSION_BUS_ADDRESS /dev/null
 

@@ -18,14 +18,10 @@ if (!hasJava()) {
 
 const server = require("./dev-server.js");
 
+const testOptions = process.argv.slice(2);
 const testRunner = child_process.spawn(
   "./node_modules/.bin/nightwatch",
-  [
-    "-c",
-    "config/nightwatch.js",
-    "--env",
-    process.env.CI == "true" ? "ci" : "default"
-  ],
+  ["-c", "config/nightwatch.js", ...testOptions],
   { stdio: "inherit", env: process.env }
 );
 
