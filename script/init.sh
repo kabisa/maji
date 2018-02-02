@@ -1,27 +1,3 @@
 #!/usr/bin/env bash
-set -e
-command -v yarn >/dev/null || (echo "Yarn package manager not found in \$PATH, aborting." && exit 1)
-
-echo -e "Welcome to the Maji installer. This script will help you setup your new Maji project.\n"
-
-while [[ -z "$APP_PACKAGE" ]]
-do
-  read -p "Enter a package name (e.g. org.example.myproject): " APP_PACKAGE
-done
-
-while [[ -z "$APP_PATH" ]]
-do
-  read -p "Enter a directory (e.g. ./Code/myproject): " APP_PATH
-done
-
-TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji)
-
-pushd "$TMP_DIR" >/dev/null 2>&1
-  yarn add --silent ${MAJI_MODULE:-maji} --no-lockfile --prod
-popd >/dev/null 2>&1
-
-"$TMP_DIR"/node_modules/.bin/maji new "$APP_PACKAGE" "$APP_PATH"
-RESULT=$?
-
-rm -r $TMP_DIR
-exit $RESULT
+echo "This Maji installer was removed in favor of 'yarn create maji-app'."
+exit 1

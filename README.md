@@ -27,7 +27,7 @@ Note that MacOS and Linux are best supported as development platform. Windows is
 To create a new app, execute the following command in your shell:
 
 ```sh
-bash <(curl -fsSL https://raw.githubusercontent.com/kabisa/maji/master/script/init.sh)
+yarn create maji-app com.example.myapp ~/Code/myapp
 ```
 
 Your new Maji app will now be generated at the supplied path.
