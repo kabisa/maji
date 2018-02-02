@@ -9,7 +9,6 @@ RUN apt-get update \
           zlib1g zlib1g-dev \
           libcurl4-openssl-dev \
           libxslt-dev libxml2-dev \
-          xvfb \
           locales \
           apt-transport-https \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/*
@@ -32,8 +31,6 @@ ENV CHROME_BIN /usr/bin/google-chrome-stable
 
 ENV CONTAINER_INIT /usr/local/bin/init-container
 RUN echo '#!/usr/bin/env bash' > $CONTAINER_INIT ; chmod +x $CONTAINER_INIT
-
-RUN echo 'Xvfb :0 -ac -screen 0 1024x768x24 >/dev/null 2>&1 &' >> $CONTAINER_INIT
 
 RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales && \
     locale-gen C.UTF-8 && \
