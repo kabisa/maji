@@ -11,6 +11,7 @@ RUN apt-get update \
           libxslt-dev libxml2-dev \
           locales \
           apt-transport-https \
+          rsync \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/*
 
 # install java
