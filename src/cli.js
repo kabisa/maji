@@ -52,21 +52,13 @@ const literalArgs = () => {
 };
 
 program
-  .command("new <package_name> <path>")
+  .command("new")
   .description("Create a new Maji app")
-  .on("--help", () =>
-    console.log("  Example:\n  maji new org.example.my-app ~/Code/my-app")
-  )
-  .action((packageName, projectPath) => {
-    if (!packageName.match(/.*\..*\..*/)) {
-      console.log(
-        "Please specify a valid package name, for example org.example.my-app"
-      );
-      process.exit(1);
-    }
-
-    projectPath = path.resolve(projectPath);
-    return runScript("create-project", [packageName, projectPath]);
+  .action(() => {
+    console.error(
+      "Maji new has been removed. Use `yarn create maji-app` to create a new app."
+    );
+    process.exit(1);
   });
 
 program

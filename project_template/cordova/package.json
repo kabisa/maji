@@ -1,5 +1,5 @@
 {
-    "name": "##APP_PACKAGE##",
+    "name": "<$= appPackage $>",
     "version": "1.0.0",
     "displayName": "",
     "cordova": {

@@ -1,4 +1,4 @@
-# ##APP_NAME##
+# <$= appName $>
 
 ## Getting started
 

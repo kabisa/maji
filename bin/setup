@@ -4,3 +4,4 @@ for h in hooks/*; do ln -sf ../../$h .git/hooks/$(basename $h); done
 
 echo "Installing dependencies..."
 yarn install
+cd packages/create-maji-app && yarn install

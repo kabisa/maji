@@ -3,7 +3,7 @@ module.exports = {
     browser
       .url(browser.launch_url)
       .waitForElementVisible("div")
-      .assert.title("##APP_NAME##")
+      .assert.title("<$= appName $>")
       .assert.containsText("p", "Welcome to your Maji app!")
       .end();
   },
