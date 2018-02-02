@@ -1,6 +1,6 @@
 {
   "name": "maji",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "license": "MIT",
   "module": "lib/bundle.js",
   "bin": {
@@ -52,6 +52,10 @@
     "commander": "~2.9.0",
     "cross-spawn": "^5.1.0",
     "i18n-js": "http://github.com/fnando/i18n-js/archive/v3.0.0.rc8.tar.gz"
+  },
+  "peerDependencies": {
+    "preact": "^8.1.0",
+    "preact-router": "^2.5.2"
   },
   "engines": {
     "node": ">=6"

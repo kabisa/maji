@@ -14,7 +14,7 @@ export default [{
     file: "lib/bundle.js",
     format: "es",
   },
-  external: ["preact"],
+  external: ["preact", "preact-router"],
   plugins: [buble({ jsx: "h" }), resolve(), commonjs(), replaceNodeEnv()]
 }, {
   input: "src/support/webpack.js",

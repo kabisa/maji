@@ -16,7 +16,7 @@ module.exports = {
   },
   test_settings: {
     default: {
-      launch_url: `http://localhost:${process.env.PORT || 9091}/`,
+      launch_url: `http://localhost:${process.env.SERVER_PORT || 9091}/`,
       selenium_port: 4444,
       selenium_host: "localhost",
       desiredCapabilities: {
