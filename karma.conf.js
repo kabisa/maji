@@ -10,7 +10,7 @@ module.exports = function(karma) {
     ],
 
     preprocessors: {
-      "src/**/!(cli).js": ["rollup"],
+      "src/**/!(cli|tasks|utils).js": ["rollup"],
       "spec/**/*.spec.js": ["rollup"]
     },
 
