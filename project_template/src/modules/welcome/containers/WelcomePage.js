@@ -12,7 +12,7 @@ export class WelcomePage extends Component {
     return (
       <Page>
         <Header>
-          <h1>##APP_NAME##</h1>
+          <h1>##APP_NAME## {__VERSION_NUMBER__}</h1>
         </Header>
         <Main>
           <p>{I18n.t("welcome.hello")}</p>

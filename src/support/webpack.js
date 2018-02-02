@@ -1,4 +1,4 @@
-const webpack = require("webpack");
+import webpack from "webpack";
 const MAJI_APP = /^MAJI_APP_/i;
 
 const getEnvironmentVariables = function() {
@@ -18,7 +18,7 @@ const getGitRevision = function() {
 };
 
 const getNpmVersion = function() {
-  return require("./package.json").version;
+  return require(`${process.cwd()}/package.json`).version;
 };
 
 const env = process.env.NODE_ENV || "development";

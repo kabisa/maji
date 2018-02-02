@@ -22,7 +22,11 @@
     "test:watch": "NODE_ENV=${NODE_ENV:-test} karma start --watch",
     "test:integration": "NODE_ENV=${NODE_ENV:-test} bin/test-project-template"
   },
+  "peerDependencies": {
+    "webpack": "^2.5.1"
+  },
   "devDependencies": {
+    "webpack": "^2.5.1",
     "chai-dom": "^1.4.3",
     "history": "^4.6.3",
     "karma": "^0.13.22",
@@ -36,7 +40,7 @@
     "preact": "^8.1.0",
     "preact-router": "^2.5.2",
     "prettier": "^1.6.1",
-    "rollup": "^0.41.6",
+    "rollup": "^0.55.1",
     "rollup-plugin-buble": "^0.15.0",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
@@ -44,6 +48,7 @@
     "rollup-watch": "^3.2.2"
   },
   "dependencies": {
+    "git-revision-webpack-plugin": "^2.5.1",
     "commander": "~2.9.0",
     "cross-spawn": "^5.1.0",
     "i18n-js": "http://github.com/fnando/i18n-js/archive/v3.0.0.rc8.tar.gz"

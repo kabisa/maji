@@ -19,7 +19,7 @@ const HTML = require("html-webpack-plugin");
 const Clean = require("clean-webpack-plugin");
 const SpriteLoaderPlugin = require("svg-sprite-loader/plugin");
 const plugins = [
-  ...require("maji/webpack").plugins,
+  ...require("maji/lib/webpack").plugins,
   new HTML({
     template: "src/index.html",
     inject: false,
