@@ -8,7 +8,7 @@ const replaceNodeEnv = () =>
     "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || "test")
   });
 
-export default [
+module.exports = [
   {
     input: "src/main.js",
     output: {
