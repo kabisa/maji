@@ -7,8 +7,8 @@
 
     <hook type="before_platform_add" src="../node_modules/maji/cordova/hooks/before_platform_add.js" />
 
-    <engine name="android" spec="~6.2.3" />
-    <engine name="ios" spec="~4.4.0" />
+    <engine name="android" spec="^7.0.0" />
+    <engine name="ios" spec="^4.5.4" />
 
     <preference name="DisallowOverscroll" value="true"/>
     <preference name="Orientation" value="portrait" />
@@ -21,8 +21,8 @@
     <preference name="SplashScreenDelay" value="0" />
 
     <!-- target Android SDK versions //-->
-    <preference name="android-minSdkVersion" value="14" />
-    <preference name="android-targetSdkVersion" value="19" />
+    <preference name="android-minSdkVersion" value="21" />
+    <preference name="android-targetSdkVersion" value="24" />
 
     <!-- disable icloud storage sync -->
     <preference name="BackupWebStorage" value="local"/>
