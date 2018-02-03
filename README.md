@@ -82,7 +82,7 @@ More details are available in [Maji's additional documentation](docs/README.md).
 
 ## Developer docs
 
-See the [developer docs](./docs/developer.md) for documentation on developing Maji itself.
+See the [CONTRIBUTING](./CONTRIBUTING.md) for documentation on developing Maji itself.
 
 ## License
 
