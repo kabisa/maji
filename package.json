@@ -14,14 +14,14 @@
     "build": "NODE_ENV=${NODE_ENV:-production} rollup -c",
     "dev": "NODE_ENV=${NODE_ENV:-development} rollup -c -w",
     "start": "cd project_template; yarn start",
-    "setup:dev": "bin/setup-dev",
     "prettier": "prettier '{,!(node_modules|lib)/**/}*.js'",
     "prepare": "yarn run --silent build",
     "test": "NODE_ENV=${NODE_ENV:-test} bin/ci",
     "test:unit": "NODE_ENV=${NODE_ENV:-test} karma start --singleRun",
     "test:watch": "NODE_ENV=${NODE_ENV:-test} karma start --watch",
     "test:integration": "NODE_ENV=${NODE_ENV:-test} bin/test-project-template",
-    "lerna": "lerna"
+    "lerna": "lerna",
+    "bootstrap": "yarn install && yarn lerna bootstrap"
   },
   "peerDependencies": {
     "preact": "^8.1.0",
