@@ -9,7 +9,7 @@
   "npmClient": "yarn",
   "commands": {
     "publish": {
-      "ignore": ["*.md"]
+      "ignore": ["maji-project-template", "*.md"]
     }
   }
 }
