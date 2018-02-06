@@ -9,10 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Environment variables starting with `MAJI_APP_` are injected by default. They can be referenced by `process.env.MAJI_APP_*` in your code. [#190](https://github.com/kabisa/maji/pull/190)
 - Allow all external communication in Cordova by default. [#216](https://github.com/kabisa/maji/pull/216)
+- New `create-maji-app` package to replace `maji new`. [#218](https://github.com/kabisa/maji/pull/218)
 
 ### Changed
 - Nightwatch tests now run headless by default. [#200](https://github.com/kabisa/maji/pull/200)
 - Upgraded Cordova platforms. [#217](https://github.com/kabisa/maji/pull/217)
+- Maji no longer requires Bash. [#218](https://github.com/kabisa/maji/pull/218)
 
 ## 3.1.1
 

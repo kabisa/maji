@@ -1,6 +1,3 @@
-#!/bin/sh
-echo "Setting up git hooks..."
-for h in hooks/*; do ln -sf ../../$h .git/hooks/$(basename $h); done
-
-echo "Installing dependencies..."
-yarn install
+#!/usr/bin/env node
+const spawn = require("cross-spawn");
+spawn.sync("yarn", ["install"], { stdio: "inherit" });

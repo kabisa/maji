@@ -3,10 +3,11 @@ set -e
 
 yarn run build
 
-TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji-tests)
-MAJI_VERSION=file:/workspace src/cli.js new nl.kabisa.test-app $TMP_DIR
+MAJI_PACKAGE_PATH=$(git rev-parse --show-toplevel)
 
-pushd $TMP_DIR
-  bin/setup
+TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji-tests)
+MAJI_VERSION="file:$MAJI_PACKAGE_PATH" ./packages/create-maji-app/create-app.js nl.kabisa.test-app "$TMP_DIR"
+
+pushd "$TMP_DIR"
   bin/ci
 popd

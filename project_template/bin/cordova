@@ -1,3 +1,7 @@
-#!/usr/bin/env bash
-cd cordova
-../node_modules/.bin/cordova "$@"
+#!/usr/bin/env node
+const { resolve } = require("path");
+const spawn = require("cross-spawn");
+
+const cordovaCli = resolve(__dirname, "..", "node_modules", ".bin", "cordova");
+const cordovaDir = resolve(__dirname, "..", "cordova");
+spawn.sync(cordovaCli, process.argv.slice(2), { stdio: "inherit", cwd: cordovaDir });

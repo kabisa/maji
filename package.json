@@ -14,13 +14,14 @@
     "build": "NODE_ENV=${NODE_ENV:-production} rollup -c",
     "dev": "NODE_ENV=${NODE_ENV:-development} rollup -c -w",
     "start": "cd project_template; yarn start",
-    "setup:dev": "bin/setup-dev",
     "prettier": "prettier '{,!(node_modules|lib)/**/}*.js'",
-    "prepublish": "yarn run --silent build",
+    "prepare": "yarn run --silent build",
     "test": "NODE_ENV=${NODE_ENV:-test} bin/ci",
     "test:unit": "NODE_ENV=${NODE_ENV:-test} karma start --singleRun",
     "test:watch": "NODE_ENV=${NODE_ENV:-test} karma start --watch",
-    "test:integration": "NODE_ENV=${NODE_ENV:-test} bin/test-project-template"
+    "test:integration": "NODE_ENV=${NODE_ENV:-test} bin/test-project-template",
+    "lerna": "lerna",
+    "bootstrap": "yarn install && yarn lerna bootstrap"
   },
   "peerDependencies": {
     "preact": "^8.1.0",
@@ -36,6 +37,7 @@
     "karma-mocha-reporter": "^2.0.0",
     "karma-rollup-plugin": "^0.2.4",
     "karma-rollup-preprocessor": "^5.1.1",
+    "lerna": "^2.8.0",
     "mocha": "^2.3.4",
     "preact": "^8.1.0",
     "preact-router": "^2.5.2",

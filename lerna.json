@@ -1,0 +1,15 @@
+{
+  "lerna": "2.8.0",
+  "packages": [
+    "packages/*",
+    "project_template/",
+    "."
+  ],
+  "version": "3.1.1",
+  "npmClient": "yarn",
+  "commands": {
+    "publish": {
+      "ignore": ["maji-project-template", "*.md"]
+    }
+  }
+}

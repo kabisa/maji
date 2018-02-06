@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const spawn = require("cross-spawn");
-const path = require("path");
 const maji_package = require("../package.json");
+const tasks = require("./tasks");
+const { runYarn, runCordova } = require("./utils");
 
 const parseBoolean = value => value === "true";
 const parsePort = value => parseInt(value) || null;
@@ -9,36 +9,9 @@ const parsePort = value => parseInt(value) || null;
 const program = require("commander");
 program.version(maji_package.version);
 
-const runYarn = function(args, env_args = {}) {
-  return runCmd("yarn", ["--silent", ...Array.from(args)], env_args);
-};
+const exit = code => process.exit(parseInt(code) || 1);
 
-const runCmd = function(cmd, args, env_args = {}) {
-  let env = Object.create(process.env);
-  Object.assign(env, env_args);
-
-  let child = spawn(cmd, args, { env, stdio: "inherit" });
-
-  if (child.stdout != null) {
-    child.stdout.on("data", data => process.stdout.write(data));
-  }
-
-  if (child.stderr != null) {
-    child.stderr.on("data", data => process.stderr.write(data.toString()));
-  }
-
-  return child.on("exit", exitCode => process.exit(exitCode));
-};
-
-const runScript = function(scriptName, args, env_args = {}) {
-  return runCmd(
-    path.resolve(__dirname + `/../script/${scriptName}`),
-    args,
-    env_args
-  );
-};
-
-const literalArgs = function() {
+const literalArgs = () => {
   // commander.js program.args is broken for this purpose
   // https://github.com/tj/commander.js/issues/582
   if (program.rawArgs.indexOf("--") === -1) {
@@ -49,21 +22,13 @@ const literalArgs = function() {
 };
 
 program
-  .command("new <package_name> <path>")
+  .command("new")
   .description("Create a new Maji app")
-  .on("--help", () =>
-    console.log("  Example:\n  maji new org.example.my-app ~/Code/my-app")
-  )
-  .action(function(packageName, projectPath) {
-    if (!packageName.match(/.*\..*\..*/)) {
-      console.log(
-        "Please specify a valid package name, for example org.example.my-app"
-      );
-      process.exit(1);
-    }
-
-    projectPath = path.resolve(projectPath);
-    return runScript("create-project", [packageName, projectPath]);
+  .action(() => {
+    console.error(
+      "Maji new has been removed. Use `yarn create maji-app` to create a new app."
+    );
+    process.exit(1);
   });
 
 program
@@ -74,19 +39,12 @@ program
     "--env --environment [environment]",
     "NODE_ENV to run with [development]"
   )
-  .action(function(platform, options) {
-    const node_env =
+  .action((platform, options) => {
+    const environment =
       options.environment || process.env.NODE_ENV || "development";
-    const env = {
-      NODE_ENV: node_env
-    };
+    const deviceType = options.emulator ? "emulator" : "device";
 
-    const deviceTypeArg = options.emulator ? "--emulator" : "--device";
-    return runScript(
-      "run-on-device",
-      [platform, deviceTypeArg, ...Array.from(literalArgs())],
-      env
-    );
+    tasks.run(environment, platform, deviceType, literalArgs()).catch(exit);
   });
 
 program
@@ -97,23 +55,12 @@ program
     "--env --environment [environment]",
     "NODE_ENV to build with [production]"
   )
-  .action(function(platform, options) {
-    const node_env =
+  .action((platform, options) => {
+    const environment =
       options.environment || process.env.NODE_ENV || "production";
-    const env = {
-      NODE_ENV: node_env
-    };
+    const mode = options.release ? "release" : "debug";
 
-    if (platform) {
-      const releaseArg = options.release ? "--release" : "--debug";
-      return runScript(
-        "build-app",
-        [platform, releaseArg, ...Array.from(literalArgs())],
-        env
-      );
-    } else {
-      return runYarn(["run", "build"], env);
-    }
+    tasks.build(environment, platform, mode).catch(exit);
   });
 
 program
@@ -122,7 +69,7 @@ program
   .option("--unit", "Run unit tests")
   .option("--integration", "Run integration tests")
   .description("Run your project tests")
-  .action(function(options) {
+  .action(options => {
     if (options.watch) {
       return runYarn(["run", "test:watch"]);
     }
@@ -148,7 +95,7 @@ program
     parseBoolean,
     false
   )
-  .action(function(options) {
+  .action(options => {
     const env = {
       SERVER_PORT: options.port,
       LIVERELOAD: options.livereload
@@ -159,7 +106,7 @@ program
 
 program.on("--help", () => process.exit(1));
 
-program.on("*", function(action) {
+program.on("*", action => {
   console.log(`Unknown command '${action}'`);
   return program.help();
 });

@@ -1,9 +1,9 @@
-# ##APP_NAME##
+# <$= appName $>
 
 ## Getting started
 
 * Make sure you have fulfilled the [prerequisites](#prerequisites)
-* Running `bin/setup` will hook you up with everything you need
+* Running `yarn install` will hook you up with everything you need
 
 ## Development workflow
 
@@ -18,9 +18,8 @@
 ## Code formatting
 
 Code is formatted by [Prettier](https://github.com/prettier/prettier).
-The provided [Setup](#setup) script will install a git commit hook that will format your code.
+A git commit hook is automatically installed that will format your code when you commit.
 Prettier can also be run manually using `yarn run prettier` or `yarn run prettier -- --write`.
-
 
 ## Packaging native apps / running on your device
 
