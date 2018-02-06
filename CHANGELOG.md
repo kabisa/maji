@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [3.2.1]
+
+Maji 3.2.1 is exactly the same as `3.2.0` but had to be republished as `3.2.1` due
+to a publication mistake during 3.2.0 beta phase.
+
+## [3.2.0]
+
 ### Added
 - Environment variables starting with `MAJI_APP_` are injected by default. They can be referenced by `process.env.MAJI_APP_*` in your code. [#190](https://github.com/kabisa/maji/pull/190)
 - Allow all external communication in Cordova by default. [#216](https://github.com/kabisa/maji/pull/216)
