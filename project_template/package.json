@@ -47,6 +47,7 @@
     "chromedriver": "^2.30.1",
     "clean-webpack-plugin": "^0.1.16",
     "cordova": "^7.0.1",
+    "cross-spawn": "^6.0.4",
     "css-loader": "^0.28.1",
     "eslint": "^4.3.0",
     "eslint-plugin-compat": "^1.0.4",
