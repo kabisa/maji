@@ -24,6 +24,7 @@ module.exports = class extends Generator {
       : this.npmInstall;
 
     this.appName = this.options.package.split(".").slice(-1)[0];
+    this.gitRepoExists = pathExistsSync(this.destinationPath(".git"));
   }
 
   paths() {
@@ -68,6 +69,10 @@ module.exports = class extends Generator {
       spaces: 2
     });
 
+    if (supportsGit && !this.gitRepoExists) {
+      this.spawnCommandSync("git", ["init", "--quiet"]);
+    }
+
     this.installDependencies();
   }
 
@@ -86,14 +91,14 @@ module.exports = class extends Generator {
       "file"
     );
 
-    if (supportsGit && !pathExistsSync(this.destinationPath(".git"))) {
-      this.spawnCommandSync("git", ["init", "--quiet"]);
+    if (supportsGit && !this.gitRepoExists) {
       this.spawnCommandSync("git", ["add", "--all"]);
       this.spawnCommandSync("git", [
         "commit",
         "-m",
         "Initial commit - new Maji project.",
-        "--quiet"
+        "--quiet",
+        "--no-verify"
       ]);
     }
   }
