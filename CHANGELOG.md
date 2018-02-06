@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [3.2.2]
+
+### Fixed
+- Webpack removing dist/.keep during build
+
 ## [3.2.1]
 
 Maji 3.2.1 is exactly the same as `3.2.0` but had to be republished as `3.2.1` due
