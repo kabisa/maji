@@ -44,7 +44,7 @@
     "babel-preset-env": "^1.5.1",
     "babel-preset-stage-3": "^6.24.1",
     "chai": "^3.5.0",
-    "chromedriver": "^2.30.1",
+    "chromedriver": "^2.35.0",
     "clean-webpack-plugin": "^0.1.16",
     "cordova": "^7.0.1",
     "cross-spawn": "^6.0.4",
