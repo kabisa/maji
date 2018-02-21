@@ -15,7 +15,7 @@ Your Idea. Our Technology. For Everyone.
 
 Before you can use Maji, make sure you have the following:
 
-* Node.js >= 6
+* Node.js >= 8
 * NPM
 * Yarn >= 1.0
 * Bash
