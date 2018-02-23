@@ -1,3 +1,16 @@
+# List of browsers we want to support.
+# Polyfills are automatically created to support
+# the latest features for these browsers.
+#
+# https://github.com/ai/browserslist for details about
+# this config file
+#
+# To see current supported browsers:
+# ./node_modules/.bin/browserslist --config="browserslist"
+#
+# To see current browser coverage:
+# ./node_modules/.bin/browserslist --coverage --config="browserslist"
+
 ios >= 9
 android >= 5
 last 2 Chrome versions
