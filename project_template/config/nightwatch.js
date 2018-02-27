@@ -33,7 +33,7 @@ module.exports = {
       desiredCapabilities: {
         browserName: "chrome",
         chromeOptions: {
-          args: null
+          args: ["--default"]
         }
       }
     },
