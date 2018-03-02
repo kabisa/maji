@@ -12,7 +12,8 @@ const { runYarn, runCordova } = require("./utils");
  */
 module.exports.build = (environment, platform, mode) => {
   const env = {
-    NODE_ENV: environment
+    NODE_ENV: environment,
+    USE_CORDOVA: !!platform
   };
 
   const buildAssets = () => runYarn(["run", "build"], env);
@@ -32,7 +33,8 @@ module.exports.build = (environment, platform, mode) => {
  */
 module.exports.run = (environment, platform, deviceType, restArgs) => {
   const env = {
-    NODE_ENV: environment
+    NODE_ENV: environment,
+    USE_CORDOVA: true
   };
   const deviceOpts = process.env.DEVICE_OPTS ? [process.env.DEVICE_OPTS] : [];
 
