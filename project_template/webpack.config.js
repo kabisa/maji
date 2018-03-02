@@ -5,6 +5,7 @@ const uglify = require("./config/uglify");
 
 const env = process.env.NODE_ENV || "development";
 const isProd = env === "production";
+const hotReload = process.env.LIVERELOAD === "true";
 const out = path.resolve(__dirname, "dist");
 const exclusions = /node_modules/;
 
@@ -40,9 +41,13 @@ if (isProd) {
     new webpack.optimize.UglifyJsPlugin(uglify)
   );
 } else {
+  if (hotReload) {
+    plugins.push(
+      // enable HMR globally
+      new webpack.HotModuleReplacementPlugin()
+    );
+  }
   plugins.push(
-    // enable HMR globally
-    new webpack.HotModuleReplacementPlugin(),
     // prints more readable module names in the browser console on HMR updates
     new webpack.NamedModulesPlugin(),
     // prevent emitting assets with errors
@@ -53,9 +58,10 @@ if (isProd) {
 
 // optionally live-reloadable entry points
 const entryPoints = function() {
-  const items = isProd
-    ? []
-    : ["webpack-hot-middleware/client?noInfo=true&reload=true"];
+  const items =
+    isProd || !hotReload
+      ? []
+      : ["webpack-hot-middleware/client?noInfo=true&reload=true"];
   items.push(...arguments);
   return items;
 };
