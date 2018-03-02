@@ -5,7 +5,7 @@ const uglify = require("./config/uglify");
 
 const env = process.env.NODE_ENV || "development";
 const isProd = env === "production";
-const hotReload = process.env.LIVERELOAD === "true";
+const hotReload = (process.env.LIVERELOAD === "true") && !isProd;
 const out = path.resolve(__dirname, "dist");
 const exclusions = /node_modules/;
 
@@ -59,9 +59,9 @@ if (isProd) {
 // optionally live-reloadable entry points
 const entryPoints = function() {
   const items =
-    isProd || !hotReload
-      ? []
-      : ["webpack-hot-middleware/client?noInfo=true&reload=true"];
+    hotReload
+      ? ["webpack-hot-middleware/client?noInfo=true&reload=true"];
+      : []
   items.push(...arguments);
   return items;
 };
