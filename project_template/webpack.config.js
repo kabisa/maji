@@ -60,8 +60,8 @@ if (isProd) {
 const entryPoints = function() {
   const items =
     hotReload
-      ? ["webpack-hot-middleware/client?noInfo=true&reload=true"];
-      : []
+      ? ["webpack-hot-middleware/client?noInfo=true&reload=true"]
+      : [];
   items.push(...arguments);
   return items;
 };
