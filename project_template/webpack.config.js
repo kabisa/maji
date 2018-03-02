@@ -4,6 +4,7 @@ const babel = require("./config/babel");
 const uglify = require("./config/uglify");
 
 const env = process.env.NODE_ENV || "development";
+const useCordova = (process.env.USE_CORDOVA || "true") === "true";
 const isProd = env === "production";
 const out = path.resolve(__dirname, "dist");
 const exclusions = /node_modules/;
@@ -22,7 +23,7 @@ const plugins = [
   ...require("maji/lib/webpack").plugins,
   new HTML({
     template: "src/index.html",
-    useCordova: env !== "development",
+    useCordova,
     inject: false,
     minify: false
   }),
