@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Updated ChromeDriver wrapper [#220](https://github.com/kabisa/maji/pull/220)
 
+### Fixed
+- Only include `cordova.js` if a cordova build is needed
+
 ## [3.2.2]
 
 ### Fixed
