@@ -22,6 +22,7 @@ const plugins = [
   ...require("maji/lib/webpack").plugins,
   new HTML({
     template: "src/index.html",
+    useCordova: env !== "development",
     inject: false,
     minify: false
   }),
