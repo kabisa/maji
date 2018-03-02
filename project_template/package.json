@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "build": "NODE_ENV=${NODE_ENV:-production} webpack",
-    "start": "LIVERELOAD=${LIVERELOAD:-true} USE_CORDOVA=${USE_CORDOVA:-false} script/dev-server.js",
+    "start": "LIVERELOAD=${LIVERELOAD:-true} script/dev-server.js",
     "test": "NODE_ENV=${NODE_ENV:-test} bin/ci",
     "test:unit": "NODE_ENV=${NODE_ENV:-test} karma start config/karma.js --single-run",
     "test:watch": "NODE_ENV=${NODE_ENV:-test} karma start config/karma.js --watch",
