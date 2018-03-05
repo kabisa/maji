@@ -91,9 +91,9 @@ program
   .option("-p --port [port]", "Port to listen on [9090]", parsePort, 9090)
   .option(
     "-l --livereload [flag]",
-    "Enable livereload [false]",
+    "Enable livereload [true]",
     parseBoolean,
-    false
+    true
   )
   .action(options => {
     const env = {
