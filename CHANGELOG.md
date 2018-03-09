@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [3.3.0]
+
 ### Changed
 - Updated ChromeDriver wrapper [#220](https://github.com/kabisa/maji/pull/220)
 - Live reload is now standard on when using `bin/maji start`
