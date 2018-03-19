@@ -6,11 +6,12 @@ const rootReducer = combineReducers({
   // additional reducers would be added here
 });
 
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__
-    ? window.__REDUX_DEVTOOLS_EXTENSION__()
-    : f => f
-);
+const devtools = () =>
+  (process.env.NODE_ENV !== "production" &&
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION__()) ||
+  (f => f);
+
+const store = createStore(rootReducer, devtools());
 
 export default store;

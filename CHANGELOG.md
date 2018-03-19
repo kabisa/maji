@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- Disable Redux Devtools extension support in production by default [#230](https://github.com/kabisa/maji/pull/230)
+
 ## [3.3.0]
 
 ### Changed
