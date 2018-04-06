@@ -29,19 +29,19 @@ const plugins = [
     minify: false
   }),
   new Clean(["dist"], { verbose: false, exclude: [".keep"] }),
-  new webpack.optimize.CommonsChunkPlugin({
-    name: "vendor"
-  }),
   extractShellCss,
   extractOtherCss,
   new SpriteLoaderPlugin()
 ];
 
+let optimization = {
+  splitChunks: {
+    name: "vendor"
+  }
+};
+
 if (isProd) {
-  plugins.push(
-    new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
-    new webpack.optimize.UglifyJsPlugin(uglify)
-  );
+  optimization.minimize = true;
 } else {
   if (hotReload) {
     plugins.push(
@@ -49,12 +49,11 @@ if (isProd) {
       new webpack.HotModuleReplacementPlugin()
     );
   }
-  plugins.push(
-    // prints more readable module names in the browser console on HMR updates
-    new webpack.NamedModulesPlugin(),
-    // prevent emitting assets with errors
-    new webpack.NoEmitOnErrorsPlugin()
-  );
+
+  // prints more readable module names in the browser console on HMR updates
+  optimization.namedModules = true;
+  // prevent emitting assets with errors
+  optimization.noEmitOnErrors = true;
 }
 // end of plugin management
 
@@ -93,6 +92,7 @@ const majiAliases = (function() {
 })();
 
 module.exports = {
+  mode: isProd ? "production" : "development",
   entry: {
     app: entryPoints("./src/index.js"),
     vendor: ["preact", "preact-router"]
@@ -169,5 +169,6 @@ module.exports = {
     symlinks: false
   },
   devtool: isProd ? "source-map" : "eval",
-  plugins
+  plugins,
+  optimization
 };
