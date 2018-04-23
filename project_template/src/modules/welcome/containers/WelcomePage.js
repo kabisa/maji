@@ -3,6 +3,7 @@ import { connect } from "preact-redux";
 import I18n from "src/config/i18n";
 import { Page, Main } from "src/components/Page";
 import { Header } from "src/components/Header";
+import { BottomMenu } from "src/components/BottomMenu";
 import { List, ListItem } from "src/components/NavList";
 import Counter from "../components/Counter";
 import * as actions from "../actions";
@@ -37,6 +38,7 @@ export class WelcomePage extends Component {
           </p>
           <Counter value={counter} {...otherProps} />
         </Main>
+        <BottomMenu />
       </Page>
     );
   }
