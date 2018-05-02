@@ -34,26 +34,22 @@ const plugins = [
   new SpriteLoaderPlugin()
 ];
 
-let optimization = {
+const optimization = {
   splitChunks: {
     name: "vendor"
-  }
+  },
+  minimize: isProd,
+  // prints more readable module names in the browser console on HMR updates, in dev
+  namedModules: !isProd,
+  // prevent emitting assets with errors, in dev
+  noEmitOnErrors: !isProd
 };
 
-if (isProd) {
-  optimization.minimize = true;
-} else {
-  if (hotReload) {
-    plugins.push(
-      // enable HMR globally
-      new webpack.HotModuleReplacementPlugin()
-    );
-  }
-
-  // prints more readable module names in the browser console on HMR updates
-  optimization.namedModules = true;
-  // prevent emitting assets with errors
-  optimization.noEmitOnErrors = true;
+if (!isProd && hotReload) {
+  plugins.push(
+    // enable HMR globally
+    new webpack.HotModuleReplacementPlugin()
+  );
 }
 // end of plugin management
 
