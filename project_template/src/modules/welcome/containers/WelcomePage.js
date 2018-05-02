@@ -1,7 +1,7 @@
 import { h, Component } from "preact";
 import { connect } from "preact-redux";
 import I18n from "src/config/i18n";
-import { Page, Main } from "src/components/Page";
+import { Page, Main } from "src/components/Layout";
 import { Header } from "src/components/Header";
 import { List, ListItem } from "src/components/NavList";
 import Counter from "../components/Counter";
