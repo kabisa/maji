@@ -1,5 +1,12 @@
 import { h } from "preact";
+import { Link } from "preact-router/match";
 import styles from "./BottomMenu.scss";
+
+const MenuItem = props => (
+  <li>
+    <Link activeClassName={styles.active} {...props} />
+  </li>
+);
 
 // Please make sure:
 // 1. Items link to existing pages
@@ -8,18 +15,8 @@ import styles from "./BottomMenu.scss";
 export const BottomMenu = () => (
   <nav class={styles.bottomMenu}>
     <ul>
-      <li>
-        <a href="#proper-link-to-item">Item 1</a>
-      </li>
-      <li>
-        <a href="#proper-link-to-item">Item 2</a>
-      </li>
-      <li class={styles.active}>
-        <a href="#proper-link-to-item">Item 3</a>
-      </li>
-      <li>
-        <a href="#proper-link-to-item">Item 4</a>
-      </li>
+      <MenuItem href="/">Home</MenuItem>
+      <MenuItem href="/detail">Detail</MenuItem>
     </ul>
   </nav>
 );

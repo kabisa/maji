@@ -6,13 +6,16 @@ body {
     overflow: hidden;
 }
 
+.maji-page-container {
+    flex: 1;
+}
+
 // Containers for old and new page
 .maji-page-container > div {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
     animation-fill-mode: both;
     animation-duration: $animation-duration;
     animation-timing-function: $animation-easing;
