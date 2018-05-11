@@ -36,7 +36,7 @@ const plugins = [
 
 const optimization = {
   splitChunks: {
-    name: "vendor"
+    chunks: "all"
   },
   minimize: isProd,
   // prints more readable module names in the browser console on HMR updates, in dev
@@ -90,8 +90,7 @@ const majiAliases = (function() {
 module.exports = {
   mode: isProd ? "production" : "development",
   entry: {
-    app: entryPoints("./src/index.js"),
-    vendor: ["preact", "preact-router"]
+    app: entryPoints("./src/index.js")
   },
   output: {
     path: out,
