@@ -35,9 +35,7 @@ const plugins = [
 ];
 
 const optimization = {
-  splitChunks: {
-    chunks: "all"
-  },
+  splitChunks: isProd && { chunks: "all" },
   minimize: isProd,
   // prints more readable module names in the browser console on HMR updates, in dev
   namedModules: !isProd,
