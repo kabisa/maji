@@ -1,4 +1,3 @@
-import "babel-polyfill";
 import "./styles/shell.scss";
 import { h, render } from "preact";
 import { Provider } from "preact-redux";

@@ -29,31 +29,24 @@ const plugins = [
     minify: false
   }),
   new Clean(["dist"], { verbose: false, exclude: [".keep"] }),
-  new webpack.optimize.CommonsChunkPlugin({
-    name: "vendor"
-  }),
   extractShellCss,
   extractOtherCss,
   new SpriteLoaderPlugin()
 ];
 
-if (isProd) {
+const optimization = {
+  splitChunks: isProd && { chunks: "all" },
+  minimize: isProd,
+  // prints more readable module names in the browser console on HMR updates, in dev
+  namedModules: !isProd,
+  // prevent emitting assets with errors, in dev
+  noEmitOnErrors: !isProd
+};
+
+if (!isProd && hotReload) {
   plugins.push(
-    new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
-    new webpack.optimize.UglifyJsPlugin(uglify)
-  );
-} else {
-  if (hotReload) {
-    plugins.push(
-      // enable HMR globally
-      new webpack.HotModuleReplacementPlugin()
-    );
-  }
-  plugins.push(
-    // prints more readable module names in the browser console on HMR updates
-    new webpack.NamedModulesPlugin(),
-    // prevent emitting assets with errors
-    new webpack.NoEmitOnErrorsPlugin()
+    // enable HMR globally
+    new webpack.HotModuleReplacementPlugin()
   );
 }
 // end of plugin management
@@ -93,9 +86,9 @@ const majiAliases = (function() {
 })();
 
 module.exports = {
+  mode: isProd ? "production" : "development",
   entry: {
-    app: entryPoints("./src/index.js"),
-    vendor: ["preact", "preact-router"]
+    app: entryPoints("./src/index.js")
   },
   output: {
     path: out,
@@ -169,5 +162,6 @@ module.exports = {
     symlinks: false
   },
   devtool: isProd ? "source-map" : "eval",
-  plugins
+  plugins,
+  optimization
 };
