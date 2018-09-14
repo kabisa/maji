@@ -48,4 +48,7 @@ const mapDispatchToProps = dispatch => ({
   onDecrement: () => dispatch({ type: actions.COUNTER_DECREMENT })
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(WelcomePage);
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(WelcomePage);
