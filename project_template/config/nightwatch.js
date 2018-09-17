@@ -1,4 +1,4 @@
-require("babel-register");
+require("@babel/register");
 
 const selenium = require("selenium-server-standalone-jar");
 const chromedriver = require("chromedriver");
