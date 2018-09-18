@@ -6,6 +6,7 @@ const { runYarn, runCordova } = require("./utils");
 const parseBoolean = value => value === "true";
 const parsePort = value => parseInt(value) || null;
 
+const opn = require("opn");
 const program = require("commander");
 program.version(maji_package.version);
 
@@ -95,11 +96,16 @@ program
     parseBoolean,
     true
   )
+  .option("-o --open", "Open the browser")
   .action(options => {
     const env = {
       SERVER_PORT: options.port,
       LIVERELOAD: options.livereload
     };
+
+    if (options.open) {
+      opn(`http://localhost:${options.port}`);
+    }
 
     return runYarn(["start"], env);
   });
