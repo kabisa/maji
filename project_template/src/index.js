@@ -9,7 +9,6 @@ const renderApp = function() {
   const App = require("./containers/App").default;
   const root = document.querySelector("#maji-app");
 
-  root.innerHTML = "";
   render(
     <Provider store={store}>
       <App />
