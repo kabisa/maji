@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- pre-commit hook breaks `git add -p` [#186](https://github.com/kabisa/maji/issues/186)
+
+## [3.4.0]
+
 ### Changed
 - Disable Redux Devtools extension support in production by default [#230](https://github.com/kabisa/maji/pull/230)
 
@@ -20,8 +25,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Disabling livereload will no longer produce console errors
-
-### Fixed
 - Only include `cordova.js` if a cordova build is needed
 
 ## [3.2.2]
