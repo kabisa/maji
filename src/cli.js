@@ -61,7 +61,7 @@ program
       options.environment || process.env.NODE_ENV || "production";
     const mode = options.release ? "release" : "debug";
 
-    tasks.build(environment, platform, mode).catch(exit);
+    tasks.build(environment, platform, mode, literalArgs()).catch(exit);
   });
 
 program

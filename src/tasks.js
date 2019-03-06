@@ -10,7 +10,7 @@ const { runYarn, runCordova } = require("./utils");
  *
  * @returns Promise - resolves when build succeeds, rejects if build fails.
  */
-module.exports.build = (environment, platform, mode) => {
+module.exports.build = (environment, platform, mode, restArgs) => {
   const env = {
     NODE_ENV: environment,
     USE_CORDOVA: !!platform
@@ -18,7 +18,9 @@ module.exports.build = (environment, platform, mode) => {
 
   const buildAssets = () => runYarn(["run", "build"], env);
   const buildNative = () =>
-    platform ? buildCordovaApp(platform, mode, env) : Promise.resolve();
+    platform
+      ? buildCordovaApp(platform, mode, env, restArgs)
+      : Promise.resolve();
 
   return buildAssets().then(buildNative);
 };
@@ -48,9 +50,10 @@ module.exports.run = (environment, platform, deviceType, restArgs) => {
   return buildAssets().then(cordovaRun);
 };
 
-const buildCordovaApp = (platform, mode, env) => {
+const buildCordovaApp = (platform, mode, env, restArgs) => {
   const prepareCordova = () => runCordova(["prepare", platform], env);
-  const buildCordova = () => runCordova(["build", platform, `--${mode}`], env);
+  const buildCordova = () =>
+    runCordova(["build", platform, `--${mode}`, ...restArgs], env);
 
   return prepareCordova().then(buildCordova);
 };
