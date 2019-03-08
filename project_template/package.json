@@ -50,7 +50,7 @@
     "chai": "^3.5.0",
     "chromedriver": "^2.35.0",
     "clean-webpack-plugin": "^0.1.16",
-    "cordova": "^7.0.1",
+    "cordova": "^8.0.0",
     "cross-spawn": "^6.0.4",
     "css-loader": "^0.28.1",
     "eslint": "^4.3.0",
