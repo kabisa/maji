@@ -16,13 +16,12 @@ module.exports.build = (environment, platform, mode, restArgs) => {
     USE_CORDOVA: !!platform
   };
 
-  const buildAssets = () => runYarn(["run", "build"], env);
   const buildNative = () =>
     platform
       ? buildCordovaApp(platform, mode, env, restArgs)
       : Promise.resolve();
 
-  return buildAssets().then(buildNative);
+  return buildAssets(env).then(buildNative);
 };
 
 /**
@@ -40,20 +39,25 @@ module.exports.run = (environment, platform, deviceType, restArgs) => {
   };
   const deviceOpts = process.env.DEVICE_OPTS ? [process.env.DEVICE_OPTS] : [];
 
-  const buildAssets = () => runYarn(["run", "build"], env);
   const cordovaRun = () =>
     runCordova(
       ["run", platform, `--${deviceType}`, ...restArgs, ...deviceOpts],
       env
     );
 
-  return buildAssets().then(cordovaRun);
+  return buildAssets(env)
+    .then(() => cordovaPrepare(platform, env))
+    .then(cordovaRun);
 };
 
+const buildAssets = env => runYarn(["run", "build"], env);
+
+const cordovaPrepare = (platform, env) =>
+  runCordova(["prepare", platform], env);
+
 const buildCordovaApp = (platform, mode, env, restArgs) => {
-  const prepareCordova = () => runCordova(["prepare", platform], env);
   const buildCordova = () =>
     runCordova(["build", platform, `--${mode}`, ...restArgs], env);
 
-  return prepareCordova().then(buildCordova);
+  return cordovaPrepare(platform, env).then(buildCordova);
 };
