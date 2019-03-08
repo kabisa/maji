@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - bin/setup uses not-yet installed dependency [#231](https://github.com/kabisa/maji/pull/231)
+- Literal arguments not passed to `cordova build` ([#252](https://github.com/kabisa/maji/pull/252))
 
 ## [3.3.0]
 
