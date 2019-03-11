@@ -4,6 +4,7 @@ import { Provider } from "preact-redux";
 import FastClick from "fastclick";
 import "src/config/sentry";
 import store from "./store";
+import "@babel/polyfill";
 
 const renderApp = function() {
   const App = require("./containers/App").default;
