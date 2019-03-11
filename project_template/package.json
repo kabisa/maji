@@ -4,11 +4,11 @@
   "version": "0.0.1",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
-    "start": "cross-env LIVERELOAD=true script/dev-server.js",
+    "start": "cross-env LIVERELOAD=true node script/dev-server.js",
     "test": "yarn lint && yarn test:unit && yarn test:e2e --env ci",
     "test:unit": "cross-env NODE_ENV=test karma start config/karma.js --single-run",
     "test:watch": "cross-env NODE_ENV=test karma start config/karma.js --watch",
-    "test:e2e": "cross-env NODE_ENV=test SERVER_PORT=9091 script/test-e2e.js",
+    "test:e2e": "cross-env NODE_ENV=test SERVER_PORT=9091 node script/test-e2e.js",
     "prettier": "prettier '{,!(node_modules|cordova)/**/}*.js'",
     "lint": "yarn run eslint && yarn run stylelint",
     "eslint": "eslint src/ test/",
