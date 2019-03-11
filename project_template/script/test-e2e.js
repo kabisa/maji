@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 
 const child_process = require("child_process");
+const path = require("path");
 
 const hasJava = function() {
   return child_process.spawnSync("java", ["-version"]).status == 0;
+};
+
+const onWindows = function() {
+  return process.platform === "win32";
 };
 
 // workaround for issue https://github.com/nightwatchjs/nightwatch/issues/1454
@@ -18,9 +23,10 @@ if (!hasJava()) {
 
 const server = require("./dev-server.js");
 
+const command = onWindows() ? "nightwatch.cmd" : "nightwatch";
 const testOptions = process.argv.slice(2);
 const testRunner = child_process.spawn(
-  "./node_modules/.bin/nightwatch",
+  path.join("node_modules", ".bin", command),
   ["-c", "config/nightwatch.js", ...testOptions],
   { stdio: "inherit", env: process.env }
 );
