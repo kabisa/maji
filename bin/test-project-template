@@ -9,5 +9,5 @@ TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t maji-tests)
 MAJI_VERSION="file:$MAJI_PACKAGE_PATH" ./packages/create-maji-app/create-app.js nl.kabisa.test-app "$TMP_DIR"
 
 pushd "$TMP_DIR"
-  bin/ci
+  yarn test
 popd
