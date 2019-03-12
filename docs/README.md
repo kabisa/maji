@@ -84,6 +84,10 @@ SVG:
 * Android 5.0+ (3+ if you don't use masking)
 * iOS 3.2+
 
-## Components you might not need
+## Components you might want to remove or tweak
 
 * [FastClick](https://github.com/ftlabs/fastclick) is only useful for older mobile devices, as described in the project's documentation on GitHub. You don't need it if you only support modern mobile devices or desktop browsers.
+* [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill) is used in combination with [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) to add polyfills based on the target environments and list of browsers you supply.
+  Polyfills are added regardless of whether you use the corresponding language constructs.
+  If you only want to add polyfills for the language features you use, you could switch to an experimental option offered by `@babel/polyfill`: https://babeljs.io/docs/en/babel-preset-env#usebuiltins-usage-experimental
+  The downside of using this experimental feature is that it will not add polyfills for language constructs used by your dependencies.
