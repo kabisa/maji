@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - pre-commit hook breaks `git add -p` [#186](https://github.com/kabisa/maji/issues/186)
+- Run `cordova prepare` in `maji run` ([#255](https://github.com/kabisa/maji/pull/255))
 
 ## [3.4.0]
 
