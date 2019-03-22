@@ -37,7 +37,7 @@
     "karma-mocha-reporter": "^2.0.0",
     "karma-rollup-plugin": "^0.2.4",
     "karma-rollup-preprocessor": "^5.1.1",
-    "lerna": "^2.8.0",
+    "lerna": "^3.13.0",
     "mocha": "^2.3.4",
     "preact": "^8.1.0",
     "preact-router": "^2.5.2",
