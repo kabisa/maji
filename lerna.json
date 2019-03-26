@@ -6,6 +6,7 @@
     "project_template/"
   ],
   "version": "3.4.1",
+  "npmClient": "yarn",
   "command": {
     "publish": {
       "ignoreChanges": [
