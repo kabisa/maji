@@ -15,7 +15,7 @@ RUN apt-get update \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/*
 
 # install java
-RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list.d/backports.list \
+RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" >> /etc/apt/sources.list.d/backports.list \
   && apt-get update \
   && apt-get install -t jessie-backports -y openjdk-8-jre-headless ca-certificates-java \
   && rm /etc/apt/sources.list.d/backports.list \
