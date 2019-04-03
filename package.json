@@ -24,8 +24,7 @@
     "bootstrap": "yarn install && yarn lerna bootstrap"
   },
   "peerDependencies": {
-    "preact": "^8.1.0",
-    "preact-router": "^2.5.2"
+    "preact": "^8.1.0"
   },
   "devDependencies": {
     "chai-dom": "^1.4.3",
