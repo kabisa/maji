@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- Include polyfills based on browser list instead of usage. [#251](https://github.com/kabisa/maji/issues/251)
+
 ## [3.4.1]
 
 ### Fixed
