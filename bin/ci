@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-yarn run prettier -- --list-different
+yarn run prettier --list-different
 yarn test:unit
 yarn test:integration
