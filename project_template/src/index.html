@@ -18,19 +18,7 @@
         document.querySelector('html').className = 'ios-standalone';
       }
     </script>
-
-<% for (var css of htmlWebpackPlugin.files.css.filter((file) => file.indexOf("shell") != -1)) { %>
-    <style>
-        <%= compilation.assets[css.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
-    </style>
-<% } %>
   </head>
   <body id="maji-app">
-<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-    <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-<% } %>
-<% for (var css of htmlWebpackPlugin.files.css.filter((file) => file.indexOf("app") != -1)) { %>
-    <link href="<%= css %>" rel="stylesheet">
-<% } %>
   </body>
 </html>

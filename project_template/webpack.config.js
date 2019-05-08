@@ -21,8 +21,8 @@ const plugins = [
   new HTML({
     template: "src/index.html",
     useCordova,
-    inject: false,
-    minify: false
+    inject: true,
+    minify: isProd
   }),
   new Clean(["dist"], { verbose: false, exclude: [".keep"] }),
   new MiniCssExtractPlugin({
