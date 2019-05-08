@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const babel = require("./config/babel");
-const uglify = require("./config/uglify");
 
 const env = process.env.NODE_ENV || "development";
 const useCordova = (process.env.USE_CORDOVA || "false") === "true";
