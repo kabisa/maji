@@ -29,8 +29,8 @@
 <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
     <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
 <% } %>
-<% for (var css of htmlWebpackPlugin.files.css.filter((file) => file.indexOf("styles") != -1)) { %>
+<% for (var css of htmlWebpackPlugin.files.css.filter((file) => file.indexOf("app") != -1)) { %>
     <link href="<%= css %>" rel="stylesheet">
-  <% } %>
+<% } %>
   </body>
 </html>
