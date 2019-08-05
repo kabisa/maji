@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const babel = require("./config/babel");
-const uglify = require("./config/uglify");
 
 const env = process.env.NODE_ENV || "development";
 const useCordova = (process.env.USE_CORDOVA || "false") === "true";
@@ -10,27 +9,26 @@ const hotReload = process.env.LIVERELOAD === "true" && !isProd;
 const out = path.resolve(__dirname, "dist");
 const exclusions = /node_modules/;
 
-const ExtractText = require("extract-text-webpack-plugin");
-const extractShellCss = new ExtractText("shell.[hash].css");
-const extractOtherCss = new ExtractText("styles.[hash].css");
-
 process.stderr.write(`Building with env = ${env}\n`);
 
 // plugin management
 const HTML = require("html-webpack-plugin");
 const Clean = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const SpriteLoaderPlugin = require("svg-sprite-loader/plugin");
 const plugins = [
   ...require("maji/lib/webpack").plugins,
   new HTML({
     template: "src/index.html",
     useCordova,
-    inject: false,
-    minify: false
+    inject: true,
+    minify: isProd
   }),
   new Clean(["dist"], { verbose: false, exclude: [".keep"] }),
-  extractShellCss,
-  extractOtherCss,
+  new MiniCssExtractPlugin({
+    filename: "[name].[contenthash].css",
+    chunkFilename: "[id].[contenthash].css"
+  }),
   new SpriteLoaderPlugin()
 ];
 
@@ -115,31 +113,28 @@ module.exports = {
       { test: /\.yml$/, loader: "json-loader!yaml-loader" },
       {
         test: /\.scss$/,
-        loader: isProd
-          ? extractOtherCss.extract({
-              use: ["css-loader?modules", postcssLoader, "sass-loader"]
-            })
-          : [
-              "style-loader",
-              {
-                loader: "css-loader",
-                options: {
-                  modules: true,
-                  localIdentName: "[path][name]__[local]--[hash:base64:5]"
-                }
-              },
-              postcssLoader,
-              "sass-loader"
-            ],
+        use: [
+          isProd ? MiniCssExtractPlugin.loader : "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              localIdentName: "[path][name]__[local]--[hash:base64:5]"
+            }
+          },
+          postcssLoader,
+          "sass-loader"
+        ],
         exclude: /shell.scss$/
       },
       {
         test: /shell.scss$/,
-        loader: isProd
-          ? extractShellCss.extract({
-              use: ["css-loader", postcssLoader, "sass-loader"]
-            })
-          : ["style-loader", "css-loader", postcssLoader, "sass-loader"]
+        use: [
+          isProd ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
+          postcssLoader,
+          "sass-loader"
+        ]
       },
       {
         test: /\.svg$/,
