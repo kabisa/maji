@@ -48,7 +48,7 @@
     "babel-eslint": "^7.2.3",
     "babel-loader": "^8.0.0",
     "chai": "^3.5.0",
-    "chromedriver": "^75.0.0",
+    "chromedriver": "^76.0.0",
     "clean-webpack-plugin": "^0.1.16",
     "cordova": "^8.0.0",
     "cross-env": "^5.2.0",
