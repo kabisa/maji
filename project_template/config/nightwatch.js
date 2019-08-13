@@ -22,7 +22,8 @@ module.exports = {
       desiredCapabilities: {
         browserName: "chrome",
         chromeOptions: {
-          args: ["--headless"]
+          args: ["--headless"],
+          w3c: false
         }
       },
       globals: {
@@ -33,7 +34,8 @@ module.exports = {
       desiredCapabilities: {
         browserName: "chrome",
         chromeOptions: {
-          args: ["--default"]
+          args: ["--default"],
+          w3c: false
         }
       }
     },
@@ -41,7 +43,8 @@ module.exports = {
       desiredCapabilities: {
         browserName: "chrome",
         chromeOptions: {
-          args: ["--no-sandbox", "--headless"]
+          args: ["--no-sandbox", "--headless"],
+          w3c: false
         }
       }
     }
