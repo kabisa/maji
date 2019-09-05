@@ -27,11 +27,11 @@
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "fastclick": "^1.0.6",
-    "history": "^4.6.3",
+    "history": "^4.9.0",
     "maji": "^3.1.1",
-    "preact": "^8.1.0",
+    "preact": "^8.5.2",
     "preact-redux": "^2.0.2",
-    "preact-router": "^2.5.2",
+    "preact-router": "^2.6.1",
     "raven-js": "^3.17.0",
     "redux": "^3.7.2"
   },
@@ -86,7 +86,7 @@
     "stylelint-config-standard": "^17.0.0",
     "stylelint-no-unsupported-browser-features": "^1.0.0",
     "svg-sprite-loader": "^3.7.3",
-    "webpack": "^4.5.0",
+    "webpack": "^4.39.3",
     "webpack-cli": "^3.1.0",
     "webpack-dev-middleware": "^3.1.2",
     "webpack-dev-server": "^3.1.1",
