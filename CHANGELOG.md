@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+- before_platform_add hook is now compatible with Cordova 9 [#279](https://github.com/kabisa/maji/pull/279)
 - Include polyfills based on browser list instead of usage. [#251](https://github.com/kabisa/maji/issues/251)
 - Improved Windows compatibility [#210](https://github.com/kabisa/maji/issues/210)
 
