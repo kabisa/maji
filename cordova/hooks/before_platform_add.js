@@ -1,4 +1,4 @@
-require("shelljs/global");
+const shell = require("shelljs");
 const path = require("path");
 
 function ensureDependencyInstalled(projectRoot, mod) {
@@ -14,7 +14,7 @@ function ensureDependencyInstalled(projectRoot, mod) {
   } catch (e) {
     console.log(`Installing ${mod}`);
     return new Promise(function(resolve, reject) {
-      exec(`npm install ${mod}`, function(exitCode) {
+      shell.exec(`npm install ${mod}`, function(exitCode) {
         if (exitCode == 0) resolve();
         else reject(e);
       });
