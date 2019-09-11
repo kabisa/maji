@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "maji-project-template",
-  "version": "3.5.0-alpha.0",
+  "version": "3.5.0-alpha.1",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "start": "cross-env LIVERELOAD=true node script/dev-server.js",
