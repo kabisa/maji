@@ -2,6 +2,7 @@ require("@babel/register");
 
 const selenium = require("selenium-server-standalone-jar");
 const chromedriver = require("chromedriver");
+const chromePath = require("puppeteer").executablePath();
 
 module.exports = {
   src_folders: ["./test/e2e"],
@@ -22,6 +23,7 @@ module.exports = {
       desiredCapabilities: {
         browserName: "chrome",
         chromeOptions: {
+          binary: chromePath,
           args: ["--headless"],
           w3c: false
         }
@@ -43,6 +45,7 @@ module.exports = {
       desiredCapabilities: {
         browserName: "chrome",
         chromeOptions: {
+          binary: chromePath,
           args: ["--no-sandbox", "--headless"],
           w3c: false
         }
