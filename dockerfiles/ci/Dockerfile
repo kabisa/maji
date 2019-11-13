@@ -21,15 +21,6 @@ RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-bac
   && rm /etc/apt/sources.list.d/backports.list \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/*
 
-# install chrome
-RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
-  && echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
-  && apt-get update \
-  && apt-get -y install google-chrome-stable \
-  && rm /etc/apt/sources.list.d/google-chrome.list \
-  && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/*
-ENV CHROME_BIN /usr/bin/google-chrome-stable
-
 ENV CONTAINER_INIT /usr/local/bin/init-container
 RUN echo '#!/usr/bin/env bash' > $CONTAINER_INIT ; chmod +x $CONTAINER_INIT
 

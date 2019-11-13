@@ -1,3 +1,5 @@
+process.env.CHROME_BIN = require("puppeteer").executablePath();
+
 module.exports = function(karma) {
   const rollupConfig = require("./rollup.config")[0];
 
